@@ -1,0 +1,11 @@
+== 代理模式
+
+[WARNING]
+====
+在使用 ASM 生成代理 class 文件时，发现确定类文件的路径是个大问题。这里需要注意的是针对 file 的 URL 格式规范。
+
+* https://en.wikipedia.org/wiki/File_URI_scheme[file URI scheme]
+* http://stackoverflow.com/questions/13869526/is-a-file-path-a-url[Is a “file://” path a URL?]
+* http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml[Uniform Resource Identifier (URI) Schemes]
+* http://www.rfc-editor.org/rfc/rfc1738.txt[RFC1738: Uniform Resource Locators (URL)]
+====

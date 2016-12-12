@@ -1,0 +1,30 @@
+:doctype:   book
+:icons: font
+:source-highlighter: coderay
+// :source-highlighter: pygments
+// :pygments-style: monokai
+// :pygments-linenums-mode: inline
+:docinfo:
+:toc:
+:toclevels: 3
+:numbered:
+:listing-caption: Listing
+:pdf-page-size: A4
+:homepage: http://www.diguage.com/
+
+// :imagesoutdir: images
+// :imagesdir: {imagesoutdir}
+
+//-- 以上是 Asciidoctor 系统变量  -----------------------------------------
+
+:source_attr: linenums,subs="attributes,verbatim"
+:source_dir: ../src/main/java/com/diguage/didp
+
+//-- 以下是 自定义变量  ---------------------------------------------------
+:var_width: 960
+
+:var_image_base_url: images
+
+:var_puml_target_url: uml
+
+:target_dir: target
