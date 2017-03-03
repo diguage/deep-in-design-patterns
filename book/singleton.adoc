@@ -5,11 +5,11 @@
 
 D瓜哥根据以前学习设计模式的经验来看，单例模式的实现类只能产生一个对象。估计这也是我们大家普遍看法。但是，在一次面试时，被面试官问到“单例模式的实现类能否产生多个对象？”然后，D瓜哥当场就Hold不住了。
 
-不过，当时善意的面试官提醒，可以用反射。昨天看《Java程序性能优化》时，提到用反序列化也可以产生多个方法。然后，又被我同学问到这个问题。干脆写一篇文章，总结一下吧。
+不过，当时善意的面试官提醒，可以用反射。昨天看《Java 程序性能优化》时，提到用反序列化也可以产生多个方法。然后，又被我同学问到这个问题。干脆写一篇文章，总结一下吧。
 
 === 定义
 
-根据GoF的著名著作 http://book.douban.com/subject/1052241/[《设计模式》]，单例模式的定义如下：
+根据 GoF 的著名著作 http://book.douban.com/subject/1052241/[《设计模式》]，单例模式的定义如下：
 
 [quote,Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides,《设计模式》]
 ____
@@ -93,7 +93,7 @@ include::{source_dir}/singleton/ReflectionTest.java[]
 include::{source_dir}/singleton/UnsafeTest.java[]
 ----
 
-两种方式各有优缺。饿汉式，即静态初始化的方式，它是类一加载就实例化对象。所以，加载时间比较长，而且要提前占用系统资源，如果后续用不到这个对象，会造成浪费。懒汉式，又会面临多线程访问的安全性问题，需要使用双重锁定才能保证安全性，由于Java虚拟机的问题，在JDK5以后双重锁定能可以正常工作；另外，由于是在使用时初始化，在第一次调用时耗时比较长。所以，至于到底使用哪种方式，取决于实际需求。
+两种方式各有优缺。饿汉式，即静态初始化的方式，它是类一加载就实例化对象。所以，加载时间比较长，而且要提前占用系统资源，如果后续用不到这个对象，会造成浪费。懒汉式，又会面临多线程访问的安全性问题，需要使用双重锁定才能保证安全性，由于 Java 虚拟机的问题，在 JDK5 以后双重锁定能可以正常工作；另外，由于是在使用时初始化，在第一次调用时耗时比较长。所以，至于到底使用哪种方式，取决于实际需求。
 
 [source,java]
 .并发性测试
@@ -108,12 +108,12 @@ include::{source_dir}/singleton/ConcurrentTest.java[]
 有两种方式可以做到。我们这里分别来试验一下。
 
 
-问题：既然 `static` 变量是类共享的，修改后，其他对象也应该立即修改，那么还需要`volidate`吗？
+问题：既然 `static` 变量是类共享的，修改后，其他对象也应该立即修改，那么还需要 `volidate` 吗？
 
 === 枚举
 
-.The Java(R) Language Specification
-[quote,James Gosling、Bill Joy、Guy Steele、Gilad Bracha、Alex Buckley,《The Java(R) Language Specification Java SE 8 Edition》- 8.9. Enum Types]
+.{java_lang_spec}
+[quote,James Gosling、Bill Joy、Guy Steele、Gilad Bracha、Alex Buckley,{java_lang_spec} - 8.9. Enum Types]
 ____
 *An enum type has no instances other than those defined by its enum constants. It is a compile-time error to attempt to explicitly instantiate an enum type (§15.9.1).*
 

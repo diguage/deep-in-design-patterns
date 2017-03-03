@@ -1,15 +1,24 @@
-:doctype:   book
+:doctype: book
 :icons: font
+:iconfont-cdn: //cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css
 :source-highlighter: coderay
-// :source-highlighter: pygments
-// :pygments-style: monokai
-// :pygments-linenums-mode: inline
+:stylesdir: styles/
+:linkcss:
 :docinfo:
 :toc:
-:toclevels: 3
-:numbered:
-:listing-caption: Listing
+:toclevels: 4
+:sectnumlevels: 4
+:toc-title: 目录
+:preface-title: 前言
+:chapter-label: 章
+:appendix-caption: 附录
+:listing-caption: 代码
+:figure-caption: 图
+:version-label: V
 :pdf-page-size: A4
+:keywords: 设计模式, Design Pattern
+:description: 深入理解设计模式。
+:last-update-label: 最后更新时间
 :homepage: http://www.diguage.com/
 
 // :imagesoutdir: images
@@ -28,3 +37,5 @@
 :var_puml_target_url: uml
 
 :target_dir: target
+
+:java_lang_spec: pass:replacements[《The Java(R) Language Specification Java SE 8 Edition》]
