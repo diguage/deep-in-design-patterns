@@ -17,6 +17,7 @@ ____
 保证一个类仅有一个实例，并提供一个访问它的全局访问点。
 ____
 
+// plantuml::{puml_dir}/singleton.puml[svg,target={puml_target_dir}/singleton]
 
 在Java中，单例模式实现方式有两种：
 
@@ -113,7 +114,7 @@ include::{source_dir}/singleton/ConcurrentTest.java[]
 === 枚举
 
 .{java_lang_spec}
-[quote,James Gosling、Bill Joy、Guy Steele、Gilad Bracha、Alex Buckley,{java_lang_spec} - 8.9. Enum Types]
+[quote,"James Gosling, Bill Joy, Guy Steele, Gilad Bracha, Alex Buckley", '"`The Java(R) Language Specification Java SE 8 Edition`" -- 8.9. Enum Types']
 ____
 *An enum type has no instances other than those defined by its enum constants. It is a compile-time error to attempt to explicitly instantiate an enum type (§15.9.1).*
 

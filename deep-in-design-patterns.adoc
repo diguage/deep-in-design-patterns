@@ -1,7 +1,7 @@
 = 深入学习设计模式
 D瓜哥 <http://www.diguage.com/>
 v0.1.0, 2016-11-16
-include::book/_variables.adoc[]
+include::book/_attributes.adoc[]
 
 
 // // 感谢
@@ -14,3 +14,43 @@ include::book/_variables.adoc[]
 include::book/singleton.adoc[]
 
 include::book/proxy.adoc[]
+
+include::book/abstract-factory.adoc[]
+
+include::book/adapter.adoc[]
+
+include::book/bridge.adoc[]
+
+include::book/builder.adoc[]
+
+include::book/chain-of-responsibility.adoc[]
+
+include::book/command.adoc[]
+
+include::book/decorator.adoc[]
+
+include::book/facade.adoc[]
+
+include::book/factory-method.adoc[]
+
+include::book/flyweight.adoc[]
+
+include::book/interpreter.adoc[]
+
+include::book/iterator.adoc[]
+
+include::book/mediator.adoc[]
+
+include::book/memento.adoc[]
+
+include::book/observer.adoc[]
+
+include::book/prototype.adoc[]
+
+include::book/state.adoc[]
+
+include::book/strategy.adoc[]
+
+include::book/template-method.adoc[]
+
+include::book/visitor.adoc[]

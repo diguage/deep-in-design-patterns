@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.diguage</groupId>
-    <artifactId>design-patterns</artifactId>
+    <artifactId>deep-in-design-patterns</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
     <name>Deep in Design Patterns</name>

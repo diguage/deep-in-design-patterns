@@ -2,13 +2,16 @@
 :icons: font
 :iconfont-cdn: //cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css
 :source-highlighter: coderay
+:source-language: java  // 后面还可以覆盖
+:pygments-style: monokai
+:pygments-linenums-mode: table
 :stylesdir: styles/
 :linkcss:
 :docinfo:
-:toc:
+:toc: left
+:toc-title: 目录
 :toclevels: 4
 :sectnumlevels: 4
-:toc-title: 目录
 :preface-title: 前言
 :chapter-label: 章
 :appendix-caption: 附录
@@ -25,17 +28,30 @@
 // :imagesdir: {imagesoutdir}
 
 //-- 以上是 Asciidoctor 系统变量  -----------------------------------------
+// :base_dir:
+// :to_dir:
+
+:project_dir: ..
+
+:source_dir: {project_dir}/src/main/java/com/diguage/didp
+
+:puml_dir: {project_dir}/puml
+
+:target_dir: {project_dir}/target
+
+:puml_target_dir: {project_dir}/target/puml
+
+:images_base_url: images
+
 
 :source_attr: linenums,subs="attributes,verbatim"
-:source_dir: ../src/main/java/com/diguage/didp
 
 //-- 以下是 自定义变量  ---------------------------------------------------
 :var_width: 960
 
-:var_image_base_url: images
+
 
 :var_puml_target_url: uml
 
-:target_dir: target
 
 :java_lang_spec: pass:replacements[《The Java(R) Language Specification Java SE 8 Edition》]

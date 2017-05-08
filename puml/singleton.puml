@@ -1,0 +1,10 @@
+@startuml
+
+class Singleton {
+  - instance: Singleton
+  - Singleton()
+  + {static} getInstance():Singleton
+}
+note right: Singleton 类，定义一个 getInstance 操作，允许客户访问它的唯一实例。\ngetInstance 是一个静态方法，主要负责创建自己的唯一实例。
+
+@enduml
