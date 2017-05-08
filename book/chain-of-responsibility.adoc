@@ -1,0 +1,2 @@
+[[chain-of-responsibility]]
+== 责任连模式
