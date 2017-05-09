@@ -61,3 +61,14 @@ include::{book_dir}/strategy.adoc[]
 include::{book_dir}/template-method.adoc[]
 
 include::{book_dir}/visitor.adoc[]
+
+include::{book_dir}/references.adoc[]
+
+[appendix]
+== 版权声明
+
+++++
+<pre>
+include::LICENSE[]
+</pre>
+++++

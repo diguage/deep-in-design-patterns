@@ -1,0 +1,6 @@
+[[references]]
+[appendix]
+== 参考资料
+
+* https://book.douban.com/subject/2334288/[大话设计模式]
+* http://design-patterns.readthedocs.io/zh_CN/latest/index.html[图说设计模式 — Graphic Design Patterns]
