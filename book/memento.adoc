@@ -1,2 +1,4 @@
 [[memento]]
 == 备忘录模式
+
+plantuml::./puml/memento.puml[target={puml_target_dir}/memento,{puml_attr}]

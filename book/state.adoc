@@ -1,2 +1,4 @@
 [[state]]
 == 状态模式
+
+plantuml::./puml/state.puml[target={puml_target_dir}/state,{puml_attr}]

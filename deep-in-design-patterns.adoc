@@ -1,56 +1,63 @@
 = 深入学习设计模式
 D瓜哥 <http://www.diguage.com/>
 v0.1.0, 2016-11-16
-include::book/_attributes.adoc[]
-
+:base_dir: .
+:to_dir: .
+:project_dir: {base_dir}
+:target_dir: {to_dir}/target
+:stylesdir: {target_dir}/styles
+:imagesdir: {target_dir}/images
+:imagesoutdir: {target_dir}/images
+:book_dir: {base_dir}/book
+include::{book_dir}/_attributes.adoc[]
 
 // // 感谢
-// include::book/dedication.adoc[]
+// include::{book_dir}/dedication.adoc[]
 
 // 前言
-// include::book/preface.adoc[]
+// include::{book_dir}/preface.adoc[]
 
 // 正文。
-include::book/singleton.adoc[]
+include::{book_dir}/singleton.adoc[]
 
-include::book/proxy.adoc[]
+include::{book_dir}/proxy.adoc[]
 
-include::book/abstract-factory.adoc[]
+include::{book_dir}/abstract-factory.adoc[]
 
-include::book/adapter.adoc[]
+include::{book_dir}/adapter.adoc[]
 
-include::book/bridge.adoc[]
+include::{book_dir}/bridge.adoc[]
 
-include::book/builder.adoc[]
+include::{book_dir}/builder.adoc[]
 
-include::book/chain-of-responsibility.adoc[]
+include::{book_dir}/chain-of-responsibility.adoc[]
 
-include::book/command.adoc[]
+include::{book_dir}/command.adoc[]
 
-include::book/decorator.adoc[]
+include::{book_dir}/decorator.adoc[]
 
-include::book/facade.adoc[]
+include::{book_dir}/facade.adoc[]
 
-include::book/factory-method.adoc[]
+include::{book_dir}/factory-method.adoc[]
 
-include::book/flyweight.adoc[]
+include::{book_dir}/flyweight.adoc[]
 
-include::book/interpreter.adoc[]
+include::{book_dir}/interpreter.adoc[]
 
-include::book/iterator.adoc[]
+include::{book_dir}/iterator.adoc[]
 
-include::book/mediator.adoc[]
+include::{book_dir}/mediator.adoc[]
 
-include::book/memento.adoc[]
+include::{book_dir}/memento.adoc[]
 
-include::book/observer.adoc[]
+include::{book_dir}/observer.adoc[]
 
-include::book/prototype.adoc[]
+include::{book_dir}/prototype.adoc[]
 
-include::book/state.adoc[]
+include::{book_dir}/state.adoc[]
 
-include::book/strategy.adoc[]
+include::{book_dir}/strategy.adoc[]
 
-include::book/template-method.adoc[]
+include::{book_dir}/template-method.adoc[]
 
-include::book/visitor.adoc[]
+include::{book_dir}/visitor.adoc[]

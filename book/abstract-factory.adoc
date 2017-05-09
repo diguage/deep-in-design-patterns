@@ -1,2 +1,4 @@
 [[abstract-factory]]
 == 抽象工厂模式
+
+plantuml::./puml/abstract-factory.puml[target={puml_target_dir}/abstract-factory,{puml_attr}]

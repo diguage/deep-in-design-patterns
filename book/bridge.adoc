@@ -1,2 +1,4 @@
 [[bridge]]
 == 桥接模式
+
+plantuml::./puml/bridge.puml[target={puml_target_dir}/bridge,{puml_attr}]

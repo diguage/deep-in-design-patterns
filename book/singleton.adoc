@@ -17,7 +17,7 @@ ____
 保证一个类仅有一个实例，并提供一个访问它的全局访问点。
 ____
 
-// plantuml::{puml_dir}/singleton.puml[svg,target={puml_target_dir}/singleton]
+plantuml::./puml/singleton.puml[target={puml_target_dir}/singleton,{puml_attr}]
 
 在Java中，单例模式实现方式有两种：
 
@@ -30,7 +30,7 @@ ____
 
 饿汉式单例类的实现代码如下：
 
-[source,java]
+[source,{java_source_attr}]
 .饿汉式单例类
 ----
 include::{source_dir}/singleton/HungrySingleton.java[]
@@ -40,55 +40,55 @@ include::{source_dir}/singleton/HungrySingleton.java[]
 
 懒汉式单例类的实现代码如下：
 
-[source,java]
+[source,{java_source_attr}]
 .懒汉式单例类
 ----
 include::{source_dir}/singleton/LazySingleton.java[]
 ----
 
-[source,java]
+[source,{java_source_attr}]
 .懒汉式单例类的并发测试
 ----
 include::{source_dir}/singleton/ConcurrentTest.java[]
 ----
 
-[source,java]
+[source,{java_source_attr}]
 .带 `volatile` 修饰的懒汉式单例类
 ----
 include::{source_dir}/singleton/VolatileLazySingleton.java[]
 ----
 
-[source,java]
+[source,{java_source_attr}]
 .可序列化懒汉式单例类
 ----
 include::{source_dir}/singleton/SerializableLazySingleton.java[]
 ----
 
-[source,java]
+[source,{java_source_attr}]
 .正确的可序列化懒汉式单例类
 ----
 include::{source_dir}/singleton/CorrectSerializableLazySingleton.java[]
 ----
 
-[source,java]
+[source,{java_source_attr}]
 .序列化测试
 ----
 include::{source_dir}/singleton/SerializationTest.java[]
 ----
 
-[source,java]
+[source,{java_source_attr}]
 .枚举实现的单例模式
 ----
 include::{source_dir}/singleton/Singleton.java[]
 ----
 
-[source,java]
+[source,{java_source_attr}]
 .单例模式的反射测试
 ----
 include::{source_dir}/singleton/ReflectionTest.java[]
 ----
 
-[source,java]
+[source,{java_source_attr}]
 .单例模式的 Java 黑魔法测试
 ----
 include::{source_dir}/singleton/UnsafeTest.java[]
@@ -96,7 +96,7 @@ include::{source_dir}/singleton/UnsafeTest.java[]
 
 两种方式各有优缺。饿汉式，即静态初始化的方式，它是类一加载就实例化对象。所以，加载时间比较长，而且要提前占用系统资源，如果后续用不到这个对象，会造成浪费。懒汉式，又会面临多线程访问的安全性问题，需要使用双重锁定才能保证安全性，由于 Java 虚拟机的问题，在 JDK5 以后双重锁定能可以正常工作；另外，由于是在使用时初始化，在第一次调用时耗时比较长。所以，至于到底使用哪种方式，取决于实际需求。
 
-[source,java]
+[source,{java_source_attr}]
 .并发性测试
 ----
 include::{source_dir}/singleton/ConcurrentTest.java[]
@@ -114,7 +114,7 @@ include::{source_dir}/singleton/ConcurrentTest.java[]
 === 枚举
 
 .{java_lang_spec}
-[quote,"James Gosling, Bill Joy, Guy Steele, Gilad Bracha, Alex Buckley", '"`The Java(R) Language Specification Java SE 8 Edition`" -- 8.9. Enum Types']
+[quote,"James Gosling, Bill Joy, Guy Steele, Gilad Bracha, Alex Buckley", "{java_lang_spec} -- 8.9. Enum Types"]
 ____
 *An enum type has no instances other than those defined by its enum constants. It is a compile-time error to attempt to explicitly instantiate an enum type (§15.9.1).*
 

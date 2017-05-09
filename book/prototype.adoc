@@ -1,2 +1,4 @@
 [[prototype]]
 == 原型模式
+
+plantuml::./puml/prototype.puml[target={puml_target_dir}/prototype,{puml_attr}]

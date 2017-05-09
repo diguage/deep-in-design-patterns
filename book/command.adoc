@@ -1,2 +1,4 @@
 [[command]]
 == 命令模式
+
+plantuml::./puml/command.puml[target={puml_target_dir}/command,{puml_attr}]

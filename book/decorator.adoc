@@ -1,2 +1,4 @@
 [[decorator]]
 == 装饰器模式
+
+plantuml::./puml/decorator.puml[target={puml_target_dir}/decorator,{puml_attr}]

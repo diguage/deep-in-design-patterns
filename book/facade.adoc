@@ -1,2 +1,4 @@
 [[facade]]
 == 外观模式
+
+plantuml::./puml/facade.puml[target={puml_target_dir}/facade,{puml_attr}]

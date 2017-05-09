@@ -5,7 +5,6 @@
 :source-language: java  // 后面还可以覆盖
 :pygments-style: monokai
 :pygments-linenums-mode: table
-:stylesdir: styles/
 :linkcss:
 :docinfo:
 :toc: left
@@ -23,35 +22,26 @@
 :description: 深入理解设计模式。
 :last-update-label: 最后更新时间
 :homepage: http://www.diguage.com/
-
-// :imagesoutdir: images
-// :imagesdir: {imagesoutdir}
+:base_dir: ..
+:to_dir: ..
+:project_dir: {base_dir}
+:target_dir: {to_dir}/target
 
 //-- 以上是 Asciidoctor 系统变量  -----------------------------------------
-// :base_dir:
-// :to_dir:
-
-:project_dir: ..
+//-- 以下是 自定义变量
 
 :source_dir: {project_dir}/src/main/java/com/diguage/didp
 
 :puml_dir: {project_dir}/puml
 
-:target_dir: {project_dir}/target
+:puml_target_dir: uml
 
-:puml_target_dir: {project_dir}/target/puml
-
-:images_base_url: images
-
+:var_width: 100%
 
 :source_attr: linenums,subs="attributes,verbatim"
 
-//-- 以下是 自定义变量  ---------------------------------------------------
-:var_width: 960
+:java_source_attr: java,linenums,subs="attributes,verbatim"
 
-
-
-:var_puml_target_url: uml
-
+:puml_attr: format=svg,align="center",width={var_width}
 
 :java_lang_spec: pass:replacements[《The Java(R) Language Specification Java SE 8 Edition》]

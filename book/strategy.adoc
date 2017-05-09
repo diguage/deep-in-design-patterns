@@ -1,2 +1,4 @@
 [[strategy]]
 == 策略模式
+
+plantuml::./puml/strategy.puml[target={puml_target_dir}/strategy,{puml_attr}]

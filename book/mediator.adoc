@@ -1,2 +1,4 @@
 [[mediator]]
 == 中介者模式
+
+plantuml::./puml/mediator.puml[target={puml_target_dir}/mediator,{puml_attr}]

@@ -1,2 +1,4 @@
 [[template-method]]
 == 模版方法模式
+
+plantuml::./puml/template-method.puml[target={puml_target_dir}/template-method,{puml_attr}]

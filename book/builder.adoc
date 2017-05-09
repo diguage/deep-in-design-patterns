@@ -1,2 +1,4 @@
 [[builder]]
 == 建造者模式
+
+plantuml::./puml/builder.puml[target={puml_target_dir}/builder,{puml_attr}]

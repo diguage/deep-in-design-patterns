@@ -5,3 +5,5 @@
 * 观察者模式的定义以及实力代码
 * JDK 对观察者模式的支持
 * 在 Spring 中使用观察者模式来实现事件发布
+
+plantuml::./puml/observer.puml[target={puml_target_dir}/observer,{puml_attr}]

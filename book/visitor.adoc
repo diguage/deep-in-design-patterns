@@ -1,2 +1,4 @@
 [[visitor]]
 == 访问者模式
+
+plantuml::./puml/visitor.puml[target={puml_target_dir}/visitor,{puml_attr}]

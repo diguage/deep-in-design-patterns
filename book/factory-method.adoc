@@ -1,2 +1,4 @@
 [[factory-method]]
 == 工厂方法模式
+
+plantuml::./puml/factory-method.puml[target={puml_target_dir}/factory-method,{puml_attr}]

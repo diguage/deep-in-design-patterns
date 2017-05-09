@@ -1,2 +1,4 @@
 [[interpreter]]
 == 解释器模式
+
+plantuml::./puml/interpreter.puml[target={puml_target_dir}/interpreter,{puml_attr}]

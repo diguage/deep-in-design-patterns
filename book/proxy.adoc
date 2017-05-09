@@ -10,3 +10,5 @@
 * http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml[Uniform Resource Identifier (URI) Schemes]
 * http://www.rfc-editor.org/rfc/rfc1738.txt[RFC1738: Uniform Resource Locators (URL)]
 ====
+
+plantuml::./puml/proxy.puml[target={puml_target_dir}/proxy,{puml_attr}]

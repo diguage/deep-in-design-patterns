@@ -1,2 +1,4 @@
 [[flyweight]]
 == 享元模式
+
+plantuml::./puml/flyweight.puml[target={puml_target_dir}/flyweight,{puml_attr}]
