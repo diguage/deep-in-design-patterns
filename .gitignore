@@ -7,8 +7,4 @@
 .bundle
 .idea/*
 .rake_tasks
-/images/*
-/target/*
-/styles/*
-/uml/*
 bin
