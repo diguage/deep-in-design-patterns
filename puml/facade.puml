@@ -6,26 +6,35 @@ class Client {
 }
 
 class Facade {
-
+  + methodA() :Object
+  + methodB() :Object
 }
+note right: Facade 外观类\n知道哪些子系统负责处理请求，\n将客户的请求代理给适当的子系统对象。
 
-class SubSystemOne {
-  + methodOne() :Object
+package SubSystemClasses <<Frame>> {
+  class SubSystemOne {
+    + methodOne() :Object
+  }
+
+  class SubSystemTwo {
+    + methodTwo() :Object
+  }
+
+  class SubSystemThree {
+    + methodThree() :Object
+  }
+
+  class SubSystemFour {
+    + methodFour() :Object
+  }
 }
+note "SubSystemClasses 子系统集合\n实现子系统的功能处理，处理 Facade 对象指派的任务。\n实现子类中没有 Facade 的任何信息，即没有 Facade 对象的引用。" as ssn
+SubSystemOne .. ssn
+SubSystemTwo .. ssn
+SubSystemThree .. ssn
+SubSystemFour .. ssn
 
-class SubSystemTwo {
-  + methodTwo() :Object
-}
-
-class SubSystemThree {
-  + methodThree() :Object
-}
-
-class SubSystemFour {
-  + methodFour() :Object
-}
-
-Client --> Facade
+Client -right-> Facade
 Facade --> SubSystemOne
 Facade --> SubSystemTwo
 Facade --> SubSystemThree

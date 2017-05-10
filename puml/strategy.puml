@@ -1,4 +1,5 @@
 @startuml
+skinparam nodesep 70
 
 title <b>策略模式</b>
 
@@ -6,12 +7,12 @@ class Context {
   - strategy: Strategy
   + contextInterface()
 }
-note left: Context 上下文，\n用一个 ConcreteStrategy 来配置，\n维护一个对 Strategy 对象的引用。
+note top: Context 上下文，\n用一个 ConcreteStrategy 来配置，\n维护一个对 Strategy 对象的引用。
 
 interface Strategy {
   + algorithmInterface()
 }
-note right: 策略类，\n定义所有支持的算法的公共接口。
+note top: 策略类，\n定义所有支持的算法的公共接口。
 
 class ConcreteStrategyA {
   + algorithmInterface()
@@ -25,7 +26,7 @@ class ConcreteStrategyC {
   + algorithmInterface()
 }
 
-Context "-strategy" *-- Strategy
+Context "-strategy" *-right- Strategy
 
 ' 这里的"实现"也可以是"继承"。不必太拘泥形式。
 Strategy <|.. ConcreteStrategyA

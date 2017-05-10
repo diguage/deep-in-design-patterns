@@ -2,7 +2,7 @@
 :icons: font
 :iconfont-cdn: //cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css
 :source-highlighter: coderay
-:source-language: java  // 后面还可以覆盖
+:source-language: java
 :pygments-style: monokai
 :pygments-linenums-mode: table
 :linkcss:

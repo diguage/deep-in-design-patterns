@@ -1,4 +1,5 @@
 @startuml
+skinparam nodesep 70
 
 title <b>适配器模式</b>
 
@@ -15,18 +16,18 @@ class Adapter {
   - adaptee   :Adaptee
   + request() :void
 }
-note left: 通过在内部包装一个 Adaptee 对象，\n把源接口转换成目标接口。
+note bottom: 通过在内部包装一个 Adaptee 对象，\n把源接口转换成目标接口。
 
 class Adaptee {
   + specificRequest() :void
 }
-note right: 需要适配的类
+note bottom: 需要适配的类
 
 Target <|-- Adapter
 
-Adapter "-adaptee" --> Adaptee
+Adapter "-adaptee" -right-> Adaptee
 
-Client "-target" --> Target
+Client "-target" -right-> Target
 
 
 

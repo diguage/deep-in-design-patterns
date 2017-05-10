@@ -1,4 +1,6 @@
 @startuml
+skinparam nodesep 100
+'skinparam ranksep 60
 
 title <b>代理模式</b>
 
@@ -22,9 +24,9 @@ class RealSubject {
 }
 note bottom: RealSubject 类，定义 Proxy 所代表的真实实体。
 
-Client --> Subject
+Client -right-> Subject
 Subject <|-- Proxy
 Subject <|-- RealSubject
-Proxy "-realSubject" --> RealSubject
+Proxy "-realSubject" -right-> RealSubject
 
 @enduml

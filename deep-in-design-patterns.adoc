@@ -64,6 +64,9 @@ include::{book_dir}/visitor.adoc[]
 
 include::{book_dir}/references.adoc[]
 
+include::{book_dir}/plant-uml.adoc[]
+
+[[license]]
 [appendix]
 == 版权声明
 

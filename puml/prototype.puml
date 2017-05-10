@@ -1,16 +1,18 @@
 @startuml
+skinparam nodesep 75
+'skinparam ranksep 60
 
 title <b>原型模式</b>
 
 class Client {
   - prototype: Prototype
 }
-note left: 让原型克隆自身\n从而创建一个新的对象
+note top: 让原型克隆自身\n从而创建一个新的对象
 
 class Prototype {
   + clone() :Prototype
 }
-note right: 原型类，声明一个克隆自身的接口。
+note top: 原型类，声明一个克隆自身的接口。
 
 class ConcretePrototype1 {
   + clone() :Prototype
@@ -20,7 +22,7 @@ class ConcretePrototype2 {
   + clone() :Prototype
 }
 
-Client "-prototype" --> Prototype
+Client "-prototype" -right-> Prototype
 
 Prototype <|-- ConcretePrototype1
 Prototype <|-- ConcretePrototype2
