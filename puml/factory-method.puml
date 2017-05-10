@@ -1,6 +1,6 @@
 @startuml
 
-title 工厂方法模式
+title <b>工厂方法模式</b>
 
 abstract class Product {
 }

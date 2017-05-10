@@ -1,6 +1,6 @@
 @startuml
 
-title 单例模式
+title <b>单例模式</b>
 
 class Singleton {
   - instance: Singleton

@@ -1,6 +1,6 @@
 @startuml
 
-title 代理模式
+title <b>代理模式</b>
 
 class Client {
   - subject :Subject

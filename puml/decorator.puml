@@ -1,6 +1,6 @@
 @startuml
 
-title 装饰模式
+title <b>装饰模式</b>
 
 abstract class Component {
   + {abstract} operation() :void

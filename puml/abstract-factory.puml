@@ -1,6 +1,6 @@
 @startuml
 
-title 抽象工厂模式
+title <b>抽象工厂模式</b>
 
 abstract class AbstractFactory {
   + {abstract} createProductA() :AbstractProductA

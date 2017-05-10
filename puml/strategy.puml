@@ -1,6 +1,6 @@
 @startuml
 
-title 策略模式
+title <b>策略模式</b>
 
 class Context {
   - strategy: Strategy
