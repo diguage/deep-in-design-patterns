@@ -1,5 +1,34 @@
 @startuml
 
-title 外观模式
+title <b>外观模式</b>
+
+class Client {
+}
+
+class Facade {
+
+}
+
+class SubSystemOne {
+  + methodOne() :Object
+}
+
+class SubSystemTwo {
+  + methodTwo() :Object
+}
+
+class SubSystemThree {
+  + methodThree() :Object
+}
+
+class SubSystemFour {
+  + methodFour() :Object
+}
+
+Client --> Facade
+Facade --> SubSystemOne
+Facade --> SubSystemTwo
+Facade --> SubSystemThree
+Facade --> SubSystemFour
 
 @enduml

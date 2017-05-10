@@ -1,5 +1,20 @@
 @startuml
 
-title 模版方法模式
+title <b>模版方法模式</b>
+
+abstract class AbstractClass {
+  + templateMethod() :Object
+  + {abstract} primitiveOperation1() :Object
+  + {abstract} primitiveOperation2() :Object
+}
+note right: 实现了一个模板方法，定义算法的骨架，\n具体子类将重定义 primitiveOperation \n以实现一个算法的步骤。
+
+class ConcreteClass {
+  + primitiveOperation1() :Object
+  + primitiveOperation2() :Object
+}
+note right: 实现 primitiveOperation 以完成算法中\n与特定子类相关的步骤
+
+AbstractClass <|-- ConcreteClass
 
 @enduml
