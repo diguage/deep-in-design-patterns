@@ -2,4 +2,25 @@
 
 title <b>备忘录模式</b>
 
+class Originator {
+  - state :Object
+  + setMemento(memento :Memento) :void
+  + createMemento() :Memento
+}
+note bottom: 负责创建一个备忘录 Memento，\n用以记录当前时刻它的内部状态，\n并可使用备忘录模式恢复内部状态。
+
+class Memento {
+  - state :Object
+}
+note top: 负责存储 Originator 对象的内部状态，\n并可防止 Originator 以外的其他对象\n访问备忘录 Memento。
+
+class Caretaker {
+  - memento :Memento
+}
+note bottom: 负责保存好备忘录 Memento。
+
+Originator .right.> Memento
+
+Caretaker o-left-> Memento
+
 @enduml

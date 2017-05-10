@@ -1,5 +1,43 @@
 @startuml
+skinparam nodesep 70
 
 title <b>状态模式</b>
+
+class Context {
+  - state     :State
+  + request() :Object
+}
+note top: 维护一个 ConcreteState \n子类的实例，这个实例\n定义当前的状态。
+
+abstract class State {
+  + {abstract} handle() :Object
+}
+note top: 抽象状态类，定义一个接口以\n封装与 Context 的一个特定\n状态相关的行为。
+
+class ConcreteStateA {
+  + handle() :Object
+}
+
+class ConcreteStateB {
+  + handle() :Object
+}
+
+class ConcreteStateC {
+  + handle() :Object
+}
+
+note "具体状态，每一个子类实现一个\n与 Context 的一个状态相关的行为。" as csn
+
+ConcreteStateA .. csn
+ConcreteStateB .. csn
+ConcreteStateC .. csn
+
+Context "-state" o-right-> State
+
+State <|-- ConcreteStateA
+State <|-- ConcreteStateB
+State <|-- ConcreteStateC
+
+
 
 @enduml

@@ -6,7 +6,7 @@ abstract class AbstractFactory {
   + {abstract} createProductA() :AbstractProductA
   + {abstract} createProductB() :AbstractProductB
 }
-note top: 抽象工厂接口，\n它里面应该包含所有的\n产品创建的抽象方法。
+note right: 抽象工厂接口，\n它里面应该包含所有的\n产品创建的抽象方法。
 
 class ConcreteFactory1 {
   + createProductA() :AbstractProductA
@@ -18,27 +18,23 @@ class ConcreteFactory2 {
   + createProductB() :AbstractProductB
 }
 
-abstract class AbstractProductA {
-}
+abstract class AbstractProductA
 
-class ProductA1 {
-}
+class ProductA1
 
-class ProductA2 {
-}
+class ProductA2
 
-abstract class AbstractProductB {
-}
+abstract class AbstractProductB
 
-class ProductB1 {
-}
+class ProductB1
 
-class ProductB2 {
-}
+class ProductB2
 
 note "具体的工厂，\n创建具有特别实现的产品对象。" as cfn
-cfn .. ConcreteFactory1
-cfn .. ConcreteFactory2
+'cfn .. ConcreteFactory1
+'cfn .. ConcreteFactory2
+ConcreteFactory1 .. cfn
+ConcreteFactory2 .. cfn
 
 note "抽象产品，\n它们都可能有两种不同的实现。" as apn
 
@@ -66,7 +62,7 @@ AbstractProductA <|-- ProductA2
 AbstractProductB <|-- ProductB1
 AbstractProductB <|-- ProductB2
 
-Client --> AbstractFactory
+Client -right-> AbstractFactory
 Client --> AbstractProductA
 Client --> AbstractProductB
 

@@ -1,5 +1,32 @@
 @startuml
+skinparam nodesep 75
 
 title <b>建造者模式</b>
+
+abstract class Builder {
+  + {abstract} buildPart() :Object
+}
+note top: Builder 是为创建一个 Product \n对象的各个部件指定的抽象接口
+
+class ConcreteBuilder {
+  + buildPart() :Object
+  + getResult() :Product
+}
+note left: 具体建造者，实现 Builder 接口，\n构造和装配各个部件。
+
+class Director {
+  - builder :Builder
+  + construct() :Product
+}
+note top: 指挥者，是构建一个使用 \n Builder 接口的对象。
+
+class Product
+note top: 具体产品
+
+Director "-builder" o-right- Builder
+
+Builder <|-- ConcreteBuilder
+
+ConcreteBuilder .right.> Product
 
 @enduml

@@ -1,0 +1,4 @@
+[[composite]]
+== 组合模式
+
+plantuml::./puml/composite.puml[target={puml_target_dir}/composite,{puml_attr}]
