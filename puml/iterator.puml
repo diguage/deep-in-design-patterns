@@ -1,5 +1,38 @@
 @startuml
+'skinparam nodesep 70
 
 title <b>迭代器模式</b>
+
+abstract class Iterator {
+  + {abstract} first() :Object
+  + {abstract} next() :Object
+  + {abstract} isDone() :boolean
+  + {abstract} currentItem() :Object
+}
+note top: 迭代抽象类，用于定义得到开始对象、\n得到下一个对象、判断是否到结尾、\n当前对象等抽象方法，统一接口。
+
+class ConcreteIterator
+note bottom: 具体迭代器类，继承 Iterator，\n实现开始、下一个、是否结尾、\n当前对象等方法。
+
+abstract class Aggregate {
+  + {abstract} createIterator() :Iterator
+}
+note top: 聚集抽象类
+
+class ConcreteAggregate {
+  + createIterator() :Iterator
+}
+note bottom: 具体聚集类，继承 Aggregate。
+
+class Client
+
+Client -left-> Aggregate
+Client -right-> Iterator
+
+Aggregate <|-- ConcreteAggregate
+Iterator <|-- ConcreteIterator
+
+ConcreteIterator -left-> ConcreteAggregate
+ConcreteIterator <.. ConcreteAggregate
 
 @enduml
