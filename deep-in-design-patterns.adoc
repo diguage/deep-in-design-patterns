@@ -17,6 +17,8 @@ include::{book_dir}/_attributes.adoc[]
 // 前言
 // include::{book_dir}/preface.adoc[]
 
+:sectnums:
+
 // 正文。
 include::{book_dir}/singleton.adoc[]
 
