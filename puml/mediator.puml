@@ -31,4 +31,5 @@ Colleague <|-- ConcreteColleague2
 
 ConcreteMediator --> ConcreteColleague1
 ConcreteMediator --> ConcreteColleague2
+
 @enduml

@@ -29,6 +29,4 @@ Composite o--> Component
 Component <|-- Leaf
 Component <|-- Composite
 
-
-
 @enduml

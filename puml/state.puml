@@ -38,6 +38,4 @@ State <|-- ConcreteStateA
 State <|-- ConcreteStateB
 State <|-- ConcreteStateC
 
-
-
 @enduml

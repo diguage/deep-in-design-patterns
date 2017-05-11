@@ -59,12 +59,4 @@ ObjectStructure -right-> Element
 Client -right-> Vistor
 Client -down-> ObjectStructure
 
-
-/'
-Vistor: 抽象访问者。为该对象结构中的ConcreteElement的每一个类声明的一个操作。
-ConcreteVisitor: 具体访问者。实现Visitor申明的每一个操作，每一个操作实现算法的一部分。
-Element: 抽象元素。定义一个Accept操作，它以一个访问者为参数。
-ConcreteElement: 具体元素 。实现Accept操作。
-ObjectStructure: 对象结
-'/
 @enduml

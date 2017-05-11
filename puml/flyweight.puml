@@ -36,5 +36,4 @@ FlyweightFactory <-- Client
 Client --> ConcreteFlyWeight
 Client --> UnsharedConcreteFlyWeight
 
-
 @enduml

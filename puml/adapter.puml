@@ -29,6 +29,4 @@ Adapter "-adaptee" -right-> Adaptee
 
 Client "-target" -right-> Target
 
-
-
 @enduml
