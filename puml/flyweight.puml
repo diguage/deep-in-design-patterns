@@ -1,5 +1,40 @@
 @startuml
+skinparam nodesep 90
 
 title <b>享元模式</b>
+
+class FlyweightFactory {
+  - flyWeights :FlyWeight
+  + getFlyWeight(key :int) :FlyWeight
+}
+note top:一个享元工厂，用来创建并管理 FlyWeight 对象。\n它主要是用来确保合理地共享 FlyWeight，\n当用户请求一个 FlyWeight 时，FlyweightFactory \n对象提供一个已创建的实例或者创建一个\n（如果不存在的话）。
+
+abstract class FlyWeight {
+  + {abstract} operation(extrinsticState :int)
+}
+note top: 所有具体享元类的超类或接口，通过这个接口，\nFlyWeight 可以接受并作用于外部状态。
+
+class ConcreteFlyWeight {
+  + operation(extrinsticState :int)
+}
+note bottom: 继承 FlyWeight 类或实现 FlyWeight 接口，\n并为内部状态增加存储空间。
+
+class UnsharedConcreteFlyWeight {
+  + operation(extrinsticState :int)
+}
+note bottom: 指那些不需要共享的 FlyWeight 子类。\n因为 FlyWeight 接口共享成为可能，但它并不强制共享。
+
+class Client
+
+FlyweightFactory "-flyWeights" o-right-> FlyWeight
+
+FlyWeight <|-- ConcreteFlyWeight
+FlyWeight <|-- UnsharedConcreteFlyWeight
+
+FlyweightFactory <-- Client
+
+Client --> ConcreteFlyWeight
+Client --> UnsharedConcreteFlyWeight
+
 
 @enduml

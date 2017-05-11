@@ -2,4 +2,69 @@
 
 title <b>访问者模式</b>
 
+abstract class Vistor {
+  + {abstract} visitConcreteElementA(element :ConcreteElementA)
+  + {abstract} visitConcreteElementB(element :ConcreteElementB)
+}
+note top: 为该对象结构中 ConcreteElement 的每一个类声明一个 visit 操作。
+
+class ConcreteVisitor1 {
+  + visitConcreteElementA(element :ConcreteElementA)
+  + visitConcreteElementB(element :ConcreteElementB)
+}
+
+class ConcreteVisitor2 {
+  + visitConcreteElementA(element :ConcreteElementA)
+  + visitConcreteElementB(element :ConcreteElementB)
+}
+
+note "具体访问者，实现每个由 Visitor 声明的操作。\n每个操作实现算法的一部分，而该算法片段\n乃是对应于结构中对象的类。" as cvn
+ConcreteVisitor1 .. cvn
+ConcreteVisitor2 .. cvn
+
+abstract class Element {
+  + {abstract} accept(vistor :Vistor) :Object
+}
+note bottom: 定义一个 accept 操作，\n它以一个访问者为参数。
+
+class ConcreteElementA {
+  + accept(vistor :Vistor) :Object
+  + operatorA() :Object
+}
+
+class ConcreteElementB {
+  + accept(vistor :Vistor) :Object
+  + operatorB() :Object
+}
+
+note "具体元素，实现 accept 操作。" as cen
+
+ConcreteElementA .. cen
+ConcreteElementB .. cen
+
+class ObjectStructure
+note top: 能枚举它的元素，可以提供一个高层\n的接口以允许访问者访问它的元素。
+
+class Client
+
+
+Vistor <|-- ConcreteVisitor1
+Vistor <|-- ConcreteVisitor2
+
+Element <|-- ConcreteElementA
+Element <|-- ConcreteElementB
+
+ObjectStructure -right-> Element
+
+Client -right-> Vistor
+Client -down-> ObjectStructure
+
+
+/'
+Vistor: 抽象访问者。为该对象结构中的ConcreteElement的每一个类声明的一个操作。
+ConcreteVisitor: 具体访问者。实现Visitor申明的每一个操作，每一个操作实现算法的一部分。
+Element: 抽象元素。定义一个Accept操作，它以一个访问者为参数。
+ConcreteElement: 具体元素 。实现Accept操作。
+ObjectStructure: 对象结
+'/
 @enduml

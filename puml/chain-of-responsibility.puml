@@ -1,5 +1,37 @@
 @startuml
 
-title <b>责任链模式</b>
+title <b>职责链模式</b>
 
+class Client
+
+abstract class Handler {
+  + setSuccessor(successor :Handler) :void
+  + {abstract} handleRequest(request :int) :Object
+}
+note right: 定义一个处理请求的接口。
+
+class ConcreteHandler1 {
+  + handleRequest(request :int) :Object
+}
+
+class ConcreteHandler2 {
+  + handleRequest(request :int) :Object
+}
+
+note "具体处理者类，处理它所负责的请求，\n可访问它的后继者，如果可处理该请求，\n就处理之，否则就将该请求转发给它的后继者。" as chn
+
+ConcreteHandler1 .. chn
+ConcreteHandler2 .. chn
+
+Client -right-> Handler
+
+Handler <|-- ConcreteHandler1
+Handler <|-- ConcreteHandler2
+
+ConcreteHandler2 o--> Handler
+/'
+Handler: 抽象处理者。定义了一个处理请求的方法。所有的处理者都必须实现该抽象类。
+ConcreteHandler: 具体处理者。处理它所负责的请求，同时也可以访问它的后继者。如果它能够处理该请求则处理，否则将请求传递到它的后继者。
+Client: 客户类。
+'/
 @enduml
