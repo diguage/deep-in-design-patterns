@@ -1,4 +1,4 @@
 [[chain-of-responsibility]]
-== 责任链模式
+== 职责链模式
 
 plantuml::./puml/chain-of-responsibility.puml[target={puml_target_dir}/chain-of-responsibility,{puml_attr}]
