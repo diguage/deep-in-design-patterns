@@ -1,0 +1,14 @@
+[[design-principles]]
+== 设计模式设计原则
+
+include::composite-aggregate-reuse-principle.adoc[]
+
+include::dependence-inversion-principle.adoc[]
+
+include::liskov-substitution-principle.adoc[]
+
+include::open-closed-principle.adoc[]
+
+include::single-responsibility-principle.adoc[]
+
+include::law-of-demeter.adoc[]

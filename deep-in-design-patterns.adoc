@@ -19,6 +19,8 @@ include::{book_dir}/_attributes.adoc[]
 
 :sectnums:
 
+include::{book_dir}/design-principles.adoc[]
+
 // 正文。
 include::{book_dir}/singleton.adoc[]
 
