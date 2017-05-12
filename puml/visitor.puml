@@ -6,7 +6,9 @@ abstract class Vistor {
   + {abstract} visitConcreteElementA(element :ConcreteElementA)
   + {abstract} visitConcreteElementB(element :ConcreteElementB)
 }
-note top: 为该对象结构中 ConcreteElement 的每一个类声明一个 visit 操作。
+'note top: 为该对象结构中 ConcreteElement 的每一个类声明一个 visit 操作。
+note "为该对象结构中\nConcreteElement\n的每一个类声明一\n个 visit 操作。" as vn
+vn .left. Vistor
 
 class ConcreteVisitor1 {
   + visitConcreteElementA(element :ConcreteElementA)
@@ -25,7 +27,8 @@ ConcreteVisitor2 .. cvn
 abstract class Element {
   + {abstract} accept(vistor :Vistor) :Object
 }
-note bottom: 定义一个 accept 操作，\n它以一个访问者为参数。
+note "定义一个 accept 操作，\n它以一个访问者为参数。" as en
+en .right.> Element
 
 class ConcreteElementA {
   + accept(vistor :Vistor) :Object
@@ -43,7 +46,9 @@ ConcreteElementA .. cen
 ConcreteElementB .. cen
 
 class ObjectStructure
-note top: 能枚举它的元素，可以提供一个高层\n的接口以允许访问者访问它的元素。
+note "能枚举它的元素，可以提供一个高层\n的接口以允许访问者访问它的元素。" as osn
+osn --> ObjectStructure
+osn .[hidden]right.> Client
 
 class Client
 
@@ -54,7 +59,7 @@ Vistor <|-- ConcreteVisitor2
 Element <|-- ConcreteElementA
 Element <|-- ConcreteElementB
 
-ObjectStructure -right-> Element
+ObjectStructure -down-> Element
 
 Client -right-> Vistor
 Client -down-> ObjectStructure
