@@ -70,6 +70,8 @@ include::{book_dir}/template-method.adoc[]
 
 include::{book_dir}/visitor.adoc[]
 
+include::{book_dir}/summary.adoc[]
+
 include::{book_dir}/references.adoc[]
 
 include::{book_dir}/plant-uml.adoc[]
