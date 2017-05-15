@@ -1,4 +1,4 @@
-= 深入学习设计模式
+= 深入学习设计模式 ^Alpha^
 D瓜哥 <http://www.diguage.com/>
 v0.1.0, 2016-11-16
 :base_dir: .
@@ -11,11 +11,13 @@ v0.1.0, 2016-11-16
 :book_dir: {base_dir}/book
 include::{book_dir}/_attributes.adoc[]
 
+:sectnums!:
+
 // // 感谢
 // include::{book_dir}/dedication.adoc[]
 
 // 前言
-// include::{book_dir}/preface.adoc[]
+include::{book_dir}/preface.adoc[]
 
 :sectnums:
 
@@ -69,6 +71,8 @@ include::{book_dir}/strategy.adoc[]
 include::{book_dir}/template-method.adoc[]
 
 include::{book_dir}/visitor.adoc[]
+
+include::{book_dir}/summary.adoc[]
 
 include::{book_dir}/references.adoc[]
 
