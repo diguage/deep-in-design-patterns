@@ -155,8 +155,6 @@ In addition to the compile-time error, three further mechanisms ensure that no i
 * Special treatment by the serialization mechanism ensures that duplicate instances are never created as a result of deserialization.
 ____
 
-WARNING: 不知道为啥引用的标题不能正常渲染实体？
-
 
 === 参考资料：
 
