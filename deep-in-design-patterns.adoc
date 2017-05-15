@@ -11,6 +11,10 @@ v0.1.0, 2016-11-16
 :book_dir: {base_dir}/book
 include::{book_dir}/_attributes.adoc[]
 
+++++
+include::analytics.html[]
+++++
+
 :sectnums!:
 
 // // 感谢
