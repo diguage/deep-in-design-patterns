@@ -44,5 +44,6 @@
 
 :puml_attr: format=svg,align="center",width={var_width}
 
+:bk_java_lang_spec: pass:replacements[《The Java(R) Language Specification Java SE 8 Edition》]
 
 :bk_big_talk_dp: pass:replacements[https://book.douban.com/subject/2334288/[《大话设计模式》]]

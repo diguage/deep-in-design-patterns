@@ -143,8 +143,8 @@ include::{source_dir}/singleton/ConcurrentTest.java[]
 
 === 枚举
 
-.{java_lang_spec}
-[quote,"James Gosling, Bill Joy, Guy Steele, Gilad Bracha, Alex Buckley", "{java_lang_spec} -- 8.9. Enum Types"]
+.{bk_java_lang_spec}
+[quote,"James Gosling, Bill Joy, Guy Steele, Gilad Bracha, Alex Buckley", "{bk_java_lang_spec} -- 8.9. Enum Types"]
 ____
 *An enum type has no instances other than those defined by its enum constants. It is a compile-time error to attempt to explicitly instantiate an enum type (§15.9.1).*
 
