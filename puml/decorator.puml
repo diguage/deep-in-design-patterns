@@ -22,12 +22,11 @@ Decorator .. dn
 
 class ConcreteDecoratorA {
   + operation() :void
-  + addBehavior() :void
 }
 
 class ConcreteDecoratorB {
   + operation() :void
-  + addBehavior() :void
+  - addBehavior() :void
 }
 note "ConcreteDecorator 就是具体的装饰对象，\n起到给 Component 添加职责的功能。" as cdn
 'cdn .. ConcreteDecoratorA
