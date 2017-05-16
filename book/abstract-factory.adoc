@@ -34,3 +34,83 @@ IFactory是一个抽象工厂接口，它里面应该包含所有的产品创建
 一个程序员如果从来没有熬夜写程序的经历，不能算是一个好程序员，因为他没有痴迷过，所以他不会有大成就。
 
 无痴迷，不成功。
+
+[source,{java_source_attr}]
+.AbstractFactory 类
+----
+include::{source_dir}/abstract-factory/AbstractFactory.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.AbstractProductA 类
+----
+include::{source_dir}/abstract-factory/AbstractProductA.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.AbstractProductB 类
+----
+include::{source_dir}/abstract-factory/AbstractProductB.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Client 类
+----
+include::{source_dir}/abstract-factory/Client.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteFactory1 类
+----
+include::{source_dir}/abstract-factory/ConcreteFactory1.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteFactory2 类
+----
+include::{source_dir}/abstract-factory/ConcreteFactory2.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ProductA1 类
+----
+include::{source_dir}/abstract-factory/ProductA1.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ProductA2 类
+----
+include::{source_dir}/abstract-factory/ProductA2.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ProductB1 类
+----
+include::{source_dir}/abstract-factory/ProductB1.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ProductB2 类
+----
+include::{source_dir}/abstract-factory/ProductB2.java[]
+----
+
+

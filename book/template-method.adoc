@@ -16,3 +16,19 @@ ConcreteClass，实现父类所定义的一个或多个抽象方法。每一个A
 因为有时候，我们会遇到由一系列步骤构成的过程需要执行。这个过程从高层次上看是相同的，但有些步骤的实现可能不同。这时候，我们通常就应该要考虑用模板方法模式了。
 
 当不变的和可变的行为在方法的子类实现中混合在一起的时候，不变的行为就会在子类中重复出现。我们通过模板方法模式把这些行为搬移到单一的地方，这样就帮助子类摆脱重复的不变行为的纠缠。
+
+[source,{java_source_attr}]
+.AbstractClass 类
+----
+include::{source_dir}/template-method/AbstractClass.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteClass 类
+----
+include::{source_dir}/template-method/ConcreteClass.java[]
+----
+
+

@@ -35,3 +35,67 @@ ConcreteElementA和ConcreteElementB类，具体元素，实现Accept操作。
 ObjectStructure类，能枚举它的元素，可以提供一个高层的接口以允许访问者访问它的元素。
 
 访问者模式的能力和复杂性是把双刃剑，只有当你真正需要它的时候，才考虑使用它。
+
+[source,{java_source_attr}]
+.Client 类
+----
+include::{source_dir}/visitor/Client.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteElementA 类
+----
+include::{source_dir}/visitor/ConcreteElementA.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteElementB 类
+----
+include::{source_dir}/visitor/ConcreteElementB.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteVisitor1 类
+----
+include::{source_dir}/visitor/ConcreteVisitor1.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteVisitor2 类
+----
+include::{source_dir}/visitor/ConcreteVisitor2.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Element 类
+----
+include::{source_dir}/visitor/Element.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ObjectStructure 类
+----
+include::{source_dir}/visitor/ObjectStructure.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Vistor 类
+----
+include::{source_dir}/visitor/Vistor.java[]
+----
+
+

@@ -34,3 +34,43 @@ ConcreteMediator类具体中介者类
 中介者模式的优点来自集中控制，其缺点也是它，使用时是要考虑清楚哦。
 
 中介者模式一般应用于一组对象以定义良好但是复杂的方式进行通信的场合，比如刚才得到的窗体Form对象或Web页面aspx，以及想定制一个分布在多个类中的行为，而又不想生成太多的子类的场合。
+
+[source,{java_source_attr}]
+.Colleague 类
+----
+include::{source_dir}/mediator/Colleague.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteColleague1 类
+----
+include::{source_dir}/mediator/ConcreteColleague1.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteColleague2 类
+----
+include::{source_dir}/mediator/ConcreteColleague2.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteMediator 类
+----
+include::{source_dir}/mediator/ConcreteMediator.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Mediator 类
+----
+include::{source_dir}/mediator/Mediator.java[]
+----
+
+

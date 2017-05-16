@@ -26,3 +26,35 @@ Composite定义有枝节点行为，用来存储子部件，在Component接口�
 用户是不用关心到底是处理一个叶节点还是处理一个组合组件，也就用不着为定义组合而写一些选择判断语句了。
 
 组合模式让客户可以一致地使用组合结构和单个对象。
+
+[source,{java_source_attr}]
+.Client 类
+----
+include::{source_dir}/composite/Client.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Component 类
+----
+include::{source_dir}/composite/Component.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Composite 类
+----
+include::{source_dir}/composite/Composite.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Leaf 类
+----
+include::{source_dir}/composite/Leaf.java[]
+----
+
+

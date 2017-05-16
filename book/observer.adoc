@@ -43,3 +43,35 @@ ConcreteObserver类，具体观察者，实现抽象观察者角色所要求的�
 一旦为委托分配了方法，委托将与该方法具有完全相同的行为。而且，一个委托可以搭载多个方法，所有方法被依次唤起。更重要的是，它可以使得委托对象所搭载的方法并不需要属于同一个类。
 
 委托对象所搭载的所有方法必须具有相同的原形和形式，也就是拥有相同的参数列表和返回值类型。
+
+[source,{java_source_attr}]
+.ConcreteObserver 类
+----
+include::{source_dir}/observer/ConcreteObserver.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteSubject 类
+----
+include::{source_dir}/observer/ConcreteSubject.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Observer 类
+----
+include::{source_dir}/observer/Observer.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Subject 类
+----
+include::{source_dir}/observer/Subject.java[]
+----
+
+

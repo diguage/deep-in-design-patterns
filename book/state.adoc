@@ -23,3 +23,43 @@ Context类，维护一个ConcreteState子类的实例，这个实例定义当前
 这样做的目的就是为了消除庞大的条件分支语句，大的分支判断会使得它们难以修改和扩展，就像我们最早说的刻版印刷一样，任何改动和变化都是致命的。状态模式通过把各种状态转移逻辑分布到State的子类之间，来减少相互间的依赖，好比把整个版面改成了一个又一个的活字，此时就容易维护和扩展了。
 
 当一个对象的行为取决于它的状态，并且它必须在运行时刻根据状态改变它的行为时，就可以考虑使用状态模式了。
+
+[source,{java_source_attr}]
+.ConcreteStateA 类
+----
+include::{source_dir}/state/ConcreteStateA.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteStateB 类
+----
+include::{source_dir}/state/ConcreteStateB.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteStateC 类
+----
+include::{source_dir}/state/ConcreteStateC.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Context 类
+----
+include::{source_dir}/state/Context.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.State 类
+----
+include::{source_dir}/state/State.java[]
+----
+
+

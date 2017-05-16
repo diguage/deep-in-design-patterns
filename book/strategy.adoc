@@ -34,3 +34,51 @@ Context，用一个ConcreteStrategy来配置，维护一个对Strategy对象的�
 任何需求的变更都是需要成本的。
 
 高手和菜鸟的区别就是高手可以花同样的代价获得最大的收益或者说做同样的事花最小的代价。面对同样的需求，当然是改动越小越好。
+
+[source,{java_source_attr}]
+.Client 类
+----
+include::{source_dir}/strategy/Client.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteStrategyA 类
+----
+include::{source_dir}/strategy/ConcreteStrategyA.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteStrategyB 类
+----
+include::{source_dir}/strategy/ConcreteStrategyB.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteStrategyC 类
+----
+include::{source_dir}/strategy/ConcreteStrategyC.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Context 类
+----
+include::{source_dir}/strategy/Context.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Strategy 类
+----
+include::{source_dir}/strategy/Strategy.java[]
+----
+
+

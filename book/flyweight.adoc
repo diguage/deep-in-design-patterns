@@ -26,3 +26,43 @@ FlyweightFactory，是一个享元工厂，用来创建并管理Flyweight对象�
 在某些情况下，对象的数量可能会太多，从而导致了运行时的资源与性能损耗。那么我们如何去避免大量细粒度的对象，同时又不影响客户程序，是一个值得去思考的问题，享元模式，可以运用共享技术有效地支持大量细粒度的对象。
 
 使用享元模式需要维护一个记录了系统已有的所有享元的列表，而这本身需要耗费资源，另外享元模式使得系统更加复杂。为了使对象可以共享，需要将一些状态外部化，这使得程序的逻辑复杂化。因此，应当在有足够多的对象实例可供共享时才值得使用享元模式。
+
+[source,{java_source_attr}]
+.Client 类
+----
+include::{source_dir}/flyweight/Client.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteFlyWeight 类
+----
+include::{source_dir}/flyweight/ConcreteFlyWeight.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.FlyWeight 类
+----
+include::{source_dir}/flyweight/FlyWeight.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.FlyweightFactory 类
+----
+include::{source_dir}/flyweight/FlyweightFactory.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.UnsharedConcreteFlyWeight 类
+----
+include::{source_dir}/flyweight/UnsharedConcreteFlyWeight.java[]
+----
+
+

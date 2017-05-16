@@ -20,3 +20,35 @@ MemberwiseClone()方法是这样，如果字段是值类型的，则对该字段
 叫这种方式为‘深复制’，深复制把引用对象的变量指向复制过的新对象，而不是原有的被引用的对象。
 
 深复制要深入到多少层，需要事先就考虑好，而且要当心出现循环引用的问题，需要小心处理，这里比较复杂，可以慢慢研究。
+
+[source,{java_source_attr}]
+.Client 类
+----
+include::{source_dir}/prototype/Client.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcretePrototype1 类
+----
+include::{source_dir}/prototype/ConcretePrototype1.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcretePrototype2 类
+----
+include::{source_dir}/prototype/ConcretePrototype2.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Prototype 类
+----
+include::{source_dir}/prototype/Prototype.java[]
+----
+
+

@@ -14,3 +14,35 @@ plantuml::./puml/factory-method.puml[target={puml_target_dir}/factory-method,{pu
 它们都是集中封装了对象的创建，使得要更换对象时，不需要做大的改动就可实现，降低了客户程序与产品对象的耦合。工厂方法模式是简单工厂模式的进一步抽象和推广。由于使用了多态性，工厂方法模式保持了简单工厂模式的优点，而且克服了它的缺点。但缺点是由于每加一个产品，就需要加一个产品工厂的类，增加了额外的开发量。
 
 利用‘反射’可以解决避免分支判断的问题。
+
+[source,{java_source_attr}]
+.ConcreteFactory 类
+----
+include::{source_dir}/factory-method/ConcreteFactory.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.ConcreteProduct 类
+----
+include::{source_dir}/factory-method/ConcreteProduct.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Factory 类
+----
+include::{source_dir}/factory-method/Factory.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Product 类
+----
+include::{source_dir}/factory-method/Product.java[]
+----
+
+

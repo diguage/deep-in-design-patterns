@@ -28,3 +28,35 @@ Adapter（通过在内部包装一个Adaptee对象，把源接口转换成目标
 在双方都不太容易修改的时候再使用适配器模式适配，
 
 DataAdapter用作DataSet和数据源之间的适配器以便检索和保存数据。DataAdapter通过映射Fill（这更改了DataSet中的数据以便与数据源中的数据相匹配）和Update（这更改了数据源中的数据以便与DataSet中的数据相匹配）来提供这一适配器[MSDN]。
+
+[source,{java_source_attr}]
+.Adaptee 类
+----
+include::{source_dir}/adapter/Adaptee.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Adapter 类
+----
+include::{source_dir}/adapter/Adapter.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Client 类
+----
+include::{source_dir}/adapter/Client.java[]
+----
+
+
+
+[source,{java_source_attr}]
+.Target 类
+----
+include::{source_dir}/adapter/Target.java[]
+----
+
+
