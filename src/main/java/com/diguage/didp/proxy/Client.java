@@ -8,7 +8,7 @@ package com.diguage.didp.proxy;
  */
 public class Client {
   public static void main(String[] args) {
-    Proxy proxy = new Proxy(new RealSubject());
-    proxy.request();
+    Subject subject = new Proxy(new RealSubject());
+    subject.request();
   }
 }
