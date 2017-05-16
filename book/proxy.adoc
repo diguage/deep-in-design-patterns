@@ -1,11 +1,49 @@
 [[proxy]]
 == 代理模式
 
+=== 定义
+
+[quote,{bkn_dp}]
+____
+代理模式（Proxy）::
+为其他对象提供一种代理以控制这个对象的访问。
+____
+
+=== 类图
+
+plantuml::./puml/proxy.puml[target={puml_target_dir}/proxy,{puml_attr}]
+
 Subject类，定义了RealSubject和Proxy的共用接口，这样就在任何使用RealSubject的地方都可以使用Proxy。
+
+[source,{java_source_attr}]
+.Subject 类
+----
+include::{source_dir}/proxy/Subject.java[]
+----
 
 RealSubject类，定义Proxy所代表的真实实体。
 
+[source,{java_source_attr}]
+.RealSubject 类
+----
+include::{source_dir}/proxy/RealSubject.java[]
+----
+
 Proxy类，保存一个引用使得代理可以访问实体，并提供一个与Subject的接口相同的接口，这样代理就可以用来替代实体。
+
+[source,{java_source_attr}]
+.Proxy 类
+----
+include::{source_dir}/proxy/Proxy.java[]
+----
+
+[source,{java_source_attr}]
+.Client 类
+----
+include::{source_dir}/proxy/Client.java[]
+----
+
+=== 作用
 
 一般来说分为几种，第一，远程代理，也就是为一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的事实[DP]。
 
@@ -30,4 +68,4 @@ Proxy类，保存一个引用使得代理可以访问实体，并提供一个与
 * http://www.rfc-editor.org/rfc/rfc1738.txt[RFC1738: Uniform Resource Locators (URL)]
 ====
 
-plantuml::./puml/proxy.puml[target={puml_target_dir}/proxy,{puml_attr}]
+

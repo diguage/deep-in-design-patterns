@@ -39,9 +39,9 @@ D瓜哥根据以前学习设计模式的经验来看，单例模式的实现类�
 
 === 定义
 
-根据 GoF 的著名著作 http://book.douban.com/subject/1052241/[《设计模式》]，单例模式的定义如下：
+根据 GoF 的著名著作 {bk_dp}，单例模式的定义如下：
 
-[quote,Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides,《设计模式》]
+[quote,{bkn_dp}]
 ____
 单例模式（Singleton）::
 保证一个类仅有一个实例，并提供一个访问它的全局访问点。
