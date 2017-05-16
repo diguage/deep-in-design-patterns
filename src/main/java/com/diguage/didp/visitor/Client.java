@@ -1,7 +1,7 @@
 package com.diguage.didp.visitor;
 
 /**
- * 代理类
+ * Client 类
  *
  * @author D瓜哥，http://www.diguage.com/
  * @since 2017-05-16
