@@ -17,3 +17,4 @@ public class ConcreteDecoratorA extends Decorator {
     System.out.println("具体装饰对象 A 的操作");
   }
 }
+class  ConcreteDecoratorA

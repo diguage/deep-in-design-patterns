@@ -21,3 +21,4 @@ public class ConcreteDecoratorB extends Decorator {
     System.out.println("附加的装饰动作！");
   }
 }
+class  ConcreteDecoratorB

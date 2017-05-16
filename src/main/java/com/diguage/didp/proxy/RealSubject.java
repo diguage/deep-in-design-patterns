@@ -11,3 +11,4 @@ public class RealSubject extends Subject {
     System.out.println("真是请求！");
   }
 }
+class  RealSubject

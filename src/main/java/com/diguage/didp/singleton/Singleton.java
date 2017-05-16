@@ -7,3 +7,4 @@ package com.diguage.didp.singleton;
 public enum Singleton {
   INSTANCE
 }
+class  Singleton
