@@ -11,7 +11,8 @@ abstract class Iterator {
 }
 note top: 迭代抽象类，用于定义得到开始对象、\n得到下一个对象、判断是否到结尾、\n当前对象等抽象方法，统一接口。
 
-class ConcreteIterator
+class ConcreteIterator {
+}
 note bottom: 具体迭代器类，继承 Iterator，\n实现开始、下一个、是否结尾、\n当前对象等方法。
 
 abstract class Aggregate {
@@ -24,7 +25,8 @@ class ConcreteAggregate {
 }
 note bottom: 具体聚集类，继承 Aggregate。
 
-class Client
+class Client {
+}
 
 Client -left-> Aggregate
 Client -right-> Iterator

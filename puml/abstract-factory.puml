@@ -18,17 +18,23 @@ class ConcreteFactory2 {
   + createProductB() :AbstractProductB
 }
 
-abstract class AbstractProductA
+abstract class AbstractProductA {
+}
 
-class ProductA1
+class ProductA1 {
+}
 
-class ProductA2
+class ProductA2 {
+}
 
-abstract class AbstractProductB
+abstract class AbstractProductB {
+}
 
-class ProductB1
+class ProductB1 {
+}
 
-class ProductB2
+class ProductB2 {
+}
 
 note "具体的工厂，\n创建具有特别实现的产品对象。" as cfn
 'cfn .. ConcreteFactory1

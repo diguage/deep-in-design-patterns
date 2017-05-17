@@ -45,12 +45,14 @@ note "具体元素，实现 accept 操作。" as cen
 ConcreteElementA .. cen
 ConcreteElementB .. cen
 
-class ObjectStructure
+class ObjectStructure {
+}
 note "能枚举它的元素，可以提供一个高层\n的接口以允许访问者访问它的元素。" as osn
 osn --> ObjectStructure
 osn .[hidden]right.> Client
 
-class Client
+class Client {
+}
 
 
 Vistor <|-- ConcreteVisitor1

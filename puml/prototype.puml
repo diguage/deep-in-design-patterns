@@ -5,7 +5,7 @@ skinparam nodesep 75
 title <b>原型模式</b>
 
 class Client {
-  - prototype: Prototype
+  - prototype :Prototype
 }
 note top: 让原型克隆自身\n从而创建一个新的对象
 

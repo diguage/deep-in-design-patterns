@@ -4,13 +4,13 @@ skinparam nodesep 70
 title <b>策略模式</b>
 
 class Context {
-  - strategy: Strategy
+  - strategy :Strategy
   + contextInterface()
 }
 note top: Context 上下文，\n用一个 ConcreteStrategy 来配置，\n维护一个对 Strategy 对象的引用。
 
-interface Strategy {
-  + algorithmInterface()
+abstract class Strategy {
+  + {abstract} algorithmInterface()
 }
 note top: 策略类，\n定义所有支持的算法的公共接口。
 

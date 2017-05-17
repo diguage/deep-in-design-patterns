@@ -2,7 +2,8 @@
 
 title <b>职责链模式</b>
 
-class Client
+class Client {
+}
 
 abstract class Handler {
   + setSuccessor(successor :Handler) :void
