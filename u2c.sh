@@ -85,10 +85,11 @@ EOF
       | $sed "s/{\(static\)}/\1/g" \
       | $sed "s/(\(\w*\)\W*:\W*\(\w*\))/(\2 \1)/g" \
       | $sed "s/\W*\(\w*(.*)\)\W*:\W*\(\w*\)/ \2 \1/g" \
-      | $sed "s/\(public|private|public\W* abstract\)\W*\([a-z]\w*(\)/\1 void \2/g" \
+      | $sed "s/\(public\|public\W*abstract\)\W*\(\)/\1 void \2/g" \
       | $sed "s/\(abstract.*)\)\W*$/\1;/g" \
       | $sed "s/\()\)\W*$/\1 {\n  }/g" \
-      | $sed "s/\(private\)\W*\(\w*\)\W*:\W*\(\w*\)/\1 \3 \2;/g" >> $class_file_name;
+      | $sed "s/\(private\)\W*\(\w*\)\W*:\W*\(\w*\)/\1 \3 \2;/g" \
+      >> $class_file_name;
 
     # 结束类
     echo "}" >> $class_file_name;
