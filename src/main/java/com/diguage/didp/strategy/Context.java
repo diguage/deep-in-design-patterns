@@ -17,4 +17,3 @@ public class Context {
     strategy.algorithmInterface();
   }
 }
-class  Context

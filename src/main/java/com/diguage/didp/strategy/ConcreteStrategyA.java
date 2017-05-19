@@ -11,4 +11,3 @@ public class ConcreteStrategyA extends Strategy {
     System.out.println("算法A实现");
   }
 }
-class  ConcreteStrategyA

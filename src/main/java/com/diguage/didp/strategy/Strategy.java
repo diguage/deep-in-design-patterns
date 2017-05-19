@@ -7,4 +7,3 @@ package com.diguage.didp.strategy;
 public abstract class Strategy {
   public abstract void algorithmInterface();
 }
-class  Strategy
