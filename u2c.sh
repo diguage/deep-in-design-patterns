@@ -33,7 +33,8 @@ do
     class_name=`$sed -n "${start}, ${end}p" $uml | grep class | awk -Fclass '{print $2}' | awk '{print $1}'`;
     echo $class_name;
 
-    class_sign=`$sed -n "${start}, ${end}p" $uml | grep class | awk -F{ '{print $1}'`;
+    class_sign=`$sed -n "${start}, ${end}p" $uml | grep class | awk -F{ '{print $1}' | $sed 's/^\s*//g' | $sed 's/\s*$//g'`;
+    # echo "==${class_sign}=="
 
     now=`date "+%Y-%m-%d %H:%M:%S"`;
 
@@ -42,7 +43,8 @@ do
     mkdir -p $pkg_path
 
     # 创建类
-    class_file_name=$pkg_path/${class_name}.class
+    class_file_name=$pkg_path/${class_name}.java
+    rm $class_file_name
     touch $class_file_name
 
     echo -e "package ${java_base_pkg}.${pkg};\n" >> $class_file_name
@@ -74,7 +76,7 @@ EOF
     # 去掉 static 两边的大括号
     # 调整方法参数声明的语法 -- 这里只有一个参数
     # 调整方法返回值的语法
-    # 添加没有声明返回值的方法的语法 ??
+    # 添加没有声明返回值的方法的语法
     # 调整抽象方法添加分号结尾
     # 调整非抽象方法添加大括号
     # 调整属性声明的语法
@@ -83,15 +85,30 @@ EOF
       | $sed "s/-/private/g" \
       | $sed "s/{\(abstract\)}/\1/g" \
       | $sed "s/{\(static\)}/\1/g" \
-      | $sed "s/(\(\w*\)\W*:\W*\(\w*\))/(\2 \1)/g" \
-      | $sed "s/\W*\(\w*(.*)\)\W*:\W*\(\w*\)/ \2 \1/g" \
-      | $sed "s/\(public\|public\W*abstract\)\W*\(\)/\1 void \2/g" \
-      | $sed "s/\(abstract.*)\)\W*$/\1;/g" \
-      | $sed "s/\()\)\W*$/\1 {\n  }/g" \
-      | $sed "s/\(private\)\W*\(\w*\)\W*:\W*\(\w*\)/\1 \3 \2;/g" \
+      | $sed "s/(\(\w*\)\s*:\s*\(\w*\))/(\2 \1)/g" \
+      | $sed "s/\s*\(\w*(.*)\)\s*:\s*\(\w*\)/ \2 \1/g" \
+      | $sed "s/\(public\|public\s*abstract\)\s*\(\w+(\)/\1 void \2/g" \
+      | $sed "s/\(abstract.*)\)\s*$/\1;/g" \
+      | $sed "s/)[^;]*$/) {\n  }/g" \
+      | $sed "s/\(private\)\s*\(\w*\)\s*:\s*\(\w*\)/\1 \3 \2;/g" \
       >> $class_file_name;
 
     # 结束类
     echo "}" >> $class_file_name;
+
+    # 处理泛化和实现
+    relationship=`grep -E "<\|[-.]{2}\s*${class_name}" $uml | $sed "s/\(\w\+\) <|\(..\) \(.*\)/\2/g"`
+    super_class=`grep -E "<\|[-.]{2}\s*${class_name}" $uml | awk '{print $1}'`
+    if [[ -n $super_class ]]; then
+      if [ "$relationship" = ".." ]; then
+        relationship=implements
+      fi
+
+      if [ "$relationship" = "--" ]; then
+        relationship=extends
+      fi
+
+      $sed -i "s/$class_name {/$class_name ${relationship} ${super_class} {/g" $class_file_name
+    fi
   done
 done
