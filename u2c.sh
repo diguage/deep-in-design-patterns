@@ -14,7 +14,7 @@ for uml in `ls ${project_dir}/puml/*.puml`;
 do
   echo $uml;
 
-  pkg=`echo $uml | awk -F/ '{print $NF}' | awk -F. '{print $1}'`
+  pkg=`echo $uml | awk -F/ '{print $NF}' | awk -F. '{print $1}' | $sed 's/-//g'`
 
   ## 提取每个类开始和结束行号
   declare -a start_lines=(`awk '/class/{print NR}' $uml`)
