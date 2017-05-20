@@ -9,4 +9,3 @@ package com.diguage.didp.decorator;
 public abstract class Component {
   public abstract void operation();
 }
-class  Component

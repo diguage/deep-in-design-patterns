@@ -17,4 +17,3 @@ public class Decorator extends Component {
     this.component = component;
   }
 }
-class  Decorator

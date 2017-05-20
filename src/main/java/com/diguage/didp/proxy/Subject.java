@@ -9,4 +9,3 @@ package com.diguage.didp.proxy;
 public abstract class Subject {
   public abstract void request();
 }
-class  Subject

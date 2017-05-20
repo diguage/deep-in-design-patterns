@@ -15,4 +15,3 @@ public class Proxy extends Subject {
     realSubject.request();
   }
 }
-class  Proxy
