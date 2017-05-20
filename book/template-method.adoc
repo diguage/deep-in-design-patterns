@@ -20,7 +20,7 @@ ConcreteClass，实现父类所定义的一个或多个抽象方法。每一个A
 [source,{java_source_attr}]
 .AbstractClass 类
 ----
-include::{source_dir}/template-method/AbstractClass.java[]
+include::{source_dir}/templatemethod/AbstractClass.java[]
 ----
 
 
@@ -28,7 +28,7 @@ include::{source_dir}/template-method/AbstractClass.java[]
 [source,{java_source_attr}]
 .ConcreteClass 类
 ----
-include::{source_dir}/template-method/ConcreteClass.java[]
+include::{source_dir}/templatemethod/ConcreteClass.java[]
 ----
 
 

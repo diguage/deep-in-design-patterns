@@ -20,7 +20,7 @@ ConcreteHandler类，具体处理者类，处理它所负责的请求，可访�
 [source,{java_source_attr}]
 .Client 类
 ----
-include::{source_dir}/chain-of-responsibility/Client.java[]
+include::{source_dir}/chainofresponsibility/Client.java[]
 ----
 
 
@@ -28,7 +28,7 @@ include::{source_dir}/chain-of-responsibility/Client.java[]
 [source,{java_source_attr}]
 .ConcreteHandler1 类
 ----
-include::{source_dir}/chain-of-responsibility/ConcreteHandler1.java[]
+include::{source_dir}/chainofresponsibility/ConcreteHandler1.java[]
 ----
 
 
@@ -36,7 +36,7 @@ include::{source_dir}/chain-of-responsibility/ConcreteHandler1.java[]
 [source,{java_source_attr}]
 .ConcreteHandler2 类
 ----
-include::{source_dir}/chain-of-responsibility/ConcreteHandler2.java[]
+include::{source_dir}/chainofresponsibility/ConcreteHandler2.java[]
 ----
 
 
@@ -44,7 +44,7 @@ include::{source_dir}/chain-of-responsibility/ConcreteHandler2.java[]
 [source,{java_source_attr}]
 .Handler 类
 ----
-include::{source_dir}/chain-of-responsibility/Handler.java[]
+include::{source_dir}/chainofresponsibility/Handler.java[]
 ----
 
 

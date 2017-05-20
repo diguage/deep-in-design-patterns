@@ -38,7 +38,7 @@ IFactory是一个抽象工厂接口，它里面应该包含所有的产品创建
 [source,{java_source_attr}]
 .AbstractFactory 类
 ----
-include::{source_dir}/abstract-factory/AbstractFactory.java[]
+include::{source_dir}/abstractfactory/AbstractFactory.java[]
 ----
 
 
@@ -46,7 +46,7 @@ include::{source_dir}/abstract-factory/AbstractFactory.java[]
 [source,{java_source_attr}]
 .AbstractProductA 类
 ----
-include::{source_dir}/abstract-factory/AbstractProductA.java[]
+include::{source_dir}/abstractfactory/AbstractProductA.java[]
 ----
 
 
@@ -54,7 +54,7 @@ include::{source_dir}/abstract-factory/AbstractProductA.java[]
 [source,{java_source_attr}]
 .AbstractProductB 类
 ----
-include::{source_dir}/abstract-factory/AbstractProductB.java[]
+include::{source_dir}/abstractfactory/AbstractProductB.java[]
 ----
 
 
@@ -62,7 +62,7 @@ include::{source_dir}/abstract-factory/AbstractProductB.java[]
 [source,{java_source_attr}]
 .Client 类
 ----
-include::{source_dir}/abstract-factory/Client.java[]
+include::{source_dir}/abstractfactory/Client.java[]
 ----
 
 
@@ -70,7 +70,7 @@ include::{source_dir}/abstract-factory/Client.java[]
 [source,{java_source_attr}]
 .ConcreteFactory1 类
 ----
-include::{source_dir}/abstract-factory/ConcreteFactory1.java[]
+include::{source_dir}/abstractfactory/ConcreteFactory1.java[]
 ----
 
 
@@ -78,7 +78,7 @@ include::{source_dir}/abstract-factory/ConcreteFactory1.java[]
 [source,{java_source_attr}]
 .ConcreteFactory2 类
 ----
-include::{source_dir}/abstract-factory/ConcreteFactory2.java[]
+include::{source_dir}/abstractfactory/ConcreteFactory2.java[]
 ----
 
 
@@ -86,7 +86,7 @@ include::{source_dir}/abstract-factory/ConcreteFactory2.java[]
 [source,{java_source_attr}]
 .ProductA1 类
 ----
-include::{source_dir}/abstract-factory/ProductA1.java[]
+include::{source_dir}/abstractfactory/ProductA1.java[]
 ----
 
 
@@ -94,7 +94,7 @@ include::{source_dir}/abstract-factory/ProductA1.java[]
 [source,{java_source_attr}]
 .ProductA2 类
 ----
-include::{source_dir}/abstract-factory/ProductA2.java[]
+include::{source_dir}/abstractfactory/ProductA2.java[]
 ----
 
 
@@ -102,7 +102,7 @@ include::{source_dir}/abstract-factory/ProductA2.java[]
 [source,{java_source_attr}]
 .ProductB1 类
 ----
-include::{source_dir}/abstract-factory/ProductB1.java[]
+include::{source_dir}/abstractfactory/ProductB1.java[]
 ----
 
 
@@ -110,7 +110,7 @@ include::{source_dir}/abstract-factory/ProductB1.java[]
 [source,{java_source_attr}]
 .ProductB2 类
 ----
-include::{source_dir}/abstract-factory/ProductB2.java[]
+include::{source_dir}/abstractfactory/ProductB2.java[]
 ----
 
 
