@@ -69,3 +69,87 @@ include::{source_dir}/proxy/Client.java[]
 ====
 
 
+
+[source,{java_source_attr}]
+.proxy/DynamicProxyMain.java 类
+----
+include::{source_dir}/proxy/DynamicProxyMain.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/PerformanceInvocationHandler.java 类
+----
+include::{source_dir}/proxy/PerformanceInvocationHandler.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/ProxyMain.java 类
+----
+include::{source_dir}/proxy/ProxyMain.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/UserService.java 类
+----
+include::{source_dir}/proxy/UserService.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/UserServiceImpl.java 类
+----
+include::{source_dir}/proxy/UserServiceImpl.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/UserServiceProxy.java 类
+----
+include::{source_dir}/proxy/UserServiceProxy.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/agent/PreMainAddTimeStatAgent.java 类
+----
+include::{source_dir}/proxy/agent/PreMainAddTimeStatAgent.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/agent/RunAccountMain.java 类
+----
+include::{source_dir}/proxy/agent/RunAccountMain.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/asm/Account.java 类
+----
+include::{source_dir}/proxy/asm/Account.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/asm/RunTimeMainAfterGen.java 类
+----
+include::{source_dir}/proxy/asm/RunTimeMainAfterGen.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/asm/TimeStat.java 类
+----
+include::{source_dir}/proxy/asm/TimeStat.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/asm/TimeStatClassAdapter.java 类
+----
+include::{source_dir}/proxy/asm/TimeStatClassAdapter.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/asm/TimeStatMethodAdapter.java 类
+----
+include::{source_dir}/proxy/asm/TimeStatMethodAdapter.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/asm/TimeStatWeaveGenerator.java 类
+----
+include::{source_dir}/proxy/asm/TimeStatWeaveGenerator.java[]
+----
