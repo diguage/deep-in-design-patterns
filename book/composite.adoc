@@ -28,7 +28,8 @@ Composite定义有枝节点行为，用来存储子部件，在Component接口�
 组合模式让客户可以一致地使用组合结构和单个对象。
 
 [source,{java_source_attr}]
-.Client 类
+.composite/Client.java 类
+[[src-composite-client]]
 ----
 include::{source_dir}/composite/Client.java[]
 ----
@@ -36,7 +37,8 @@ include::{source_dir}/composite/Client.java[]
 
 
 [source,{java_source_attr}]
-.Component 类
+.composite/Component.java 类
+[[src-composite-component]]
 ----
 include::{source_dir}/composite/Component.java[]
 ----
@@ -44,7 +46,8 @@ include::{source_dir}/composite/Component.java[]
 
 
 [source,{java_source_attr}]
-.Composite 类
+.composite/Composite.java 类
+[[src-composite-composite]]
 ----
 include::{source_dir}/composite/Composite.java[]
 ----
@@ -52,7 +55,8 @@ include::{source_dir}/composite/Composite.java[]
 
 
 [source,{java_source_attr}]
-.Leaf 类
+.composite/Leaf.java 类
+[[src-composite-leaf]]
 ----
 include::{source_dir}/composite/Leaf.java[]
 ----

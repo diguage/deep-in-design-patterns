@@ -29,7 +29,8 @@ ConcreteAggregate具体聚集类继承Aggregate
 尽管我们不需要显式的引用迭代器，但系统本身还是通过迭代器来实现遍历的。总地来说，迭代器（Iterator）模式就是分离了集合对象的遍历行为，抽象出一个迭代器类来负责，这样既可以做到不暴露集合的内部结构，又可让外部代码透明地访问集合内部的数据。
 
 [source,{java_source_attr}]
-.Aggregate 类
+.iterator/Aggregate.java 类
+[[src-iterator-aggregate]]
 ----
 include::{source_dir}/iterator/Aggregate.java[]
 ----
@@ -37,7 +38,8 @@ include::{source_dir}/iterator/Aggregate.java[]
 
 
 [source,{java_source_attr}]
-.Client 类
+.iterator/Client.java 类
+[[src-iterator-client]]
 ----
 include::{source_dir}/iterator/Client.java[]
 ----
@@ -45,7 +47,8 @@ include::{source_dir}/iterator/Client.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteAggregate 类
+.iterator/ConcreteAggregate.java 类
+[[src-iterator-concreteaggregate]]
 ----
 include::{source_dir}/iterator/ConcreteAggregate.java[]
 ----
@@ -53,7 +56,8 @@ include::{source_dir}/iterator/ConcreteAggregate.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteIterator 类
+.iterator/ConcreteIterator.java 类
+[[src-iterator-concreteiterator]]
 ----
 include::{source_dir}/iterator/ConcreteIterator.java[]
 ----
@@ -61,7 +65,8 @@ include::{source_dir}/iterator/ConcreteIterator.java[]
 
 
 [source,{java_source_attr}]
-.Iterator 类
+.iterator/Iterator.java 类
+[[src-iterator-iterator]]
 ----
 include::{source_dir}/iterator/Iterator.java[]
 ----

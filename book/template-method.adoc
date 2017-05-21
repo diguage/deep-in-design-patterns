@@ -18,7 +18,8 @@ ConcreteClass，实现父类所定义的一个或多个抽象方法。每一个A
 当不变的和可变的行为在方法的子类实现中混合在一起的时候，不变的行为就会在子类中重复出现。我们通过模板方法模式把这些行为搬移到单一的地方，这样就帮助子类摆脱重复的不变行为的纠缠。
 
 [source,{java_source_attr}]
-.AbstractClass 类
+.templatemethod/AbstractClass.java 类
+[[src-templatemethod-abstractclass]]
 ----
 include::{source_dir}/templatemethod/AbstractClass.java[]
 ----
@@ -26,7 +27,8 @@ include::{source_dir}/templatemethod/AbstractClass.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteClass 类
+.templatemethod/ConcreteClass.java 类
+[[src-templatemethod-concreteclass]]
 ----
 include::{source_dir}/templatemethod/ConcreteClass.java[]
 ----

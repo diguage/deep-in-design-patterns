@@ -24,7 +24,8 @@ Memento模式比较适用于功能比较复杂的，但需要维护或记录属�
 整体与部分可以被一致对待的问题。
 
 [source,{java_source_attr}]
-.Caretaker 类
+.memento/Caretaker.java 类
+[[src-memento-caretaker]]
 ----
 include::{source_dir}/memento/Caretaker.java[]
 ----
@@ -32,7 +33,8 @@ include::{source_dir}/memento/Caretaker.java[]
 
 
 [source,{java_source_attr}]
-.Memento 类
+.memento/Memento.java 类
+[[src-memento-memento]]
 ----
 include::{source_dir}/memento/Memento.java[]
 ----
@@ -40,7 +42,8 @@ include::{source_dir}/memento/Memento.java[]
 
 
 [source,{java_source_attr}]
-.Originator 类
+.memento/Originator.java 类
+[[src-memento-originator]]
 ----
 include::{source_dir}/memento/Originator.java[]
 ----

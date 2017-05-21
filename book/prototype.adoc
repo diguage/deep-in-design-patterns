@@ -22,7 +22,8 @@ MemberwiseClone()方法是这样，如果字段是值类型的，则对该字段
 深复制要深入到多少层，需要事先就考虑好，而且要当心出现循环引用的问题，需要小心处理，这里比较复杂，可以慢慢研究。
 
 [source,{java_source_attr}]
-.Client 类
+.prototype/Client.java 类
+[[src-prototype-client]]
 ----
 include::{source_dir}/prototype/Client.java[]
 ----
@@ -30,7 +31,8 @@ include::{source_dir}/prototype/Client.java[]
 
 
 [source,{java_source_attr}]
-.ConcretePrototype1 类
+.prototype/ConcretePrototype1.java 类
+[[src-prototype-concreteprototype1]]
 ----
 include::{source_dir}/prototype/ConcretePrototype1.java[]
 ----
@@ -38,7 +40,8 @@ include::{source_dir}/prototype/ConcretePrototype1.java[]
 
 
 [source,{java_source_attr}]
-.ConcretePrototype2 类
+.prototype/ConcretePrototype2.java 类
+[[src-prototype-concreteprototype2]]
 ----
 include::{source_dir}/prototype/ConcretePrototype2.java[]
 ----
@@ -46,7 +49,8 @@ include::{source_dir}/prototype/ConcretePrototype2.java[]
 
 
 [source,{java_source_attr}]
-.Prototype 类
+.prototype/Prototype.java 类
+[[src-prototype-prototype]]
 ----
 include::{source_dir}/prototype/Prototype.java[]
 ----

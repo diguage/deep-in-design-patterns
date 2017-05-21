@@ -14,7 +14,8 @@ plantuml::./puml/facade.puml[target={puml_target_dir}/facade,{puml_attr}]
 依赖倒转原则？抽象不应该依赖细节，细节应该依赖于抽象，由于我们要吃的菜都依赖于厨师这样的细节，所以我们就很被动。
 
 [source,{java_source_attr}]
-.Client 类
+.facade/Client.java 类
+[[src-facade-client]]
 ----
 include::{source_dir}/facade/Client.java[]
 ----
@@ -22,7 +23,8 @@ include::{source_dir}/facade/Client.java[]
 
 
 [source,{java_source_attr}]
-.Facade 类
+.facade/Facade.java 类
+[[src-facade-facade]]
 ----
 include::{source_dir}/facade/Facade.java[]
 ----
@@ -30,7 +32,8 @@ include::{source_dir}/facade/Facade.java[]
 
 
 [source,{java_source_attr}]
-.SubSystemFour 类
+.facade/SubSystemFour.java 类
+[[src-facade-subsystemfour]]
 ----
 include::{source_dir}/facade/SubSystemFour.java[]
 ----
@@ -38,7 +41,8 @@ include::{source_dir}/facade/SubSystemFour.java[]
 
 
 [source,{java_source_attr}]
-.SubSystemOne 类
+.facade/SubSystemOne.java 类
+[[src-facade-subsystemone]]
 ----
 include::{source_dir}/facade/SubSystemOne.java[]
 ----
@@ -46,7 +50,8 @@ include::{source_dir}/facade/SubSystemOne.java[]
 
 
 [source,{java_source_attr}]
-.SubSystemThree 类
+.facade/SubSystemThree.java 类
+[[src-facade-subsystemthree]]
 ----
 include::{source_dir}/facade/SubSystemThree.java[]
 ----
@@ -54,7 +59,8 @@ include::{source_dir}/facade/SubSystemThree.java[]
 
 
 [source,{java_source_attr}]
-.SubSystemTwo 类
+.facade/SubSystemTwo.java 类
+[[src-facade-subsystemtwo]]
 ----
 include::{source_dir}/facade/SubSystemTwo.java[]
 ----

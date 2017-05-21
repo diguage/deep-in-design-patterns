@@ -18,7 +18,8 @@ ConcreteHandler类，具体处理者类，处理它所负责的请求，可访�
 一个请求极有可能到了链的末端都得不到处理，或者因为没有正确配置而得不到处理，这就很糟糕了。需要事先考虑全面。
 
 [source,{java_source_attr}]
-.Client 类
+.chainofresponsibility/Client.java 类
+[[src-chainofresponsibility-client]]
 ----
 include::{source_dir}/chainofresponsibility/Client.java[]
 ----
@@ -26,7 +27,8 @@ include::{source_dir}/chainofresponsibility/Client.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteHandler1 类
+.chainofresponsibility/ConcreteHandler1.java 类
+[[src-chainofresponsibility-concretehandler1]]
 ----
 include::{source_dir}/chainofresponsibility/ConcreteHandler1.java[]
 ----
@@ -34,7 +36,8 @@ include::{source_dir}/chainofresponsibility/ConcreteHandler1.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteHandler2 类
+.chainofresponsibility/ConcreteHandler2.java 类
+[[src-chainofresponsibility-concretehandler2]]
 ----
 include::{source_dir}/chainofresponsibility/ConcreteHandler2.java[]
 ----
@@ -42,7 +45,8 @@ include::{source_dir}/chainofresponsibility/ConcreteHandler2.java[]
 
 
 [source,{java_source_attr}]
-.Handler 类
+.chainofresponsibility/Handler.java 类
+[[src-chainofresponsibility-handler]]
 ----
 include::{source_dir}/chainofresponsibility/Handler.java[]
 ----

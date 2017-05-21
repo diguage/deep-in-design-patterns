@@ -36,7 +36,8 @@ Context，用一个ConcreteStrategy来配置，维护一个对Strategy对象的�
 高手和菜鸟的区别就是高手可以花同样的代价获得最大的收益或者说做同样的事花最小的代价。面对同样的需求，当然是改动越小越好。
 
 [source,{java_source_attr}]
-.Client 类
+.strategy/Client.java 类
+[[src-strategy-client]]
 ----
 include::{source_dir}/strategy/Client.java[]
 ----
@@ -44,7 +45,8 @@ include::{source_dir}/strategy/Client.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteStrategyA 类
+.strategy/ConcreteStrategyA.java 类
+[[src-strategy-concretestrategya]]
 ----
 include::{source_dir}/strategy/ConcreteStrategyA.java[]
 ----
@@ -52,7 +54,8 @@ include::{source_dir}/strategy/ConcreteStrategyA.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteStrategyB 类
+.strategy/ConcreteStrategyB.java 类
+[[src-strategy-concretestrategyb]]
 ----
 include::{source_dir}/strategy/ConcreteStrategyB.java[]
 ----
@@ -60,7 +63,8 @@ include::{source_dir}/strategy/ConcreteStrategyB.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteStrategyC 类
+.strategy/ConcreteStrategyC.java 类
+[[src-strategy-concretestrategyc]]
 ----
 include::{source_dir}/strategy/ConcreteStrategyC.java[]
 ----
@@ -68,7 +72,8 @@ include::{source_dir}/strategy/ConcreteStrategyC.java[]
 
 
 [source,{java_source_attr}]
-.Context 类
+.strategy/Context.java 类
+[[src-strategy-context]]
 ----
 include::{source_dir}/strategy/Context.java[]
 ----
@@ -76,7 +81,8 @@ include::{source_dir}/strategy/Context.java[]
 
 
 [source,{java_source_attr}]
-.Strategy 类
+.strategy/Strategy.java 类
+[[src-strategy-strategy]]
 ----
 include::{source_dir}/strategy/Strategy.java[]
 ----

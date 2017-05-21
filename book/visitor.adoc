@@ -37,7 +37,8 @@ ObjectStructure类，能枚举它的元素，可以提供一个高层的接口�
 访问者模式的能力和复杂性是把双刃剑，只有当你真正需要它的时候，才考虑使用它。
 
 [source,{java_source_attr}]
-.Client 类
+.visitor/Client.java 类
+[[src-visitor-client]]
 ----
 include::{source_dir}/visitor/Client.java[]
 ----
@@ -45,7 +46,8 @@ include::{source_dir}/visitor/Client.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteElementA 类
+.visitor/ConcreteElementA.java 类
+[[src-visitor-concreteelementa]]
 ----
 include::{source_dir}/visitor/ConcreteElementA.java[]
 ----
@@ -53,7 +55,8 @@ include::{source_dir}/visitor/ConcreteElementA.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteElementB 类
+.visitor/ConcreteElementB.java 类
+[[src-visitor-concreteelementb]]
 ----
 include::{source_dir}/visitor/ConcreteElementB.java[]
 ----
@@ -61,7 +64,8 @@ include::{source_dir}/visitor/ConcreteElementB.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteVisitor1 类
+.visitor/ConcreteVisitor1.java 类
+[[src-visitor-concretevisitor1]]
 ----
 include::{source_dir}/visitor/ConcreteVisitor1.java[]
 ----
@@ -69,7 +73,8 @@ include::{source_dir}/visitor/ConcreteVisitor1.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteVisitor2 类
+.visitor/ConcreteVisitor2.java 类
+[[src-visitor-concretevisitor2]]
 ----
 include::{source_dir}/visitor/ConcreteVisitor2.java[]
 ----
@@ -77,7 +82,8 @@ include::{source_dir}/visitor/ConcreteVisitor2.java[]
 
 
 [source,{java_source_attr}]
-.Element 类
+.visitor/Element.java 类
+[[src-visitor-element]]
 ----
 include::{source_dir}/visitor/Element.java[]
 ----
@@ -85,7 +91,8 @@ include::{source_dir}/visitor/Element.java[]
 
 
 [source,{java_source_attr}]
-.ObjectStructure 类
+.visitor/ObjectStructure.java 类
+[[src-visitor-objectstructure]]
 ----
 include::{source_dir}/visitor/ObjectStructure.java[]
 ----
@@ -93,7 +100,8 @@ include::{source_dir}/visitor/ObjectStructure.java[]
 
 
 [source,{java_source_attr}]
-.Vistor 类
+.visitor/Vistor.java 类
+[[src-visitor-vistor]]
 ----
 include::{source_dir}/visitor/Vistor.java[]
 ----

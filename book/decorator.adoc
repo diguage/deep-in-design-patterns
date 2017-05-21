@@ -28,7 +28,8 @@ Component是定义一个对象接口，可以给这些对象动态地添加职�
 最理想的情况，是保证装饰类之间彼此独立，这样它们就可以以任意的顺序进行组合了。
 
 [source,{java_source_attr}]
-.Client 类
+.decorator/Client.java 类
+[[src-decorator-client]]
 ----
 include::{source_dir}/decorator/Client.java[]
 ----
@@ -36,7 +37,8 @@ include::{source_dir}/decorator/Client.java[]
 
 
 [source,{java_source_attr}]
-.Component 类
+.decorator/Component.java 类
+[[src-decorator-component]]
 ----
 include::{source_dir}/decorator/Component.java[]
 ----
@@ -44,7 +46,8 @@ include::{source_dir}/decorator/Component.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteComponent 类
+.decorator/ConcreteComponent.java 类
+[[src-decorator-concretecomponent]]
 ----
 include::{source_dir}/decorator/ConcreteComponent.java[]
 ----
@@ -52,7 +55,8 @@ include::{source_dir}/decorator/ConcreteComponent.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteDecoratorA 类
+.decorator/ConcreteDecoratorA.java 类
+[[src-decorator-concretedecoratora]]
 ----
 include::{source_dir}/decorator/ConcreteDecoratorA.java[]
 ----
@@ -60,7 +64,8 @@ include::{source_dir}/decorator/ConcreteDecoratorA.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteDecoratorB 类
+.decorator/ConcreteDecoratorB.java 类
+[[src-decorator-concretedecoratorb]]
 ----
 include::{source_dir}/decorator/ConcreteDecoratorB.java[]
 ----
@@ -68,7 +73,8 @@ include::{source_dir}/decorator/ConcreteDecoratorB.java[]
 
 
 [source,{java_source_attr}]
-.Decorator 类
+.decorator/Decorator.java 类
+[[src-decorator-decorator]]
 ----
 include::{source_dir}/decorator/Decorator.java[]
 ----

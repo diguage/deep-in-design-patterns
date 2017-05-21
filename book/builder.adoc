@@ -18,7 +18,8 @@ plantuml::./puml/builder.puml[target={puml_target_dir}/builder,{puml_attr}]
 建造者模式是在当创建复杂对象的算法应该独立于该对象的组成部分以及它们的装配方式时适用的模式。
 
 [source,{java_source_attr}]
-.Builder 类
+.builder/Builder.java 类
+[[src-builder-builder]]
 ----
 include::{source_dir}/builder/Builder.java[]
 ----
@@ -26,7 +27,8 @@ include::{source_dir}/builder/Builder.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteBuilder 类
+.builder/ConcreteBuilder.java 类
+[[src-builder-concretebuilder]]
 ----
 include::{source_dir}/builder/ConcreteBuilder.java[]
 ----
@@ -34,7 +36,8 @@ include::{source_dir}/builder/ConcreteBuilder.java[]
 
 
 [source,{java_source_attr}]
-.Director 类
+.builder/Director.java 类
+[[src-builder-director]]
 ----
 include::{source_dir}/builder/Director.java[]
 ----
@@ -42,7 +45,8 @@ include::{source_dir}/builder/Director.java[]
 
 
 [source,{java_source_attr}]
-.Product 类
+.builder/Product.java 类
+[[src-builder-product]]
 ----
 include::{source_dir}/builder/Product.java[]
 ----

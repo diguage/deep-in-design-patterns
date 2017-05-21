@@ -25,7 +25,8 @@ Context类，维护一个ConcreteState子类的实例，这个实例定义当前
 当一个对象的行为取决于它的状态，并且它必须在运行时刻根据状态改变它的行为时，就可以考虑使用状态模式了。
 
 [source,{java_source_attr}]
-.ConcreteStateA 类
+.state/ConcreteStateA.java 类
+[[src-state-concretestatea]]
 ----
 include::{source_dir}/state/ConcreteStateA.java[]
 ----
@@ -33,7 +34,8 @@ include::{source_dir}/state/ConcreteStateA.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteStateB 类
+.state/ConcreteStateB.java 类
+[[src-state-concretestateb]]
 ----
 include::{source_dir}/state/ConcreteStateB.java[]
 ----
@@ -41,7 +43,8 @@ include::{source_dir}/state/ConcreteStateB.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteStateC 类
+.state/ConcreteStateC.java 类
+[[src-state-concretestatec]]
 ----
 include::{source_dir}/state/ConcreteStateC.java[]
 ----
@@ -49,7 +52,8 @@ include::{source_dir}/state/ConcreteStateC.java[]
 
 
 [source,{java_source_attr}]
-.Context 类
+.state/Context.java 类
+[[src-state-context]]
 ----
 include::{source_dir}/state/Context.java[]
 ----
@@ -57,7 +61,8 @@ include::{source_dir}/state/Context.java[]
 
 
 [source,{java_source_attr}]
-.State 类
+.state/State.java 类
+[[src-state-state]]
 ----
 include::{source_dir}/state/State.java[]
 ----

@@ -22,7 +22,8 @@ RefinedAbstraction类
 只要真正深入地理解了设计原则，很多设计模式其实就是原则的应用而已，或许在不知不觉中就在使用设计模式了。
 
 [source,{java_source_attr}]
-.Abstraction 类
+.bridge/Abstraction.java 类
+[[src-bridge-abstraction]]
 ----
 include::{source_dir}/bridge/Abstraction.java[]
 ----
@@ -30,7 +31,8 @@ include::{source_dir}/bridge/Abstraction.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteImplementorA 类
+.bridge/ConcreteImplementorA.java 类
+[[src-bridge-concreteimplementora]]
 ----
 include::{source_dir}/bridge/ConcreteImplementorA.java[]
 ----
@@ -38,7 +40,8 @@ include::{source_dir}/bridge/ConcreteImplementorA.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteImplementorB 类
+.bridge/ConcreteImplementorB.java 类
+[[src-bridge-concreteimplementorb]]
 ----
 include::{source_dir}/bridge/ConcreteImplementorB.java[]
 ----
@@ -46,7 +49,8 @@ include::{source_dir}/bridge/ConcreteImplementorB.java[]
 
 
 [source,{java_source_attr}]
-.Implementor 类
+.bridge/Implementor.java 类
+[[src-bridge-implementor]]
 ----
 include::{source_dir}/bridge/Implementor.java[]
 ----
@@ -54,7 +58,8 @@ include::{source_dir}/bridge/Implementor.java[]
 
 
 [source,{java_source_attr}]
-.RefinedAbstraction 类
+.bridge/RefinedAbstraction.java 类
+[[src-bridge-refinedabstraction]]
 ----
 include::{source_dir}/bridge/RefinedAbstraction.java[]
 ----

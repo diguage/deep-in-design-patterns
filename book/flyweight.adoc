@@ -28,7 +28,8 @@ FlyweightFactory，是一个享元工厂，用来创建并管理Flyweight对象�
 使用享元模式需要维护一个记录了系统已有的所有享元的列表，而这本身需要耗费资源，另外享元模式使得系统更加复杂。为了使对象可以共享，需要将一些状态外部化，这使得程序的逻辑复杂化。因此，应当在有足够多的对象实例可供共享时才值得使用享元模式。
 
 [source,{java_source_attr}]
-.Client 类
+.flyweight/Client.java 类
+[[src-flyweight-client]]
 ----
 include::{source_dir}/flyweight/Client.java[]
 ----
@@ -36,7 +37,8 @@ include::{source_dir}/flyweight/Client.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteFlyWeight 类
+.flyweight/ConcreteFlyWeight.java 类
+[[src-flyweight-concreteflyweight]]
 ----
 include::{source_dir}/flyweight/ConcreteFlyWeight.java[]
 ----
@@ -44,7 +46,8 @@ include::{source_dir}/flyweight/ConcreteFlyWeight.java[]
 
 
 [source,{java_source_attr}]
-.FlyWeight 类
+.flyweight/FlyWeight.java 类
+[[src-flyweight-flyweight]]
 ----
 include::{source_dir}/flyweight/FlyWeight.java[]
 ----
@@ -52,7 +55,8 @@ include::{source_dir}/flyweight/FlyWeight.java[]
 
 
 [source,{java_source_attr}]
-.FlyweightFactory 类
+.flyweight/FlyweightFactory.java 类
+[[src-flyweight-flyweightfactory]]
 ----
 include::{source_dir}/flyweight/FlyweightFactory.java[]
 ----
@@ -60,7 +64,8 @@ include::{source_dir}/flyweight/FlyweightFactory.java[]
 
 
 [source,{java_source_attr}]
-.UnsharedConcreteFlyWeight 类
+.flyweight/UnsharedConcreteFlyWeight.java 类
+[[src-flyweight-unsharedconcreteflyweight]]
 ----
 include::{source_dir}/flyweight/UnsharedConcreteFlyWeight.java[]
 ----

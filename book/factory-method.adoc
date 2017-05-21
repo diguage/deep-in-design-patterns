@@ -16,7 +16,8 @@ plantuml::./puml/factory-method.puml[target={puml_target_dir}/factory-method,{pu
 利用‘反射’可以解决避免分支判断的问题。
 
 [source,{java_source_attr}]
-.ConcreteFactory 类
+.factorymethod/ConcreteFactory.java 类
+[[src-factorymethod-concretefactory]]
 ----
 include::{source_dir}/factorymethod/ConcreteFactory.java[]
 ----
@@ -24,7 +25,8 @@ include::{source_dir}/factorymethod/ConcreteFactory.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteProduct 类
+.factorymethod/ConcreteProduct.java 类
+[[src-factorymethod-concreteproduct]]
 ----
 include::{source_dir}/factorymethod/ConcreteProduct.java[]
 ----
@@ -32,7 +34,8 @@ include::{source_dir}/factorymethod/ConcreteProduct.java[]
 
 
 [source,{java_source_attr}]
-.Factory 类
+.factorymethod/Factory.java 类
+[[src-factorymethod-factory]]
 ----
 include::{source_dir}/factorymethod/Factory.java[]
 ----
@@ -40,7 +43,8 @@ include::{source_dir}/factorymethod/Factory.java[]
 
 
 [source,{java_source_attr}]
-.Product 类
+.factorymethod/Product.java 类
+[[src-factorymethod-product]]
 ----
 include::{source_dir}/factorymethod/Product.java[]
 ----

@@ -21,7 +21,8 @@ Context，包含解释器之外的一些全局信息。
 // TODO 笔记不全，重新导出再补充吧。
 
 [source,{java_source_attr}]
-.AbstractExpression 类
+.interpreter/AbstractExpression.java 类
+[[src-interpreter-abstractexpression]]
 ----
 include::{source_dir}/interpreter/AbstractExpression.java[]
 ----
@@ -29,7 +30,8 @@ include::{source_dir}/interpreter/AbstractExpression.java[]
 
 
 [source,{java_source_attr}]
-.Client 类
+.interpreter/Client.java 类
+[[src-interpreter-client]]
 ----
 include::{source_dir}/interpreter/Client.java[]
 ----
@@ -37,7 +39,8 @@ include::{source_dir}/interpreter/Client.java[]
 
 
 [source,{java_source_attr}]
-.Context 类
+.interpreter/Context.java 类
+[[src-interpreter-context]]
 ----
 include::{source_dir}/interpreter/Context.java[]
 ----
@@ -45,7 +48,8 @@ include::{source_dir}/interpreter/Context.java[]
 
 
 [source,{java_source_attr}]
-.NonterminalExpression 类
+.interpreter/NonterminalExpression.java 类
+[[src-interpreter-nonterminalexpression]]
 ----
 include::{source_dir}/interpreter/NonterminalExpression.java[]
 ----
@@ -53,7 +57,8 @@ include::{source_dir}/interpreter/NonterminalExpression.java[]
 
 
 [source,{java_source_attr}]
-.TerminalExpression 类
+.interpreter/TerminalExpression.java 类
+[[src-interpreter-terminalexpression]]
 ----
 include::{source_dir}/interpreter/TerminalExpression.java[]
 ----

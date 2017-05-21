@@ -16,7 +16,8 @@ plantuml::./puml/proxy.puml[target={puml_target_dir}/proxy,{puml_attr}]
 Subject类，定义了RealSubject和Proxy的共用接口，这样就在任何使用RealSubject的地方都可以使用Proxy。
 
 [source,{java_source_attr}]
-.Subject 类
+.proxy/Subject.java 类
+[[src-proxy-subject]]
 ----
 include::{source_dir}/proxy/Subject.java[]
 ----
@@ -24,7 +25,8 @@ include::{source_dir}/proxy/Subject.java[]
 RealSubject类，定义Proxy所代表的真实实体。
 
 [source,{java_source_attr}]
-.RealSubject 类
+.proxy/RealSubject.java 类
+[[src-proxy-realsubject]]
 ----
 include::{source_dir}/proxy/RealSubject.java[]
 ----
@@ -32,13 +34,15 @@ include::{source_dir}/proxy/RealSubject.java[]
 Proxy类，保存一个引用使得代理可以访问实体，并提供一个与Subject的接口相同的接口，这样代理就可以用来替代实体。
 
 [source,{java_source_attr}]
-.Proxy 类
+.proxy/Proxy.java 类
+[[src-proxy-proxy]]
 ----
 include::{source_dir}/proxy/Proxy.java[]
 ----
 
 [source,{java_source_attr}]
-.Client 类
+.proxy/Client.java 类
+[[src-proxy-client]]
 ----
 include::{source_dir}/proxy/Client.java[]
 ----
@@ -72,84 +76,98 @@ include::{source_dir}/proxy/Client.java[]
 
 [source,{java_source_attr}]
 .proxy/DynamicProxyMain.java 类
+[[src-proxy-dynamicproxymain]]
 ----
 include::{source_dir}/proxy/DynamicProxyMain.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/PerformanceInvocationHandler.java 类
+[[src-proxy-performanceinvocationhandler]]
 ----
 include::{source_dir}/proxy/PerformanceInvocationHandler.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/ProxyMain.java 类
+[[src-proxy-proxymain]]
 ----
 include::{source_dir}/proxy/ProxyMain.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/UserService.java 类
+[[src-proxy-userservice]]
 ----
 include::{source_dir}/proxy/UserService.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/UserServiceImpl.java 类
+[[src-proxy-userserviceimpl]]
 ----
 include::{source_dir}/proxy/UserServiceImpl.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/UserServiceProxy.java 类
+[[src-proxy-userserviceproxy]]
 ----
 include::{source_dir}/proxy/UserServiceProxy.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/agent/PreMainAddTimeStatAgent.java 类
+[[src-proxy-agent-premainaddtimestatagent]]
 ----
 include::{source_dir}/proxy/agent/PreMainAddTimeStatAgent.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/agent/RunAccountMain.java 类
+[[src-proxy-agent-runaccountmain]]
 ----
 include::{source_dir}/proxy/agent/RunAccountMain.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/asm/Account.java 类
+[[src-proxy-asm-account]]
 ----
 include::{source_dir}/proxy/asm/Account.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/asm/RunTimeMainAfterGen.java 类
+[[src-proxy-asm-runtimemainaftergen]]
 ----
 include::{source_dir}/proxy/asm/RunTimeMainAfterGen.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/asm/TimeStat.java 类
+[[src-proxy-asm-timestat]]
 ----
 include::{source_dir}/proxy/asm/TimeStat.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/asm/TimeStatClassAdapter.java 类
+[[src-proxy-asm-timestatclassadapter]]
 ----
 include::{source_dir}/proxy/asm/TimeStatClassAdapter.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/asm/TimeStatMethodAdapter.java 类
+[[src-proxy-asm-timestatmethodadapter]]
 ----
 include::{source_dir}/proxy/asm/TimeStatMethodAdapter.java[]
 ----
 
 [source,{java_source_attr}]
 .proxy/asm/TimeStatWeaveGenerator.java 类
+[[src-proxy-asm-timestatweavegenerator]]
 ----
 include::{source_dir}/proxy/asm/TimeStatWeaveGenerator.java[]
 ----

@@ -36,7 +36,8 @@ IFactory是一个抽象工厂接口，它里面应该包含所有的产品创建
 无痴迷，不成功。
 
 [source,{java_source_attr}]
-.AbstractFactory 类
+.abstractfactory/AbstractFactory.java 类
+[[src-abstractfactory-abstractfactory]]
 ----
 include::{source_dir}/abstractfactory/AbstractFactory.java[]
 ----
@@ -44,7 +45,8 @@ include::{source_dir}/abstractfactory/AbstractFactory.java[]
 
 
 [source,{java_source_attr}]
-.AbstractProductA 类
+.abstractfactory/AbstractProductA.java 类
+[[src-abstractfactory-abstractproducta]]
 ----
 include::{source_dir}/abstractfactory/AbstractProductA.java[]
 ----
@@ -52,7 +54,8 @@ include::{source_dir}/abstractfactory/AbstractProductA.java[]
 
 
 [source,{java_source_attr}]
-.AbstractProductB 类
+.abstractfactory/AbstractProductB.java 类
+[[src-abstractfactory-abstractproductb]]
 ----
 include::{source_dir}/abstractfactory/AbstractProductB.java[]
 ----
@@ -60,7 +63,8 @@ include::{source_dir}/abstractfactory/AbstractProductB.java[]
 
 
 [source,{java_source_attr}]
-.Client 类
+.abstractfactory/Client.java 类
+[[src-abstractfactory-client]]
 ----
 include::{source_dir}/abstractfactory/Client.java[]
 ----
@@ -68,7 +72,8 @@ include::{source_dir}/abstractfactory/Client.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteFactory1 类
+.abstractfactory/ConcreteFactory1.java 类
+[[src-abstractfactory-concretefactory1]]
 ----
 include::{source_dir}/abstractfactory/ConcreteFactory1.java[]
 ----
@@ -76,7 +81,8 @@ include::{source_dir}/abstractfactory/ConcreteFactory1.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteFactory2 类
+.abstractfactory/ConcreteFactory2.java 类
+[[src-abstractfactory-concretefactory2]]
 ----
 include::{source_dir}/abstractfactory/ConcreteFactory2.java[]
 ----
@@ -84,7 +90,8 @@ include::{source_dir}/abstractfactory/ConcreteFactory2.java[]
 
 
 [source,{java_source_attr}]
-.ProductA1 类
+.abstractfactory/ProductA1.java 类
+[[src-abstractfactory-producta1]]
 ----
 include::{source_dir}/abstractfactory/ProductA1.java[]
 ----
@@ -92,7 +99,8 @@ include::{source_dir}/abstractfactory/ProductA1.java[]
 
 
 [source,{java_source_attr}]
-.ProductA2 类
+.abstractfactory/ProductA2.java 类
+[[src-abstractfactory-producta2]]
 ----
 include::{source_dir}/abstractfactory/ProductA2.java[]
 ----
@@ -100,7 +108,8 @@ include::{source_dir}/abstractfactory/ProductA2.java[]
 
 
 [source,{java_source_attr}]
-.ProductB1 类
+.abstractfactory/ProductB1.java 类
+[[src-abstractfactory-productb1]]
 ----
 include::{source_dir}/abstractfactory/ProductB1.java[]
 ----
@@ -108,7 +117,8 @@ include::{source_dir}/abstractfactory/ProductB1.java[]
 
 
 [source,{java_source_attr}]
-.ProductB2 类
+.abstractfactory/ProductB2.java 类
+[[src-abstractfactory-productb2]]
 ----
 include::{source_dir}/abstractfactory/ProductB2.java[]
 ----

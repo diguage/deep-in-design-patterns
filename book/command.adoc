@@ -28,7 +28,8 @@ Receiver类，知道如何实施与执行一个与请求相关的操作，任何
 敏捷开发原则告诉我们，不要为代码添加基于猜测的、实际不需要的功能。如果不清楚一个系统是否需要命令模式，一般就不要着急去实现它，事实上，在需要的时候通过重构实现这个模式并不困难，只有在真正需要如撤销/恢复操作等功能时，把原来的代码重构为命令模式才有意义。[R2P]
 
 [source,{java_source_attr}]
-.Client 类
+.command/Client.java 类
+[[src-command-client]]
 ----
 include::{source_dir}/command/Client.java[]
 ----
@@ -36,7 +37,8 @@ include::{source_dir}/command/Client.java[]
 
 
 [source,{java_source_attr}]
-.Command 类
+.command/Command.java 类
+[[src-command-command]]
 ----
 include::{source_dir}/command/Command.java[]
 ----
@@ -44,7 +46,8 @@ include::{source_dir}/command/Command.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteCommand 类
+.command/ConcreteCommand.java 类
+[[src-command-concretecommand]]
 ----
 include::{source_dir}/command/ConcreteCommand.java[]
 ----
@@ -52,7 +55,8 @@ include::{source_dir}/command/ConcreteCommand.java[]
 
 
 [source,{java_source_attr}]
-.Invoker 类
+.command/Invoker.java 类
+[[src-command-invoker]]
 ----
 include::{source_dir}/command/Invoker.java[]
 ----
@@ -60,7 +64,8 @@ include::{source_dir}/command/Invoker.java[]
 
 
 [source,{java_source_attr}]
-.Receiver 类
+.command/Receiver.java 类
+[[src-command-receiver]]
 ----
 include::{source_dir}/command/Receiver.java[]
 ----

@@ -45,7 +45,8 @@ ConcreteObserver类，具体观察者，实现抽象观察者角色所要求的�
 委托对象所搭载的所有方法必须具有相同的原形和形式，也就是拥有相同的参数列表和返回值类型。
 
 [source,{java_source_attr}]
-.ConcreteObserver 类
+.observer/ConcreteObserver.java 类
+[[src-observer-concreteobserver]]
 ----
 include::{source_dir}/observer/ConcreteObserver.java[]
 ----
@@ -53,7 +54,8 @@ include::{source_dir}/observer/ConcreteObserver.java[]
 
 
 [source,{java_source_attr}]
-.ConcreteSubject 类
+.observer/ConcreteSubject.java 类
+[[src-observer-concretesubject]]
 ----
 include::{source_dir}/observer/ConcreteSubject.java[]
 ----
@@ -61,7 +63,8 @@ include::{source_dir}/observer/ConcreteSubject.java[]
 
 
 [source,{java_source_attr}]
-.Observer 类
+.observer/Observer.java 类
+[[src-observer-observer]]
 ----
 include::{source_dir}/observer/Observer.java[]
 ----
@@ -69,7 +72,8 @@ include::{source_dir}/observer/Observer.java[]
 
 
 [source,{java_source_attr}]
-.Subject 类
+.observer/Subject.java 类
+[[src-observer-subject]]
 ----
 include::{source_dir}/observer/Subject.java[]
 ----
