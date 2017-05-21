@@ -15,6 +15,9 @@ function recursiveAddSrcFileToAdoc {
   local bp=$3;
   if [[ -f $pp ]]; then
 
+    id=`echo ${bp} | awk -F. '{print $1}' | $sed "s#/#-#g" | awk '{print tolower($0)}'`
+    # echo "$a" | tr '[:upper:]' '[:lower:]' # 也可以这样大写转小写
+    sid="src-${id}"
     # 判断所需要添加的类是否已经包含在文件中，没有才执行添加操作
     if `grep -q ${bp} ${afn}; [ $? -eq 1 ]`; then
 # 是文件就加入到文件中
@@ -22,14 +25,23 @@ include_src=$(cat<<EOF
 
 [source,{java_source_attr}]
 .${bp} 类
+[[${sid}]]
 ----
 include::{source_dir}/${bp}[]
 ----
 
 EOF
 )
-        echo "${include_src}" >> ${afn}
-      fi
+      echo "${include_src}" >> ${afn};
+    fi
+
+    cn=`echo ${bp} | awk -F/ '{print $NF}' | awk -F. '{print $1}'`
+    $sed -i "s#^\.${cn} 类#\.${bp} 类#g" ${afn};
+
+    # 添加 ID
+    if `grep -q "\[\[${sid}\]\]" ${afn}; [ $? -eq 1 ]`; then
+      $sed -i "s#\(^\.${bp} 类\)#\1\n[[${sid}]]#g" ${afn};
+    fi
   elif [[ -d $pp ]]; then
     # 如果是目录，则递归扫描该目录
     for f in `ls $pp `;
