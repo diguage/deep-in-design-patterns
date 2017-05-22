@@ -6,5 +6,5 @@ package com.diguage.didp.abstractfactory;
  * @author D瓜哥，http://www.diguage.com/
  * @since 2017-05-19 17:53:33
  */
-public class ProductA1 {
+public class ProductA1 extends AbstractProductA {
 }
