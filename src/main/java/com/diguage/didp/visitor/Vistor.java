@@ -4,9 +4,9 @@ package com.diguage.didp.visitor;
  * Vistor 类
  *
  * @author D瓜哥，http://www.diguage.com/
- * @since 2017-05-19 17:53:36
+ * @since 2017-05-23 09:09:50
  */
 public abstract class Vistor {
-  public abstract visitConcreteElementA(ConcreteElementA element);
-  public abstract visitConcreteElementB(ConcreteElementB element);
+  public abstract void visitConcreteElementA(ConcreteElementA element);
+  public abstract void visitConcreteElementB(ConcreteElementB element);
 }

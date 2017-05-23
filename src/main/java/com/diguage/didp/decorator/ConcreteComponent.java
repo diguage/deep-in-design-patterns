@@ -1,11 +1,12 @@
 package com.diguage.didp.decorator;
 
 /**
- * @author diguage
- * @since 2017-05-16
+ * ConcreteComponent 类
+ *
+ * @author D瓜哥，http://www.diguage.com/
+ * @since 2017-05-23 09:09:48
  */
 public class ConcreteComponent extends Component {
   public void operation() {
-    System.out.println("具体对象的操作");
   }
 }

@@ -1,8 +1,10 @@
 package com.diguage.didp.strategy;
 
 /**
- * @author diguage
- * @since 2017-05-16
+ * Strategy 类
+ *
+ * @author D瓜哥，http://www.diguage.com/
+ * @since 2017-05-23 09:09:50
  */
 public abstract class Strategy {
   public abstract void algorithmInterface();

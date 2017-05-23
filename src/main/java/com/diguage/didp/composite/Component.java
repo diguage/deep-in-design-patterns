@@ -4,10 +4,10 @@ package com.diguage.didp.composite;
  * Component 类
  *
  * @author D瓜哥，http://www.diguage.com/
- * @since 2017-05-19 17:53:34
+ * @since 2017-05-23 09:09:48
  */
 public abstract class Component {
-  public abstract add(Component component);
-  public abstract remove(Component component);
-  public abstract display(int depth);
+  public abstract void add(Component component);
+  public abstract void remove(Component component);
+  public abstract void display(int depth);
 }

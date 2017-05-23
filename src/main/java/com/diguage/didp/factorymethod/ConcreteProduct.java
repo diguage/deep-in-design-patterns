@@ -4,7 +4,7 @@ package com.diguage.didp.factorymethod;
  * ConcreteProduct 类
  *
  * @author D瓜哥，http://www.diguage.com/
- * @since 2017-05-19 17:53:34
+ * @since 2017-05-23 09:09:48
  */
-public class ConcreteProduct {
+public class ConcreteProduct extends Product {
 }
