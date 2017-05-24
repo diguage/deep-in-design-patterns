@@ -7,6 +7,7 @@ package com.diguage.didp.facade;
  * @since 2017-05-19 17:53:34
  */
 public class SubSystemOne {
-  public Object methodOne() {
+  public void methodOne() {
+    System.out.println("子系统一的方法");
   }
 }

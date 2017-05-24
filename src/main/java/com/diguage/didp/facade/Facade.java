@@ -7,8 +7,27 @@ package com.diguage.didp.facade;
  * @since 2017-05-19 17:53:34
  */
 public class Facade {
-  public Object methodA() {
+  private SubSystemOne systemOne;
+  private SubSystemTwo systemTwo;
+  private SubSystemThree systemThree;
+  private SubSystemFour systemFour;
+
+  public Facade() {
+    systemOne = new SubSystemOne();
+    systemTwo = new SubSystemTwo();
+    systemThree = new SubSystemThree();
+    systemFour = new SubSystemFour();
   }
-  public Object methodB() {
+
+  public void methodA() {
+    System.out.println("方法A() ---");
+    systemOne.methodOne();
+    systemTwo.methodTwo();
+  }
+
+  public void methodB() {
+    System.out.println("方法B() ---");
+    systemFour.methodFour();
+    systemThree.methodThree();
   }
 }
