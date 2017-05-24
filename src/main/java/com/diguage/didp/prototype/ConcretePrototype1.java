@@ -8,5 +8,6 @@ package com.diguage.didp.prototype;
  */
 public class ConcretePrototype1 extends Prototype {
   public Prototype clone() {
+    return this;
   }
 }

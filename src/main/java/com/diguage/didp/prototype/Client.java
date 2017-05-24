@@ -7,5 +7,8 @@ package com.diguage.didp.prototype;
  * @since 2017-05-19 17:53:35
  */
 public class Client {
-  private Prototype prototype;
+  public static void main(String[] args) {
+    Prototype p1 = new ConcretePrototype1();
+    Prototype p2 = p1.clone();
+  }
 }

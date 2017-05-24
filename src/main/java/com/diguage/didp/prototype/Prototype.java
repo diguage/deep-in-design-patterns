@@ -6,7 +6,16 @@ package com.diguage.didp.prototype;
  * @author D瓜哥，http://www.diguage.com/
  * @since 2017-05-19 17:53:35
  */
-public class Prototype {
-  public Prototype clone() {
+public abstract class Prototype {
+  protected int id = 0;
+
+  public int getId() {
+    return id;
   }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public abstract Prototype clone();
 }
