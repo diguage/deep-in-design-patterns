@@ -25,12 +25,23 @@ include::{source_dir}/templatemethod/AbstractClass.java[]
 ----
 
 
+[source,{java_source_attr}]
+.templatemethod/Client.java 类
+[[src-templatemethod-client]]
+----
+include::{source_dir}/templatemethod/Client.java[]
+----
 
 [source,{java_source_attr}]
-.templatemethod/ConcreteClass.java 类
-[[src-templatemethod-concreteclass]]
+.templatemethod/ConcreteClassA.java 类
+[[src-templatemethod-concreteclassa]]
 ----
-include::{source_dir}/templatemethod/ConcreteClass.java[]
+include::{source_dir}/templatemethod/ConcreteClassA.java[]
 ----
 
-
+[source,{java_source_attr}]
+.templatemethod/ConcreteClassB.java 类
+[[src-templatemethod-concreteclassb]]
+----
+include::{source_dir}/templatemethod/ConcreteClassB.java[]
+----

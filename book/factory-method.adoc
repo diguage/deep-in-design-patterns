@@ -50,3 +50,10 @@ include::{source_dir}/factorymethod/Product.java[]
 ----
 
 
+
+[source,{java_source_attr}]
+.factorymethod/Client.java 类
+[[src-factorymethod-client]]
+----
+include::{source_dir}/factorymethod/Client.java[]
+----
