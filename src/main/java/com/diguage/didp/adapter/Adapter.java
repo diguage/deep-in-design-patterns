@@ -7,7 +7,9 @@ package com.diguage.didp.adapter;
  * @since 2017-05-19 17:53:33
  */
 public class Adapter extends Target {
-  private Adaptee adaptee;
+  private Adaptee adaptee = new Adaptee();
+
   public void request() {
+    adaptee.specificRequest();
   }
 }

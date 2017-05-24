@@ -7,5 +7,8 @@ package com.diguage.didp.adapter;
  * @since 2017-05-19 17:53:33
  */
 public class Client {
-  private Target target;
+  public static void main(String[] args) {
+    Target target = new Adapter();
+    target.request();
+  }
 }
