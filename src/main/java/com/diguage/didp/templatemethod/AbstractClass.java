@@ -7,8 +7,13 @@ package com.diguage.didp.templatemethod;
  * @since 2017-05-19 17:53:36
  */
 public abstract class AbstractClass {
-  public Object templateMethod() {
+  public final void templateMethod() {
+    primitiveOperation1();
+    System.out.println("这是模板方法！");
+    primitiveOperation2();
   }
-  public abstract Object primitiveOperation1();
-  public abstract Object primitiveOperation2();
+
+  public abstract void primitiveOperation1();
+
+  public abstract void primitiveOperation2();
 }
