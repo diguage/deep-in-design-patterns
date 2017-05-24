@@ -8,5 +8,13 @@ package com.diguage.didp.strategy;
  */
 public class Client {
   public static void main(String[] args) {
+    Context context = new Context(new ConcreteStrategyA());
+    context.contextInterface();
+
+    context.setStrategy(new ConcreteStrategyB());
+    context.contextInterface();
+
+    context.setStrategy(new ConcreteStrategyC());
+    context.contextInterface();
   }
 }

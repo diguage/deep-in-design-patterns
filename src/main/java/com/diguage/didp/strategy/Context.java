@@ -16,4 +16,8 @@ public class Context {
   public void contextInterface() {
     strategy.algorithmInterface();
   }
+
+  public void setStrategy(Strategy strategy) {
+    this.strategy = strategy;
+  }
 }
