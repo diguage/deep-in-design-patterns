@@ -7,4 +7,7 @@ package com.diguage.didp.factorymethod;
  * @since 2017-05-23 09:09:48
  */
 public class ConcreteFactory extends Factory {
+  public Product factoryMethod() {
+    return new ConcreteProduct();
+  }
 }
