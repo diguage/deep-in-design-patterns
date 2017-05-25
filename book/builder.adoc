@@ -52,3 +52,10 @@ include::{source_dir}/builder/Product.java[]
 ----
 
 
+
+[source,{java_source_attr}]
+.builder/Client.java 类
+[[src-builder-client]]
+----
+include::{source_dir}/builder/Client.java[]
+----

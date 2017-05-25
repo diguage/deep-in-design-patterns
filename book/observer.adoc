@@ -79,3 +79,10 @@ include::{source_dir}/observer/Subject.java[]
 ----
 
 
+
+[source,{java_source_attr}]
+.observer/Client.java 类
+[[src-observer-client]]
+----
+include::{source_dir}/observer/Client.java[]
+----
