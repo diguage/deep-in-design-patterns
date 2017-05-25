@@ -7,7 +7,8 @@ package com.diguage.didp.builder;
  * @since 2017-05-19 17:53:33
  */
 public class Director {
-  private Builder builder;
-  public Product construct() {
+  public void construct(Builder builder) {
+    builder.buildPartA();
+    builder.buildPartB();
   }
 }

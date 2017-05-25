@@ -7,5 +7,9 @@ package com.diguage.didp.builder;
  * @since 2017-05-19 17:53:33
  */
 public abstract class Builder {
-  public abstract Object buildPart();
+  public abstract void buildPartA();
+
+  public abstract void buildPartB();
+
+  public abstract Product getResult();
 }
