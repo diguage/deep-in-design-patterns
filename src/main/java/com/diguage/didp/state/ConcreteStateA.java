@@ -7,6 +7,8 @@ package com.diguage.didp.state;
  * @since 2017-05-19 17:53:36
  */
 public class ConcreteStateA extends State {
-  public Object handle() {
+  @Override
+  public void handle(Context context) {
+    context.setState(new ConcreteStateB());
   }
 }

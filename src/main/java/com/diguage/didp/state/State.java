@@ -7,5 +7,5 @@ package com.diguage.didp.state;
  * @since 2017-05-19 17:53:36
  */
 public abstract class State {
-  public abstract Object handle();
+  public abstract void handle(Context context);
 }
