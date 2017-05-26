@@ -7,4 +7,5 @@ package com.diguage.didp.mediator;
  * @since 2017-05-19 17:53:35
  */
 public abstract class Mediator {
+  public abstract void send(String message, Colleague colleague);
 }

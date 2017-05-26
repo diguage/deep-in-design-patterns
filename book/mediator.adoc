@@ -79,3 +79,10 @@ include::{source_dir}/mediator/Mediator.java[]
 ----
 
 
+
+[source,{java_source_attr}]
+.mediator/Client.java 类
+[[src-mediator-client]]
+----
+include::{source_dir}/mediator/Client.java[]
+----
