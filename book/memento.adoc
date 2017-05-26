@@ -49,3 +49,10 @@ include::{source_dir}/memento/Originator.java[]
 ----
 
 
+
+[source,{java_source_attr}]
+.memento/Client.java 类
+[[src-memento-client]]
+----
+include::{source_dir}/memento/Client.java[]
+----

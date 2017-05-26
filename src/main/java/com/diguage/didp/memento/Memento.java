@@ -7,5 +7,13 @@ package com.diguage.didp.memento;
  * @since 2017-05-19 17:53:35
  */
 public class Memento {
-  private Object state;
+  private String state;
+
+  public Memento(String state) {
+    this.state = state;
+  }
+
+  public String getState() {
+    return state;
+  }
 }
