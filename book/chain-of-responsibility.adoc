@@ -52,3 +52,10 @@ include::{source_dir}/chainofresponsibility/Handler.java[]
 ----
 
 
+
+[source,{java_source_attr}]
+.chainofresponsibility/ConcreteHandler3.java 类
+[[src-chainofresponsibility-concretehandler3]]
+----
+include::{source_dir}/chainofresponsibility/ConcreteHandler3.java[]
+----

@@ -7,7 +7,11 @@ package com.diguage.didp.chainofresponsibility;
  * @since 2017-05-19 17:53:33
  */
 public abstract class Handler {
+  protected Handler successor;
+
   public void setSuccessor(Handler successor) {
+    this.successor = successor;
   }
-  public abstract Object handleRequest(int request);
+
+  public abstract void handleRequest(int request);
 }
