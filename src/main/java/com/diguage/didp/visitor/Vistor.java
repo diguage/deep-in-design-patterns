@@ -8,5 +8,6 @@ package com.diguage.didp.visitor;
  */
 public abstract class Vistor {
   public abstract void visitConcreteElementA(ConcreteElementA element);
+
   public abstract void visitConcreteElementB(ConcreteElementB element);
 }

@@ -7,8 +7,12 @@ package com.diguage.didp.visitor;
  * @since 2017-05-19 17:53:36
  */
 public class ConcreteElementA extends Element {
-  public Object accept(Vistor vistor) {
+  @Override
+  public void accept(Vistor vistor) {
+    vistor.visitConcreteElementA(this);
   }
-  public Object operatorA() {
+
+  public void operatorA() {
+    System.out.println("B其他操作");
   }
 }

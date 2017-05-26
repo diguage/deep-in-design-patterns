@@ -7,5 +7,5 @@ package com.diguage.didp.visitor;
  * @since 2017-05-19 17:53:36
  */
 public abstract class Element {
-  public abstract Object accept(Vistor vistor);
+  public abstract void accept(Vistor vistor);
 }
