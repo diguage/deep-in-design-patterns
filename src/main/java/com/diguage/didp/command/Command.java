@@ -7,5 +7,11 @@ package com.diguage.didp.command;
  * @since 2017-05-19 17:53:34
  */
 public abstract class Command {
-  public abstract Object execute();
+  protected Receiver receiver;
+
+  public Command(Receiver receiver) {
+    this.receiver = receiver;
+  }
+
+  public abstract void execute();
 }

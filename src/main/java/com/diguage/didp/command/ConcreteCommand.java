@@ -7,7 +7,11 @@ package com.diguage.didp.command;
  * @since 2017-05-19 17:53:34
  */
 public class ConcreteCommand extends Command {
-  private Receiver receiver;
-  public Object execute() {
+  public ConcreteCommand(Receiver receiver) {
+    super(receiver);
+  }
+
+  public void execute() {
+    receiver.action();
   }
 }

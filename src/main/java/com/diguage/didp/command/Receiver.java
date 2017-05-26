@@ -8,5 +8,6 @@ package com.diguage.didp.command;
  */
 public class Receiver {
   public void action() {
+    System.out.printf("执行请求！");
   }
 }
