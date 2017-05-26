@@ -7,5 +7,5 @@ package com.diguage.didp.interpreter;
  * @since 2017-05-19 17:53:35
  */
 public abstract class AbstractExpression {
-  public abstract Object interpret(Context context);
+  public abstract void interpret(Context context);
 }

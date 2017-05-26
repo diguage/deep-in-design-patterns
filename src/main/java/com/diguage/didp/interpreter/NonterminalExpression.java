@@ -7,6 +7,8 @@ package com.diguage.didp.interpreter;
  * @since 2017-05-19 17:53:35
  */
 public class NonterminalExpression extends AbstractExpression {
-  public Object interpret(Context context) {
+  @Override
+  public void interpret(Context context) {
+    System.out.println("非终端解释器！");
   }
 }
