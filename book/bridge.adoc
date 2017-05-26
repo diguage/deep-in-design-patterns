@@ -65,3 +65,10 @@ include::{source_dir}/bridge/RefinedAbstraction.java[]
 ----
 
 
+
+[source,{java_source_attr}]
+.bridge/Client.java 类
+[[src-bridge-client]]
+----
+include::{source_dir}/bridge/Client.java[]
+----

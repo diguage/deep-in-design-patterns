@@ -7,6 +7,8 @@ package com.diguage.didp.bridge;
  * @since 2017-05-19 17:53:33
  */
 public class RefinedAbstraction extends Abstraction {
-  public Object operation() {
+  @Override
+  public void operation() {
+    implementor.operationImpl();
   }
 }

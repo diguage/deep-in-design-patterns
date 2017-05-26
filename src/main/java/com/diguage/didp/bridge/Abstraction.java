@@ -7,5 +7,13 @@ package com.diguage.didp.bridge;
  * @since 2017-05-19 17:53:33
  */
 public abstract class Abstraction {
-  public abstract Object operation();
+  protected Implementor implementor;
+
+  public void setImplementor(Implementor implementor) {
+    this.implementor = implementor;
+  }
+
+  public void operation() {
+    implementor.operationImpl();
+  }
 }

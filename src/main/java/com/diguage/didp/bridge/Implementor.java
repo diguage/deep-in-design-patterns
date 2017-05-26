@@ -7,5 +7,5 @@ package com.diguage.didp.bridge;
  * @since 2017-05-19 17:53:33
  */
 public abstract class Implementor {
-  public abstract Object operationImpl();
+  public abstract void operationImpl();
 }

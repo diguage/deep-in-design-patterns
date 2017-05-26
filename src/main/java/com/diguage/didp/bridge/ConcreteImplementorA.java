@@ -7,6 +7,8 @@ package com.diguage.didp.bridge;
  * @since 2017-05-19 17:53:33
  */
 public class ConcreteImplementorA extends Implementor {
-  public Object operationImpl() {
+  @Override
+  public void operationImpl() {
+    System.out.println("具体实现A的方法执行！");
   }
 }
