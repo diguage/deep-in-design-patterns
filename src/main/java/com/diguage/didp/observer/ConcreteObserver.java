@@ -19,7 +19,7 @@ public class ConcreteObserver implements Observer {
   @Override
   public void update() {
     observerState = subject.getSubjectState();
-    System.out.printf("观察者 %s 的新状态是 %s", name, observerState);
+    System.out.printf("观察者 %s 的新状态是 %s%n", name, observerState);
   }
 
   public ConcreteSubject getSubject() {

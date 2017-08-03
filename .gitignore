@@ -9,3 +9,6 @@
 .rake_tasks
 bin
 target
+.classpath
+.project
+.settings/
