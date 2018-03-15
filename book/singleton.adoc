@@ -155,6 +155,9 @@ In addition to the compile-time error, three further mechanisms ensure that no i
 * Special treatment by the serialization mechanism ensures that duplicate instances are never created as a result of deserialization.
 ____
 
+=== 注册表或者应用上下文
+
+后续补充内容，典型例子就是 Spring 框架。
 
 === 参考资料：
 
