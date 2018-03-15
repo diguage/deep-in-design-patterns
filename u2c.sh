@@ -53,7 +53,7 @@ javadoc=$(cat<<EOF
 /**
  * $class_name 类
  *
- * @author D瓜哥，http://www.diguage.com/
+ * @author D瓜哥, https://www.diguage.com/
  * @since $now
  */
 EOF

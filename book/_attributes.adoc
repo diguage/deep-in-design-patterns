@@ -21,7 +21,7 @@
 :keywords: 设计模式, Design Pattern
 :description: 深入理解设计模式。
 :last-update-label: 最后更新时间
-:homepage: http://www.diguage.com/
+:homepage: https://www.diguage.com/
 :base_dir: ..
 :to_dir: ..
 :project_dir: {base_dir}
