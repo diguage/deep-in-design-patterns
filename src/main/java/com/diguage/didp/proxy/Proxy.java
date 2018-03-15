@@ -11,7 +11,9 @@ public class Proxy extends Subject {
     this.realSubject = realSubject;
   }
 
+  @Override
   public void request() {
+    System.out.println("使用代理开始请求…");
     realSubject.request();
   }
 }

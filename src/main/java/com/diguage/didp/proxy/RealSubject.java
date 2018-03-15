@@ -7,6 +7,7 @@ package com.diguage.didp.proxy;
  * @since 2017-05-16
  */
 public class RealSubject extends Subject {
+  @Override
   public void request() {
     System.out.println("真是请求！");
   }

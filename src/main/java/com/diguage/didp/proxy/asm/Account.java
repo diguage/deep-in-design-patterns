@@ -12,7 +12,7 @@ public class Account {
     System.out.println("operation……");
     int timeout = new Random().nextInt(1000);
     try {
-      TimeUnit.MILLISECONDS.sleep(timeout);
+      TimeUnit.MILLISECONDS.sleep(timeout + 1000);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
@@ -22,10 +22,18 @@ public class Account {
   public String getById(int id) {
     System.out.println("getById……");
     try {
-      TimeUnit.MILLISECONDS.sleep(new Random().nextInt(1000));
+      // 以参数传递过来的数字来决定休眠时间，
+      // 来检验实际效果
+      TimeUnit.MILLISECONDS.sleep(id);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
     return "Account-" + id;
+  }
+
+  public static void main(String[] args) {
+    Account account = new Account();
+    account.operation();
+    account.getById(123);
   }
 }

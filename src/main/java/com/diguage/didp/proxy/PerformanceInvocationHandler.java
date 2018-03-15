@@ -11,11 +11,12 @@ public class PerformanceInvocationHandler implements InvocationHandler {
     this.realObject = realObject;
   }
 
+  @Override
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     long start = System.currentTimeMillis();
     Object result = method.invoke(realObject, args);
     long time = System.currentTimeMillis() - start;
-    System.out.println("time: " + time);
+    System.out.println("耗时: " + time);
     return result;
   }
 }

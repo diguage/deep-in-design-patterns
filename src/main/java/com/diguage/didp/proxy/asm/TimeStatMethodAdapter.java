@@ -13,6 +13,7 @@ public class TimeStatMethodAdapter extends MethodVisitor implements Opcodes {
     super(Opcodes.ASM5, mv);
   }
 
+  @Override
   public void visitCode() {
     visitMethodInsn(Opcodes.INVOKESTATIC, "com/diguage/didp/proxy/asm/TimeStat", "start", "()V");
     super.visitCode();

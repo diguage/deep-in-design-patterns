@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Premain-Class: com.diguage.didp.proxy.agent.PreMainAddTimeStatAgent
+Premain-Class: com.diguage.didp.proxy.bytebuddy.ByteBuddyTimeStatAgent
 Can-Redefine-Classes: true
 Can-Retransform-Classes: true

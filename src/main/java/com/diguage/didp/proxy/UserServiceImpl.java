@@ -8,10 +8,13 @@ import java.util.concurrent.TimeUnit;
  * @since 16/11/2016.
  */
 public class UserServiceImpl implements UserService {
+  @Override
   public String getById(int id) {
     try {
+      System.out.println("真是请求：根据ID获取对应用户…");
       TimeUnit.MILLISECONDS.sleep(new Random().nextInt(1000));
     } catch (InterruptedException e) {
+      e.printStackTrace();
     }
     return "User-" + id;
   }

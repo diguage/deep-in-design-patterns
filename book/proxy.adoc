@@ -15,6 +15,8 @@ plantuml::./puml/proxy.puml[target={puml_target_dir}/proxy,{puml_attr}]
 
 Subject类，定义了RealSubject和Proxy的共用接口，这样就在任何使用RealSubject的地方都可以使用Proxy。
 
+=== 常规代理模式
+
 [source,{java_source_attr}]
 .proxy/Subject.java 类
 [[src-proxy-subject]]
@@ -47,53 +49,7 @@ include::{source_dir}/proxy/Proxy.java[]
 include::{source_dir}/proxy/Client.java[]
 ----
 
-=== 作用
-
-一般来说分为几种，第一，远程代理，也就是为一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的事实[DP]。
-
-第二种应用是虚拟代理，是根据需要创建开销很大的对象。通过它来存放实例化需要很长时间的真实对象[DP]。
-
-第三种应用是安全代理，用来控制真实对象访问时的权限[DP]。
-
-第四种是智能指引，是指当调用真实的对象时，代理处理另外一些事[DP]。
-
-代理模式其实就是在访问对象时引入一定程度的间接性，因为这种间接性，可以附加多种用途。
-
-代理就是真实对象的代表。
-
-
-[WARNING]
-====
-在使用 ASM 生成代理 class 文件时，发现确定类文件的路径是个大问题。这里需要注意的是针对 file 的 URL 格式规范。
-
-* https://en.wikipedia.org/wiki/File_URI_scheme[file URI scheme]
-* http://stackoverflow.com/questions/13869526/is-a-file-path-a-url[Is a “file://” path a URL?]
-* http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml[Uniform Resource Identifier (URI) Schemes]
-* http://www.rfc-editor.org/rfc/rfc1738.txt[RFC1738: Uniform Resource Locators (URL)]
-====
-
-
-
-[source,{java_source_attr}]
-.proxy/DynamicProxyMain.java 类
-[[src-proxy-dynamicproxymain]]
-----
-include::{source_dir}/proxy/DynamicProxyMain.java[]
-----
-
-[source,{java_source_attr}]
-.proxy/PerformanceInvocationHandler.java 类
-[[src-proxy-performanceinvocationhandler]]
-----
-include::{source_dir}/proxy/PerformanceInvocationHandler.java[]
-----
-
-[source,{java_source_attr}]
-.proxy/ProxyMain.java 类
-[[src-proxy-proxymain]]
-----
-include::{source_dir}/proxy/ProxyMain.java[]
-----
+==== 再来一个例子…
 
 [source,{java_source_attr}]
 .proxy/UserService.java 类
@@ -116,6 +72,188 @@ include::{source_dir}/proxy/UserServiceImpl.java[]
 include::{source_dir}/proxy/UserServiceProxy.java[]
 ----
 
+[WARNING]
+====
+*请思考：*
+
+代理模式这样实现有什么问题吗？还有其他改进空间吗？？
+====
+
+// include::_separator.adoc[]
+
+
+=== 动起来…
+
+[source,{java_source_attr}]
+.proxy/PerformanceInvocationHandler.java 类
+[[src-proxy-performanceinvocationhandler]]
+----
+include::{source_dir}/proxy/PerformanceInvocationHandler.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/DynamicProxyMain.java 类
+[[src-proxy-dynamicproxymain]]
+----
+include::{source_dir}/proxy/DynamicProxyMain.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/ProxyMain.java 类
+[[src-proxy-proxymain]]
+----
+include::{source_dir}/proxy/ProxyMain.java[]
+----
+
+[WARNING]
+====
+*请思考：*
+
+代理模式这样实现有什么问题吗？还有其他改进空间吗？？
+====
+
+// include::_separator.adoc[]
+
+
+=== 来个黑魔法…
+
+[source,{java_source_attr}]
+.proxy/asm/Account.java 类
+[[src-proxy-asm-account]]
+----
+include::{source_dir}/proxy/asm/Account.java[]
+----
+
+我们来看一下，编译后生成的文件……
+
+[source,bash]
+----
+cd /Users/diguage/Documents/wiki.diguage.com/java/deep-in-design-patterns/target/classes/com/diguage/didp/proxy/asm
+
+vim /Users/diguage/Documents/wiki.diguage.com/java/deep-in-design-patterns/target/classes/com/diguage/didp/proxy/asm/Account.class
+
+:%!xxd
+
+
+javap -v /Users/diguage/Documents/wiki.diguage.com/java/deep-in-design-patterns/target/classes/com/diguage/didp/proxy/asm/Account.class
+
+----
+
+Java 虚拟机规范中，对 Java  Class 文件格式的定义： https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html[Chapter 4. The class File Format]
+
+
+image::images/java-class-file-format.png[title="Java Class文件格式", alt="Java Class文件格式"]
+
+
+Java 虚拟机规范中，对 Java 方法表格式的定义： https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.6[Chapter 4. The class File Format]
+
+image::images/java-class-file-format-method-info.png[title="Java Class文件格式-方法表格式", alt="Java Class文件格式-方法表格式"]
+
+image::images/java-compilation-process.png[title="Java 处理流程", alt="Java 处理流程"]
+
+
+image::images/jvm-languages.png[title="JVM 语言", alt="JVM 语言"]
+
+image::images/jvm-language-compilation-process.png[title="JVM 语言", alt="JVM 语言"]
+
+. https://coolshell.cn/articles/9229.html[实例分析Java Class的文件结构 | 酷 壳 - CoolShell]
+. https://my.oschina.net/sulliy/blog/61133[利用javap反编译Scala字节码文件 - 咩咩声 不绝于耳]
+. https://avaldes.com/java-virtual-machine/[Java Virtual Machine]
+. https://www.safaribooksonline.com/library/view/client-server-web-apps/9781449369323/ch04.html[4. Java Tools - Client-Server Web Apps with JavaScript and Java [Book]]
+. http://tutorials.jenkov.com/java-concurrency/java-memory-model.html[Java Memory Model]
+
+时间统计类……
+
+[source,{java_source_attr}]
+.proxy/asm/TimeStat.java 类
+[[src-proxy-asm-timestat]]
+----
+include::{source_dir}/proxy/asm/TimeStat.java[]
+----
+
+修改字节码，在每个方法的开始部分和返回部分来插入我们的时间统计代码……
+
+[source,{java_source_attr}]
+.proxy/asm/TimeStatMethodAdapter.java 类
+[[src-proxy-asm-timestatmethodadapter]]
+----
+include::{source_dir}/proxy/asm/TimeStatMethodAdapter.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/asm/TimeStatClassAdapter.java 类
+[[src-proxy-asm-timestatclassadapter]]
+----
+include::{source_dir}/proxy/asm/TimeStatClassAdapter.java[]
+----
+
+image::images/go-to-gan.jpg[title="操起键盘就是干", alt="操起键盘就是干"]
+
+[source,{java_source_attr}]
+.proxy/asm/TimeStatWeaveGenerator.java 类
+[[src-proxy-asm-timestatweavegenerator]]
+----
+include::{source_dir}/proxy/asm/TimeStatWeaveGenerator.java[]
+----
+
+再来运行一下看看…
+
+[source,{java_source_attr}]
+.proxy/asm/RunTimeMainAfterGen.java 类
+[[src-proxy-asm-runtimemainaftergen]]
+----
+include::{source_dir}/proxy/asm/RunTimeMainAfterGen.java[]
+----
+
+[WARNING]
+====
+在使用 ASM 生成代理 class 文件时，发现确定类文件的路径是个大问题。这里需要注意的是针对 file 的 URL 格式规范。
+
+* https://en.wikipedia.org/wiki/File_URI_scheme[file URI scheme]
+* http://stackoverflow.com/questions/13869526/is-a-file-path-a-url[Is a “file://” path a URL?]
+* http://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml[Uniform Resource Identifier (URI) Schemes]
+* http://www.rfc-editor.org/rfc/rfc1738.txt[RFC1738: Uniform Resource Locators (URL)]
+====
+
+
+[WARNING]
+====
+*请思考：*
+
+代理模式这样实现有什么问题吗？还有其他改进空间吗？？
+====
+
+// include::_separator.adoc[]
+
+=== 来点通俗易懂的…
+
+用 Byte Buddy 来搞…
+
+[source,{java_source_attr}]
+.proxy/bytebuddy/ProfilerAdvice.java 类
+[[src-proxy-bytebuddy-runtimemainaftergen]]
+----
+include::{source_dir}/proxy/bytebuddy/ProfilerAdvice.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/bytebuddy/ByteBuddyTimeStatAgent.java 类
+[[src-proxy-bytebuddy-bytebuddytimestatagent]]
+----
+include::{source_dir}/proxy/bytebuddy/ByteBuddyTimeStatAgent.java[]
+----
+
+[WARNING]
+====
+*请思考：*
+
+代理模式这样实现有什么问题吗？还有其他改进空间吗？？
+====
+
+// include::_separator.adoc[]
+
+=== 可不可更透明点…
+
 [source,{java_source_attr}]
 .proxy/agent/PreMainAddTimeStatAgent.java 类
 [[src-proxy-agent-premainaddtimestatagent]]
@@ -130,44 +268,37 @@ include::{source_dir}/proxy/agent/PreMainAddTimeStatAgent.java[]
 include::{source_dir}/proxy/agent/RunAccountMain.java[]
 ----
 
-[source,{java_source_attr}]
-.proxy/asm/Account.java 类
-[[src-proxy-asm-account]]
+[source,bash]
 ----
-include::{source_dir}/proxy/asm/Account.java[]
+# 运行
+java -cp .:/Users/diguage/develop/tools/MavenRepository/org/ow2/asm/asm-all/5.2/asm-all-5.2.jar -javaagent:target/deep-in-design-patterns-0.0.1.jar com.diguage.didp.proxy.agent.RunAccountMain
+
+java -cp .:/Users/diguage/develop/tools/MavenRepository/net/bytebuddy/byte-buddy/1.8.0/byte-buddy-1.8.0.jar -javaagent:target/deep-in-design-patterns-0.0.1.jar com.diguage.didp.proxy.agent.RunAccountMain
 ----
 
-[source,{java_source_attr}]
-.proxy/asm/RunTimeMainAfterGen.java 类
-[[src-proxy-asm-runtimemainaftergen]]
-----
-include::{source_dir}/proxy/asm/RunTimeMainAfterGen.java[]
-----
 
-[source,{java_source_attr}]
-.proxy/asm/TimeStat.java 类
-[[src-proxy-asm-timestat]]
-----
-include::{source_dir}/proxy/asm/TimeStat.java[]
-----
+. https://zeroturnaround.com/rebellabs/how-to-inspect-classes-in-your-jvm/[How-to guide to writing a javaagent | zeroturnaround.com]
 
-[source,{java_source_attr}]
-.proxy/asm/TimeStatClassAdapter.java 类
-[[src-proxy-asm-timestatclassadapter]]
-----
-include::{source_dir}/proxy/asm/TimeStatClassAdapter.java[]
-----
+[WARNING]
+====
+*请思考：*
 
-[source,{java_source_attr}]
-.proxy/asm/TimeStatMethodAdapter.java 类
-[[src-proxy-asm-timestatmethodadapter]]
-----
-include::{source_dir}/proxy/asm/TimeStatMethodAdapter.java[]
-----
+代理模式这样实现有什么问题吗？还有其他改进空间吗？应用上线后怎么搞？
+====
 
-[source,{java_source_attr}]
-.proxy/asm/TimeStatWeaveGenerator.java 类
-[[src-proxy-asm-timestatweavegenerator]]
-----
-include::{source_dir}/proxy/asm/TimeStatWeaveGenerator.java[]
-----
+=== Java 应用上线后…
+
+BTrace
+
+=== 作用
+
+一般来说分为几种
+
+* 第一种应用是远程代理，也就是为一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的事实[DP]。
+* 第二种应用是虚拟代理，是根据需要创建开销很大的对象。通过它来存放实例化需要很长时间的真实对象[DP]。
+* 第三种应用是安全代理，用来控制真实对象访问时的权限[DP]。
+* 第四种是智能指引，是指当调用真实的对象时，代理处理另外一些事[DP]。
+
+代理模式其实就是在访问对象时引入一定程度的间接性，因为这种间接性，可以附加多种用途。
+
+代理就是真实对象的代表。

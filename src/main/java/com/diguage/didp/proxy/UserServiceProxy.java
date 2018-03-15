@@ -11,7 +11,9 @@ public class UserServiceProxy implements UserService {
     this.userService = userService;
   }
 
+  @Override
   public String getById(int id) {
+    System.out.println("使用代理请求…");
     return userService.getById(id);
   }
 }
