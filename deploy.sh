@@ -72,7 +72,7 @@ git commit -am "ready to deploy"
 
 git push origin deploy
 
-rsync -avz --exclude=".*" . deployer@120.92.74.139:/home/deployer/diguage.com/notes/design-patterns
+rsync -avz --exclude=".*" . deployer@notes.diguage.com:/home/deployer/diguage.com/notes/design-patterns
 
 rm -rf $temp_folder
 
