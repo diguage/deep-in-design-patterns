@@ -7,7 +7,7 @@ import java.io.Serializable;
  *
  * <p>注：不正确
  *
- * @author D瓜哥，http://www.diguage.com/
+ * @author D瓜哥，https://www.diguage.com/
  * @since 2014-5-26.
  */
 public class SerializableLazySingleton implements Serializable {

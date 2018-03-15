@@ -3,7 +3,7 @@ package com.diguage.didp.singleton;
 /**
  * 懒汉式单例类
  *
- * <p>Coder：D瓜哥，http://www.diguage.com/
+ * <p>Coder：D瓜哥，https://www.diguage.com/
  *
  * <p>Date：2014-5-26.
  */

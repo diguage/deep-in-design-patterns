@@ -1,7 +1,7 @@
 package com.diguage.didp.observer;
 
 /**
- * @author D瓜哥，http://www.diguage.com/
+ * @author D瓜哥，https://www.diguage.com/
  * @since 2017-05-25 21:19:03
  */
 public class Client {
