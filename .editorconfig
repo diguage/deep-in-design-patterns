@@ -1,0 +1,10 @@
+root = true
+
+[*.{adoc,sh,html,java,properties,sql,svg,xml}]
+charset = utf-8
+
+[*.{java,xml,xsd}]
+indent_style = space
+indent_size = 2
+continuation_indent_size = 4
+end_of_line = lf
