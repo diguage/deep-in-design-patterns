@@ -10,7 +10,7 @@ import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
 
 /**
- * @author D瓜哥，https://www.diguage.com/
+ * @author D瓜哥, https://www.diguage.com/
  * @since 2016-11-18 10:21
  */
 public class PreMainAddTimeStatAgent {

@@ -13,7 +13,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 /**
- * @author D瓜哥，https://www.diguage.com/
+ * @author D瓜哥, https://www.diguage.com/
  * @since 2016-11-17 23:26
  */
 public class TimeStatWeaveGenerator {

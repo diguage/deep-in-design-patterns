@@ -1,7 +1,7 @@
 package com.diguage.didp.builder;
 
 /**
- * @author D瓜哥，https://www.diguage.com/
+ * @author D瓜哥, https://www.diguage.com/
  * @since 2017-05-25 21:00:03
  */
 public class Client {

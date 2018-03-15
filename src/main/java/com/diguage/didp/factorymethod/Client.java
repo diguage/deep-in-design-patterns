@@ -1,7 +1,7 @@
 package com.diguage.didp.factorymethod;
 
 /**
- * @author D瓜哥，https://www.diguage.com/
+ * @author D瓜哥, https://www.diguage.com/
  * @since 2017-05-24
  */
 public class Client {

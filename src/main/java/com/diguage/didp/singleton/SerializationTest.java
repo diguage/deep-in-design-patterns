@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 /**
  * 序列化测试
  *
- * @author D瓜哥，https://www.diguage.com/
+ * @author D瓜哥, https://www.diguage.com/
  * @since 16/11/2016.
  */
 public class SerializationTest {

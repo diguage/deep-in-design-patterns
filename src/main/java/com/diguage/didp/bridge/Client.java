@@ -1,7 +1,7 @@
 package com.diguage.didp.bridge;
 
 /**
- * @author D瓜哥，https://www.diguage.com/
+ * @author D瓜哥, https://www.diguage.com/
  * @since 2017-05-26
  */
 public class Client {

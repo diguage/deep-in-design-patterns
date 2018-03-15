@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 可以序列化的懒汉式单例类
  *
- * @author D瓜哥，https://www.diguage.com/
+ * @author D瓜哥, https://www.diguage.com/
  * @since 2014-5-26.
  */
 public class CorrectSerializableLazySingleton implements Serializable {
