@@ -3,7 +3,7 @@ package com.diguage.didp.decorator;
 /**
  * 具体装饰 A 类
  *
- * @author diguage
+ * @author D瓜哥，https://www.diguage.com/
  * @since 2017-05-16
  */
 public class ConcreteDecoratorA extends Decorator {

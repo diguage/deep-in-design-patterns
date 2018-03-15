@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * 反射测试
  *
- * @author diguage
+ * @author D瓜哥，https://www.diguage.com/
  * @since 16/11/2016.
  */
 public class ReflectionTest {
