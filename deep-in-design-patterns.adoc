@@ -1,6 +1,6 @@
 = 深入学习设计模式 ^Alpha^
 D瓜哥 <https://www.diguage.com/>
-v0.1.0, 2016-11-16
+{docdate}
 :base_dir: .
 :to_dir: .
 :project_dir: {base_dir}

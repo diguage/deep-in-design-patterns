@@ -25,7 +25,7 @@ namespace :book do
 
   desc 'Clear build result'
   task :clear do
-    ["target", "#{file}.html", "#{file}.pdf", "#{file}.epub", "#{file}.mobi"].each do |file|
+    ["target", "#{file}.html", "index.html", "#{file}.pdf", "#{file}.epub", "#{file}.mobi"].each do |file|
       delete_file file
     end
 

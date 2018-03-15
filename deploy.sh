@@ -1,11 +1,11 @@
 #!/bin/bash
 
-project_dir=`pwd`
-styles_dir=${project_dir}/target/styles
-
-project_name=deep-in-design-patterns
-adoc_file_name=${project_name}.adoc
-html_file_name=${project_name}.html
+base_dir=`pwd`
+origin_file_name=deep-in-design-patterns
+adoc_file_name=${origin_file_name}.adoc
+origin_html_file_name=${origin_file_name}.html
+web_html_file_name=index.html
+style_dir=./target/styles
 
 # 解决 Mac 与 Linux 中 sed 处理不统一的问题
 gsed=`which sed`
@@ -28,25 +28,11 @@ if [ ! -n `which html-minifier` ]; then
   htmlminifier=`which html-minifier`
 fi
 
-git push origin master
-
+# rm -rf $origin_html_file_name $web_html_file_name target
+#
 rake book:build
 
-temp_folder="/tmp/${project_name}-`date  "+%Y%m%d%H%M%S"`"
-
-mkdir $temp_folder
-
-mv $html_file_name $temp_folder
-mv ./target $temp_folder
-cp html-minifier.config.json $temp_folder
-
-git checkout deploy
-
-rm -rf *
-
-mv $temp_folder/* .
-
-cd $styles_dir
+cd ./$style_dir
 
 for f in `ls .`
 do
@@ -54,26 +40,19 @@ do
   $cssnano $f $f
 done
 
-cd $project_dir
+cd $base_dir
 
 # 替换 Font Awesome，使用内置功能，不需要手动搞了。
 # $gsed -i "s/https:\/\/cdnjs.cloudflare.com\/ajax\/libs/http:\/\/cdn.bootcss.com/" $html_file_name
 
+# 调整样式
+$gsed -i "s/<\/head>/<style>a{text-decoration:none;}<\/style><\/head>/" $origin_html_file_name
+
+# 替换 Font Awesome，(内置功能不能保证版本一致)
+$gsed -i "s/https:\/\/cdnjs.cloudflare.com\/ajax\/libs/\/\/cdn.bootcss.com/" $origin_html_file_name
 # 替换 Google Fonts
-$gsed -i "s/https:\/\/fonts.googleapis.com/\/\/fonts.proxy.ustclug.org/" $html_file_name
+$gsed -i "s/https:\/\/fonts.googleapis.com/\/\/fonts.proxy.ustclug.org/" $origin_html_file_name
 
-$htmlminifier -c html-minifier.config.json $html_file_name -o index.html
+$htmlminifier -c html-minifier.config.json $origin_html_file_name -o $web_html_file_name
 
-rm -rf $html_file_name
-
-git add .
-
-git commit -am "ready to deploy"
-
-git push origin deploy
-
-rsync -avz --exclude=".*" . deployer@notes.diguage.com:/home/deployer/diguage.com/notes/design-patterns
-
-rm -rf $temp_folder
-
-git checkout master
+rsync -avz --exclude=".*" src ./$web_html_file_name ./target  deployer@notes.diguage.com:/home/deployer/diguage.com/notes/design-patterns
