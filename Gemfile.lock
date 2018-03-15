@@ -78,6 +78,7 @@ DEPENDENCIES
   asciidoctor-diagram (~> 1.5, >= 1.5.8)
   asciidoctor-epub3 (~> 1.5.0.alpha.8)
   asciidoctor-pdf (~> 1.5.0.alpha.16)
+  bundler (~> 1.16, >= 1.16.1)
   coderay (~> 1.1, >= 1.1.2)
   nokogiri (~> 1.6, >= 1.6.8.1)
   prawn-svg (~> 0.27.1)

@@ -28,11 +28,17 @@ if [ ! -n `which html-minifier` ]; then
   htmlminifier=`which html-minifier`
 fi
 
-# rm -rf $origin_html_file_name $web_html_file_name target
+rm -rf $origin_html_file_name $web_html_file_name target
 #
-rake book:build
+# rake book:build
+mkdir -p target/images/images
+mkdir -p target/images/uml
+mkdir -p target/styles
+cp book/images/* target/images/images/
 
-cd ./$style_dir
+asciidoctor -r asciidoctor-diagram deep-in-design-patterns.adoc
+
+cd $style_dir
 
 for f in `ls .`
 do

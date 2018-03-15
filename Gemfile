@@ -7,7 +7,10 @@ end
 
 # run the command to install gems
 # bundle install --path .bundle
+#
+# grep "^gem " Gemfile | awk -F, '{print $1}' | awk -F\' '{print $1 " install " $2  " && " }'
 
+gem 'bundler', '~> 1.16', '>= 1.16.1'
 gem 'rake', '~> 12.3'   # Needed for the Rakefile to work
 gem 'pry', '~> 0.11.3'
 
