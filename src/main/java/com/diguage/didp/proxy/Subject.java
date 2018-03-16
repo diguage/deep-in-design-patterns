@@ -6,6 +6,6 @@ package com.diguage.didp.proxy;
  * @author D瓜哥, https://www.diguage.com/
  * @since 2017-05-16
  */
-public abstract class Subject {
-  public abstract void request();
+public interface Subject {
+  void request();
 }

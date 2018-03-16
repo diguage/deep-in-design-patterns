@@ -2,7 +2,11 @@ package com.diguage.didp.proxy.bytebuddy;
 
 import net.bytebuddy.asm.Advice;
 
-public class ProfilerAdvice {
+/**
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2018-03-15
+ */
+public class ProfilerAnnotationInterceptor {
   public static ThreadLocal<Long> threadLocal = new ThreadLocal();
 
   @Advice.OnMethodEnter

@@ -8,10 +8,10 @@ class Client {
   - subject :Subject
 }
 
-abstract class Subject {
+interface Subject {
   + request() :void
 }
-note right: Subject 类，\n定义了 RealSubject 和 Proxy 的共用接口，\n这样就在任何使用 RealSubject 的地方\n都可以使用 Proxy。
+note right: Subject 接口，\n定义了 RealSubject 和 Proxy 的共用接口，\n这样就在任何使用 RealSubject 的地方\n都可以使用 Proxy。
 
 class Proxy {
   - realSubject :Subject
@@ -25,8 +25,8 @@ class RealSubject {
 note bottom: RealSubject 类，定义 Proxy 所代表的真实实体。
 
 Client -right-> Subject
-Subject <|-- Proxy
-Subject <|-- RealSubject
+Subject <|.. Proxy
+Subject <|.. RealSubject
 Proxy "-realSubject" -right-> RealSubject
 
 @enduml

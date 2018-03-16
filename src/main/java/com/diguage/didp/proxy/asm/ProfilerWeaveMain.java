@@ -13,14 +13,14 @@ import java.net.URL;
  * @author D瓜哥, https://www.diguage.com/
  * @since 2016-11-17 23:26
  */
-public class TimeStatWeaveGenerator {
+public class ProfilerWeaveMain {
   public static void main(String[] args) throws IOException, URISyntaxException {
     System.out.println("开始修改字节码…");
     // 如何实现编制指点类？通过配置文件来获得！
     String className = Account.class.getName();
     ClassReader cr = new ClassReader(className);
     ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
-    TimeStatClassAdapter classAdapter = new TimeStatClassAdapter(cw);
+    ProfilerClassAdapter classAdapter = new ProfilerClassAdapter(cw);
     cr.accept(classAdapter, ClassReader.SKIP_DEBUG);
     byte[] data = cw.toByteArray();
     URL url =

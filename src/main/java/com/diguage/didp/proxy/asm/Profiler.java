@@ -4,7 +4,7 @@ package com.diguage.didp.proxy.asm;
  * @author D瓜哥, https://www.diguage.com/
  * @since 2016-11-17 23:22
  */
-public class TimeStat {
+public class Profiler {
   static ThreadLocal<Long> t = new ThreadLocal<Long>();
 
   public static void start() {

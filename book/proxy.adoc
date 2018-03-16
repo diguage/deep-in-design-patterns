@@ -15,7 +15,7 @@ plantuml::./puml/proxy.puml[target={puml_target_dir}/proxy,{puml_attr}]
 
 Subject类，定义了RealSubject和Proxy的共用接口，这样就在任何使用RealSubject的地方都可以使用Proxy。
 
-=== 常规代理模式
+=== 静态代理模式
 
 [source,{java_source_attr}]
 .proxy/Subject.java 类
@@ -66,15 +66,27 @@ include::{source_dir}/proxy/UserServiceImpl.java[]
 ----
 
 [source,{java_source_attr}]
-.proxy/UserServiceProxy.java 类
-[[src-proxy-userserviceproxy]]
+.proxy/UserServiceAuthenticationProxy.java 类
+[[src-proxy-userserviceauthenticationproxy]]
 ----
-include::{source_dir}/proxy/UserServiceProxy.java[]
+include::{source_dir}/proxy/UserServiceAuthenticationProxy.java[]
+----
+
+
+[source,{java_source_attr}]
+.proxy/UserServiceProxyMain.java 类
+[[src-proxy-UserServiceProxyMain]]
+----
+include::{source_dir}/proxy/UserServiceProxyMain.java[]
 ----
 
 [WARNING]
 ====
 *请思考：*
+
+到现在为止，你们发现什么问题了吗？
+
+
 
 代理模式这样实现有什么问题吗？还有其他改进空间吗？？
 ====
@@ -82,28 +94,32 @@ include::{source_dir}/proxy/UserServiceProxy.java[]
 // include::_separator.adoc[]
 
 
-=== 动起来…
+=== 动态代理
+
+*画图说明调用流程，然后再来进行下一步讲解*
 
 [source,{java_source_attr}]
-.proxy/PerformanceInvocationHandler.java 类
-[[src-proxy-performanceinvocationhandler]]
+.proxy/ProfilerInvocationHandler.java 类
+[[src-proxy-ProfilerInvocationHandler]]
 ----
-include::{source_dir}/proxy/PerformanceInvocationHandler.java[]
-----
-
-[source,{java_source_attr}]
-.proxy/DynamicProxyMain.java 类
-[[src-proxy-dynamicproxymain]]
-----
-include::{source_dir}/proxy/DynamicProxyMain.java[]
+include::{source_dir}/proxy/ProfilerInvocationHandler.java[]
 ----
 
 [source,{java_source_attr}]
-.proxy/ProxyMain.java 类
-[[src-proxy-proxymain]]
+.proxy/LoggerInvocationHandler.java 类
+[[src-proxy-LoggerInvocationHandler]]
 ----
-include::{source_dir}/proxy/ProxyMain.java[]
+include::{source_dir}/proxy/LoggerInvocationHandler.java[]
 ----
+
+[source,{java_source_attr}]
+.proxy/UserServiceDynamicProxyMain.java 类
+[[src-proxy-UserServiceDynamicProxyMain]]
+----
+include::{source_dir}/proxy/UserServiceDynamicProxyMain.java[]
+----
+
+流程与这个类似这样的，还有 Java Web 中的 `Filter`， Spring MVC 中的 ``
 
 [WARNING]
 ====
@@ -165,44 +181,44 @@ image::images/jvm-language-compilation-process.png[title="JVM 语言", alt="JVM 
 时间统计类……
 
 [source,{java_source_attr}]
-.proxy/asm/TimeStat.java 类
-[[src-proxy-asm-timestat]]
+.proxy/asm/Profiler.java 类
+[[src-proxy-asm-Profiler]]
 ----
-include::{source_dir}/proxy/asm/TimeStat.java[]
+include::{source_dir}/proxy/asm/Profiler.java[]
 ----
 
 修改字节码，在每个方法的开始部分和返回部分来插入我们的时间统计代码……
 
 [source,{java_source_attr}]
-.proxy/asm/TimeStatMethodAdapter.java 类
-[[src-proxy-asm-timestatmethodadapter]]
+.proxy/asm/ProfilerMethodAdapter.java 类
+[[src-proxy-asm-ProfilerMethodAdapter]]
 ----
-include::{source_dir}/proxy/asm/TimeStatMethodAdapter.java[]
+include::{source_dir}/proxy/asm/ProfilerMethodAdapter.java[]
 ----
 
 [source,{java_source_attr}]
-.proxy/asm/TimeStatClassAdapter.java 类
-[[src-proxy-asm-timestatclassadapter]]
+.proxy/asm/ProfilerClassAdapter.java 类
+[[src-proxy-asm-ProfilerClassAdapter]]
 ----
-include::{source_dir}/proxy/asm/TimeStatClassAdapter.java[]
+include::{source_dir}/proxy/asm/ProfilerClassAdapter.java[]
 ----
 
 image::images/go-to-gan.jpg[title="操起键盘就是干", alt="操起键盘就是干"]
 
 [source,{java_source_attr}]
-.proxy/asm/TimeStatWeaveGenerator.java 类
-[[src-proxy-asm-timestatweavegenerator]]
+.proxy/asm/ProfilerWeaveMain.java 类
+[[src-proxy-asm-ProfilerWeaveMain]]
 ----
-include::{source_dir}/proxy/asm/TimeStatWeaveGenerator.java[]
+include::{source_dir}/proxy/asm/ProfilerWeaveMain.java[]
 ----
 
 再来运行一下看看…
 
 [source,{java_source_attr}]
-.proxy/asm/RunTimeMainAfterGen.java 类
-[[src-proxy-asm-runtimemainaftergen]]
+.proxy/asm/AfterWeaveProfilerMain.java 类
+[[src-proxy-asm-AfterWeaveProfilerMain]]
 ----
-include::{source_dir}/proxy/asm/RunTimeMainAfterGen.java[]
+include::{source_dir}/proxy/asm/AfterWeaveProfilerMain.java[]
 ----
 
 [WARNING]
@@ -230,17 +246,35 @@ include::{source_dir}/proxy/asm/RunTimeMainAfterGen.java[]
 用 Byte Buddy 来搞…
 
 [source,{java_source_attr}]
-.proxy/bytebuddy/ProfilerAdvice.java 类
-[[src-proxy-bytebuddy-runtimemainaftergen]]
+.proxy/bytebuddy/ProfilerAnnotationInterceptor.java 类
+[[src-proxy-bytebuddy-ProfilerAnnotationInterceptor]]
 ----
-include::{source_dir}/proxy/bytebuddy/ProfilerAdvice.java[]
+include::{source_dir}/proxy/bytebuddy/ProfilerAnnotationInterceptor.java[]
 ----
 
 [source,{java_source_attr}]
-.proxy/bytebuddy/ByteBuddyTimeStatAgent.java 类
-[[src-proxy-bytebuddy-bytebuddytimestatagent]]
+.proxy/bytebuddy/ProflierAnnotationAgent.java 类
+[[src-proxy-bytebuddy-ProflierAnnotationAgent]]
 ----
-include::{source_dir}/proxy/bytebuddy/ByteBuddyTimeStatAgent.java[]
+include::{source_dir}/proxy/bytebuddy/ProflierAnnotationAgent.java[]
+----
+
+==== 再来一组更简单的…
+
+
+[source,{java_source_attr}]
+.proxy/bytebuddy/ProfilerInterceptor.java 类
+[[src-proxy-bytebuddy-ProfilerInterceptor]]
+----
+include::{source_dir}/proxy/bytebuddy/ProfilerInterceptor.java[]
+----
+
+
+[source,{java_source_attr}]
+.proxy/bytebuddy/ProflierAgent.java 类
+[[src-proxy-bytebuddy-ProflierAgent]]
+----
+include::{source_dir}/proxy/bytebuddy/ProflierAgent.java[]
 ----
 
 [WARNING]
@@ -249,6 +283,10 @@ include::{source_dir}/proxy/bytebuddy/ByteBuddyTimeStatAgent.java[]
 
 代理模式这样实现有什么问题吗？还有其他改进空间吗？？
 ====
+
+
+https://blog.newrelic.com/2014/09/29/diving-bytecode-manipulation-creating-audit-log-asm-javassist/[Manipulating Bytecode with ASM and Javassist - New Relic blog]
+
 
 // include::_separator.adoc[]
 
@@ -277,14 +315,18 @@ java -cp .:/Users/diguage/develop/tools/MavenRepository/net/bytebuddy/byte-buddy
 ----
 
 
-. https://zeroturnaround.com/rebellabs/how-to-inspect-classes-in-your-jvm/[How-to guide to writing a javaagent | zeroturnaround.com]
-
 [WARNING]
 ====
 *请思考：*
 
 代理模式这样实现有什么问题吗？还有其他改进空间吗？应用上线后怎么搞？
 ====
+
+. https://zeroturnaround.com/rebellabs/how-to-inspect-classes-in-your-jvm/[How-to guide to writing a javaagent | zeroturnaround.com]
+. https://liuzhengyang.github.io/2017/03/15/javaagent/[javaagent | 刘正阳]
+. https://ivanyu.me/blog/2017/11/04/java-agents-javassist-and-byte-buddy/[Java agents, Javassist and Byte Buddy | Ivan Yurchenko]
+. https://www.infoq.com/articles/Easily-Create-Java-Agents-with-ByteBuddy[Easily Create Java Agents with Byte Buddy]
+. https://zeroturnaround.com/rebellabs/testing-the-performance-of-4-java-runtime-code-generators-cglib-javassist-jdk-proxy-byte-buddy/[Performance comparison of Java Runtime Code Generation Libraries zeroturnaround.com]
 
 === Java 应用上线后…
 
@@ -302,3 +344,5 @@ BTrace
 代理模式其实就是在访问对象时引入一定程度的间接性，因为这种间接性，可以附加多种用途。
 
 代理就是真实对象的代表。
+
+. http://www.iteye.com/topic/1116696[AOP的实现机制]

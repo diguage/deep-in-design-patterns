@@ -1,6 +1,6 @@
 package com.diguage.didp.proxy.agent;
 
-import com.diguage.didp.proxy.asm.TimeStatClassAdapter;
+import com.diguage.didp.proxy.asm.ProfilerClassAdapter;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 
@@ -21,7 +21,7 @@ public class PreMainAddTimeStatAgent {
             ClassWriter cw =
                 new ClassWriter(
                     (ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES));
-            TimeStatClassAdapter classAdapter = new TimeStatClassAdapter(cw);
+            ProfilerClassAdapter classAdapter = new ProfilerClassAdapter(cw);
             cr.accept(classAdapter, ClassReader.SKIP_DEBUG);
             return cw.toByteArray();
           } else {

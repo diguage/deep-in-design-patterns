@@ -8,8 +8,8 @@ import org.objectweb.asm.Opcodes;
  * @author D瓜哥, https://www.diguage.com/
  * @since 2016-11-18 10:15
  */
-public class TimeStatClassAdapter extends ClassVisitor {
-  public TimeStatClassAdapter(ClassVisitor cv) {
+public class ProfilerClassAdapter extends ClassVisitor {
+  public ProfilerClassAdapter(ClassVisitor cv) {
     super(Opcodes.ASM5, cv);
   }
 
@@ -25,7 +25,7 @@ public class TimeStatClassAdapter extends ClassVisitor {
     if (mv != null) {
       // TODO 如何实现只编制指定类下的方法呢？
 //      if (name.equals("operation")) {
-      wrapperMv = new TimeStatMethodAdapter(mv);
+      wrapperMv = new ProfilerMethodAdapter(mv);
 //      }
     }
     return wrapperMv;
