@@ -96,7 +96,15 @@ include::{source_dir}/proxy/UserServiceProxyMain.java[]
 
 === 动态代理
 
-*画图说明调用流程，然后再来进行下一步讲解*
+先看一个图，看看方法调用的：
+
+ditaa::./diagram/method-invoke.txt[target={diagram_target_dir}/method-invoke,{diagram_attr}]
+
+Java 是面向对象，那么 Java 如何对 Java 中 `package`、 `class`、 方法等如何建模呢？
+
+我们可以从上图的流程中可以横切一刀，如下图：
+
+ditaa::./diagram/method-invoke-aspect.txt[target={diagram_target_dir}/method-invoke-aspect,{diagram_attr}]
 
 [source,{java_source_attr}]
 .proxy/ProfilerInvocationHandler.java 类
