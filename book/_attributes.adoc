@@ -38,6 +38,7 @@
 :puml_target_dir: uml
 :puml_attr: format=svg,align="center",width={var_width}
 
+:diagram_dir: {project_dir}/diagram
 :diagram_target_dir: diagram
 :diagram_attr: format=svg,align="center",width={var_width}
 

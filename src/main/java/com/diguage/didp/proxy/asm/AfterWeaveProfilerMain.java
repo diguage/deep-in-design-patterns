@@ -10,7 +10,7 @@ public class AfterWeaveProfilerMain {
     System.out.println(account.operation());
     // 可以通过传递不同的数字来观察耗时统计，
     // 来检验是否修改过字节码……
-    System.out.println(account.getById(2345));
+    System.out.println(account.getById(4000));
     System.out.println(account.toString());
   }
 }

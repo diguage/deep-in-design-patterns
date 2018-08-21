@@ -1,5 +1,5 @@
 [[proxy]]
-== 代理模式
+== 代理模式 与 AOP
 
 === 定义
 
@@ -176,7 +176,7 @@ image::images/java-class-file-format-method-info.png[title="Java Class文件格�
 image::images/java-compilation-process.png[title="Java 处理流程", alt="Java 处理流程"]
 
 
-image::images/jvm-languages.png[title="JVM 语言", alt="JVM 语言"]
+// image::images/jvm-languages.png[title="JVM 语言", alt="JVM 语言"]
 
 image::images/jvm-language-compilation-process.png[title="JVM 语言", alt="JVM 语言"]
 
@@ -211,7 +211,7 @@ include::{source_dir}/proxy/asm/ProfilerMethodAdapter.java[]
 include::{source_dir}/proxy/asm/ProfilerClassAdapter.java[]
 ----
 
-image::images/go-to-gan.jpg[title="操起键盘就是干", alt="操起键盘就是干"]
+// image::images/go-to-gan.jpg[title="操起键盘就是干", alt="操起键盘就是干"]
 
 [source,{java_source_attr}]
 .proxy/asm/ProfilerWeaveMain.java 类
@@ -248,6 +248,73 @@ include::{source_dir}/proxy/asm/AfterWeaveProfilerMain.java[]
 ====
 
 // include::_separator.adoc[]
+
+=== 来点通俗易懂的…
+
+=== `ClassLoader`
+
+[source,{java_source_attr}]
+.proxy/loader/ProxyClassLoader.java 类
+[[src-proxy-loader-ProxyClassLoader]]
+----
+include::{source_dir}/proxy/loader/ProxyClassLoader.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/loader/ClassLoaderMain.java 类
+[[src-proxy-loader-ClassLoaderMain]]
+----
+include::{source_dir}/proxy/loader/ClassLoaderMain.java[]
+----
+
+[WARNING]
+====
+*请思考：*
+
+代理模式这样实现有什么问题吗？还有其他改进空间吗？？
+====
+
+* https://www.journaldev.com/349/java-classloader[Java ClassLoader - JournalDev]
+
+// include::_separator.adoc[]
+
+=== 可不可更透明点…
+
+[source,{java_source_attr}]
+.proxy/agent/PreMainAddTimeStatAgent.java 类
+[[src-proxy-agent-premainaddtimestatagent]]
+----
+include::{source_dir}/proxy/agent/PreMainAddTimeStatAgent.java[]
+----
+
+[source,{java_source_attr}]
+.proxy/agent/RunAccountMain.java 类
+[[src-proxy-agent-runaccountmain]]
+----
+include::{source_dir}/proxy/agent/RunAccountMain.java[]
+----
+
+[source,bash]
+----
+# 运行
+java -cp .:/Users/diguage/develop/tools/MavenRepository/org/ow2/asm/asm-all/5.2/asm-all-5.2.jar -javaagent:target/deep-in-design-patterns-0.0.1.jar com.diguage.didp.proxy.agent.RunAccountMain
+
+java -cp .:/Users/diguage/develop/tools/MavenRepository/net/bytebuddy/byte-buddy/1.8.0/byte-buddy-1.8.0.jar -javaagent:target/deep-in-design-patterns-0.0.1.jar com.diguage.didp.proxy.agent.RunAccountMain
+----
+
+
+[WARNING]
+====
+*请思考：*
+
+代理模式这样实现有什么问题吗？还有其他改进空间吗？应用上线后怎么搞？
+====
+
+. https://zeroturnaround.com/rebellabs/how-to-inspect-classes-in-your-jvm/[How-to guide to writing a javaagent | zeroturnaround.com]
+. https://liuzhengyang.github.io/2017/03/15/javaagent/[javaagent | 刘正阳]
+. https://ivanyu.me/blog/2017/11/04/java-agents-javassist-and-byte-buddy/[Java agents, Javassist and Byte Buddy | Ivan Yurchenko]
+. https://www.infoq.com/articles/Easily-Create-Java-Agents-with-ByteBuddy[Easily Create Java Agents with Byte Buddy]
+. https://zeroturnaround.com/rebellabs/testing-the-performance-of-4-java-runtime-code-generators-cglib-javassist-jdk-proxy-byte-buddy/[Performance comparison of Java Runtime Code Generation Libraries zeroturnaround.com]
 
 === 来点通俗易懂的…
 
@@ -296,49 +363,13 @@ include::{source_dir}/proxy/bytebuddy/ProflierAgent.java[]
 https://blog.newrelic.com/2014/09/29/diving-bytecode-manipulation-creating-audit-log-asm-javassist/[Manipulating Bytecode with ASM and Javassist - New Relic blog]
 
 
-// include::_separator.adoc[]
-
-=== 可不可更透明点…
-
-[source,{java_source_attr}]
-.proxy/agent/PreMainAddTimeStatAgent.java 类
-[[src-proxy-agent-premainaddtimestatagent]]
-----
-include::{source_dir}/proxy/agent/PreMainAddTimeStatAgent.java[]
-----
-
-[source,{java_source_attr}]
-.proxy/agent/RunAccountMain.java 类
-[[src-proxy-agent-runaccountmain]]
-----
-include::{source_dir}/proxy/agent/RunAccountMain.java[]
-----
-
-[source,bash]
-----
-# 运行
-java -cp .:/Users/diguage/develop/tools/MavenRepository/org/ow2/asm/asm-all/5.2/asm-all-5.2.jar -javaagent:target/deep-in-design-patterns-0.0.1.jar com.diguage.didp.proxy.agent.RunAccountMain
-
-java -cp .:/Users/diguage/develop/tools/MavenRepository/net/bytebuddy/byte-buddy/1.8.0/byte-buddy-1.8.0.jar -javaagent:target/deep-in-design-patterns-0.0.1.jar com.diguage.didp.proxy.agent.RunAccountMain
-----
-
-
-[WARNING]
-====
-*请思考：*
-
-代理模式这样实现有什么问题吗？还有其他改进空间吗？应用上线后怎么搞？
-====
-
-. https://zeroturnaround.com/rebellabs/how-to-inspect-classes-in-your-jvm/[How-to guide to writing a javaagent | zeroturnaround.com]
-. https://liuzhengyang.github.io/2017/03/15/javaagent/[javaagent | 刘正阳]
-. https://ivanyu.me/blog/2017/11/04/java-agents-javassist-and-byte-buddy/[Java agents, Javassist and Byte Buddy | Ivan Yurchenko]
-. https://www.infoq.com/articles/Easily-Create-Java-Agents-with-ByteBuddy[Easily Create Java Agents with Byte Buddy]
-. https://zeroturnaround.com/rebellabs/testing-the-performance-of-4-java-runtime-code-generators-cglib-javassist-jdk-proxy-byte-buddy/[Performance comparison of Java Runtime Code Generation Libraries zeroturnaround.com]
+include::_separator.adoc[]
 
 === Java 应用上线后…
 
 BTrace
+
+* http://calvin1978.blogcn.com/articles/btrace1.html?spm=a2c4e.11153940.blogcont269323.12.feb93569IQYkzd[Btrace入门到熟练小工完全指南花钱的年华 | 江南白衣]
 
 === 作用
 
