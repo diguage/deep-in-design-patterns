@@ -35,8 +35,8 @@
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -559,7 +559,7 @@
             <diagram_attr>format=svg,align="center",width=95%</diagram_attr>
             <puml_attr>format=svg,align="center",width=95%</puml_attr>
             <plantumlconfig>${project.basedir}/cfg/plantuml.cfg</plantumlconfig>
-            <bk_java_lang_spec>https://docs.oracle.com/javase/specs/jls/se17/jls17.pdf[《The Java® Language Specification Java SE 17 Edition》</bk_java_lang_spec>
+            <bk_java_lang_spec>《The Java® Language Specification Java SE 17 Edition》</bk_java_lang_spec>
             <bk_big_talk_dp>https://book.douban.com/subject/2334288/[《大话设计模式》]</bk_big_talk_dp>
             <bk_dp>http://book.douban.com/subject/1052241/[《设计模式》]</bk_dp>
             <bkn_dp>Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides,《设计模式》</bkn_dp>
@@ -643,7 +643,8 @@
               <outputDirectory>${project.build.directory}/docs/pdf</outputDirectory>
               <attributes>
                 <allow-uri-read/>
-                <diagram_attr>format=png,align="center",width=90%</diagram_attr>
+                <diagram_attr>format=png,align="center",width=95%</diagram_attr>
+                <puml_attr>format=png,align="center",width=95%</puml_attr>
                 <pdf-fontsdir>${project.basedir}/cfg/fonts</pdf-fontsdir>
                 <pdf-themesdir>${project.basedir}/cfg/theme</pdf-themesdir>
                 <!-- Set Source theme -->
