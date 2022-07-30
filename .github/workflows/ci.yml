@@ -47,7 +47,7 @@ jobs:
           # https://github.com/gtudan/bpmn-js-cmd
           npm install -g bpmn-js-cmd
           # https://plantuml.com/zh/
-          sudo apt -y install plantuml
+          # sudo apt -y install plantuml
 
       - name: Install font 🎃
         run: |
