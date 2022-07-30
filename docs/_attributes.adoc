@@ -23,14 +23,3 @@
 
 //-- 以上是 Asciidoctor 系统变量  -----------------------------------------
 //-- 以下是 自定义变量
-
-:source_attr: linenums,subs="attributes,verbatim"
-
-:java_source_attr: java,linenums,subs="attributes,verbatim"
-
-:bk_java_lang_spec: pass:replacements[《The Java(R) Language Specification Java SE 8 Edition》]
-
-:bk_big_talk_dp: pass:replacements[https://book.douban.com/subject/2334288/[《大话设计模式》]]
-
-:bk_dp: pass:replacements[http://book.douban.com/subject/1052241/[《设计模式》]]
-:bkn_dp: pass:replacements[Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides,《设计模式》]

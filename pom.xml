@@ -16,7 +16,7 @@
     <maven-enforcer-plugin.version>3.1.0</maven-enforcer-plugin.version>
     <extra-enforcer-rules.version>1.6.0</extra-enforcer-rules.version>
 
-    <asciidoctorj.version>2.5.4</asciidoctorj.version>
+    <asciidoctorj.version>2.5.5</asciidoctorj.version>
     <asciidoctorj-pdf.version>2.1.6</asciidoctorj-pdf.version>
     <asciidoctorj-epub3.version>1.5.1</asciidoctorj-epub3.version>
     <asciidoctorj-diagram.version>2.2.3</asciidoctorj-diagram.version>
@@ -246,15 +246,6 @@
                   <message><![CDATA[必须使用 logback 1.2.8+，低版本存在安全漏洞。]]></message>
                 </bannedDependencies>
 
-                <!-- log4j 2.17.1+ -->
-                <bannedDependencies>
-                  <searchTransitive>true</searchTransitive>
-                  <excludes>
-                    <exclude>org.apache.logging.log4j:*:[,2.17.1):jar</exclude>
-                  </excludes>
-                  <message><![CDATA[必须使用 log4j 2.17.1+，低版本存在安全漏洞。]]></message>
-                </bannedDependencies>
-
                 <!-- slf4j 1.7.25+ -->
                 <bannedDependencies>
                   <searchTransitive>true</searchTransitive>
@@ -262,23 +253,6 @@
                     <exclude>org.slf4j:*:[,1.7.25):jar</exclude>
                   </excludes>
                   <message><![CDATA[必须使用 slf4j 1.7.25+。]]></message>
-                </bannedDependencies>
-
-                <!-- Jakarta Validation -->
-                <bannedDependencies>
-                  <searchTransitive>true</searchTransitive>
-                  <excludes>
-                    <exclude>javax.validation:validation-api:[,2.0.1.Final):jar</exclude>
-                    <exclude>org.hibernate.validator:hibernate-validator:[,6.1.5.Final):jar
-                    </exclude>
-                    <exclude>
-                      org.hibernate.validator:hibernate-validator-annotation-processor:[,6.1.5.Final):jar
-                    </exclude>
-                    <exclude>org.hibernate:hibernate-validator</exclude>
-                  </excludes>
-                  <message>
-                    <![CDATA[必须使用 jakarta.validation:jakarta.validation-api:2.0.1+（或 javax.validation:validation-api:2.0.1.Final） 和 Hibernate Validator 6.1.5.Final+（org.hibernate.validator:hibernate-validator:6.1.5.Final 和 org.hibernate.validator:hibernate-validator-annotation-processor:6.1.5.Final）。不能使用低版本 javax.validation:validation-api 和 org.hibernate:hibernate-validator。]]>
-                  </message>
                 </bannedDependencies>
 
                 <!-- ASM -->
@@ -328,20 +302,6 @@
                   </message>
                 </bannedDependencies>
 
-                <!-- MySQL -->
-                <bannedDependencies>
-                  <searchTransitive>true</searchTransitive>
-                  <excludes>
-                    <exclude>mysql:mysql-connector-java:[,8.0.29)</exclude>
-                  </excludes>
-                  <includes>
-                    <include>mysql:mysql-connector-java:5.1.49</include>
-                  </includes>
-                  <message>
-                    <![CDATA[必须使用 MySQL 5.1.49 或者 8.0.29+。]]>
-                  </message>
-                </bannedDependencies>
-
                 <!-- Javassist 3.24.0-GA+ -->
                 <bannedDependencies>
                   <searchTransitive>true</searchTransitive>
@@ -350,66 +310,6 @@
                     <exclude>javassist:javassist</exclude>
                   </excludes>
                   <message><![CDATA[必须使用 Javassist 3.28.0-GA+，版本发现有安全漏洞。]]></message>
-                </bannedDependencies>
-
-                <!-- Bouncy Castle -->
-                <bannedDependencies>
-                  <searchTransitive>true</searchTransitive>
-                  <excludes>
-                    <exclude>org.bouncycastle:*-jdk11</exclude>
-                    <exclude>org.bouncycastle:*-jdk12</exclude>
-                    <exclude>org.bouncycastle:*-jdk13</exclude>
-                    <exclude>org.bouncycastle:*-jdk14</exclude>
-                    <exclude>org.bouncycastle:*-jdk15</exclude>
-                    <exclude>org.bouncycastle:*-jdk15+</exclude>
-                    <exclude>org.bouncycastle:*-jdk16</exclude>
-                    <exclude>org.bouncycastle:*-jdk15on</exclude>
-                    <exclude>org.bouncycastle:*-jdk16on</exclude>
-                    <exclude>org.bouncycastle:*-jdk17on</exclude>
-                    <exclude>org.bouncycastle:*-jdk15to18</exclude>
-                  </excludes>
-                  <message>
-                    <![CDATA[必须使用 org.bouncycastle:*-jdk18on，该版本是针对 JDK 1.8+ 发布的。详情请看： https://www.bouncycastle.org/latest_releases.html]]>
-                  </message>
-                </bannedDependencies>
-
-                <!-- Servlet -->
-                <bannedDependencies>
-                  <searchTransitive>true</searchTransitive>
-                  <excludes>
-                    <exclude>javax.servlet:servlet-api</exclude>
-                    <exclude>javax.servlet:javax.servlet-api</exclude>
-                  </excludes>
-                  <includes>
-                    <include>javax.servlet:javax.servlet-api:*:*:provided</include>
-                  </includes>
-                  <message>
-                    <![CDATA[Servlet 必须以 provided 方式被引入，不能使用 runtime 或者 compile。请使用：javax.servlet:javax.servlet-api:3.0.1+。]]>
-                  </message>
-                </bannedDependencies>
-
-                <!-- Spring Framework -->
-                <bannedDependencies>
-                  <searchTransitive>true</searchTransitive>
-                  <excludes>
-                    <exclude>org.springframework:*:[,5.2.22.RELEASE)</exclude>
-                    <exclude>org.springframework:*:[5.3.0,5.3.20)</exclude>
-                  </excludes>
-                  <message>
-                    <![CDATA[请使用 Spring Framework 5.2.22.RELEASE+ 或 5.3.20+，其余版本都存在漏洞！]]>
-                  </message>
-                </bannedDependencies>
-
-                <!-- Spring Boot -->
-                <bannedDependencies>
-                  <searchTransitive>true</searchTransitive>
-                  <excludes>
-                    <exclude>org.springframework.boot:*:[,2.5.14)</exclude>
-                    <exclude>org.springframework:*:[2.6.0,2.6.8)</exclude>
-                  </excludes>
-                  <message>
-                    <![CDATA[请使用 Spring Boot 2.5.14+ 或 2.6.8+，低版本存在漏洞！]]>
-                  </message>
                 </bannedDependencies>
               </rules>
               <fail>true</fail>
@@ -659,6 +559,10 @@
             <diagram_attr>format=svg,align="center",width=95%</diagram_attr>
             <puml_attr>format=svg,align="center",width=95%</puml_attr>
             <plantumlconfig>${project.basedir}/cfg/plantuml.cfg</plantumlconfig>
+            <bk_java_lang_spec>https://docs.oracle.com/javase/specs/jls/se17/jls17.pdf[《The Java® Language Specification Java SE 17 Edition》</bk_java_lang_spec>
+            <bk_big_talk_dp>https://book.douban.com/subject/2334288/[《大话设计模式》]</bk_big_talk_dp>
+            <bk_dp>http://book.douban.com/subject/1052241/[《设计模式》]</bk_dp>
+            <bkn_dp>Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides,《设计模式》</bkn_dp>
           </attributes>
         </configuration>
         <executions>
