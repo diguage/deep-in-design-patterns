@@ -1,0 +1,26 @@
+@startuml
+title "**工厂方法模式**"
+
+abstract class Product {
+}
+note top: 定义工厂方法所创建的对象的接口。
+
+class ConcreteProduct {
+}
+note bottom: 具体的产品，实现了 Product 接口。
+
+abstract class Factory {
+  + {abstract} factoryMethod() :Product
+}
+note top: 声明工厂方法， 该方法返回一个 Product 类型的对象。
+
+class ConcreteFactory {
+}
+note bottom: 重定义工厂方法以返回一个 ConcreteProduct 实例。
+
+Product <|-- ConcreteProduct
+Factory <|-- ConcreteFactory
+ConcreteFactory -right-> ConcreteProduct
+
+footer D瓜哥 · https://www.diguage.com · 出品
+@enduml

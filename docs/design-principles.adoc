@@ -1,0 +1,14 @@
+[#design-principles]
+= 设计模式设计原则
+
+include::composite-aggregate-reuse-principle.adoc[leveloffset=+1]
+
+include::dependence-inversion-principle.adoc[leveloffset=+1]
+
+include::liskov-substitution-principle.adoc[leveloffset=+1]
+
+include::open-closed-principle.adoc[leveloffset=+1]
+
+include::single-responsibility-principle.adoc[leveloffset=+1]
+
+include::law-of-demeter.adoc[leveloffset=+1]

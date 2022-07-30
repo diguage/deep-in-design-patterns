@@ -1,0 +1,66 @@
+[#interpreter]
+= 解释器模式
+
+plantuml::assets/puml/interpreter.puml[{puml_attr}]
+
+
+解释器模式需要解决的是，如果一种特定类型的问题发生的频率足够高，那么可能就值得将该问题的各个实例表述为一个简单语言中的句子。这样就可以构建一个解释器，该解释器通过解释这些句子来解决该问题[DP]。
+
+因为这个匹配字符的需求在软件的很多地方都会使用，而且行为之间都非常类似，过去的做法是针对特定的需求，编写特定的函数，比如判断Email、匹配电话号码等等，与其为每一个特定需求都写一个算法函数，不如使用一种通用的搜索算法来解释执行一个正则表达式，该正则表达式定义了待匹配字符串的集合[DP]。而所谓的解释器模式，正则表达式就是它的一种应用，解释器为正则表达式定义了一个文法，如何表示一个特定的正则表达式，以及如何解释这个正则表达式。
+
+AbstractExpression（抽象表达式），声明一个抽象的解释操作，这个接口为抽象语法树中所有的节点所共享。
+
+TerminalExpression（终结符表达式），实现与文法中的终结符相关联的解释操作。实现抽象表达式中所要求的接口，主要是一个interpret()方法。文法中每一个终结符都有一个具体终结表达式与之相对应。
+
+NonterminalExpression（非终结符表达式），为文法中的非终结符实现解释操作。对文法中每一条规则R1、R2……Rn都需要一个具体的非终结符表达式类。通过实现抽象表达式的interpret()方法实现解释操作。解释操作以递归方式调用上面所提到的代表R1、R2……Rn中各个符号的实例变量。
+
+Context，包含解释器之外的一些全局信息。
+
+客户端代码，构建表示该文法定义的语言中一个特定的句子的抽象语法树。调用解释操作。
+
+// TODO 笔记不全，重新导出再补充吧。
+
+[{java_source_attr}]
+.interpreter/AbstractExpression.java 类
+[#src-interpreter-abstractexpression]
+----
+include::{source_dir}/interpreter/AbstractExpression.java[]
+----
+
+
+
+[{java_source_attr}]
+.interpreter/Client.java 类
+[#src-interpreter-client]
+----
+include::{source_dir}/interpreter/Client.java[]
+----
+
+
+
+[{java_source_attr}]
+.interpreter/Context.java 类
+[#src-interpreter-context]
+----
+include::{source_dir}/interpreter/Context.java[]
+----
+
+
+
+[{java_source_attr}]
+.interpreter/NonterminalExpression.java 类
+[#src-interpreter-nonterminalexpression]
+----
+include::{source_dir}/interpreter/NonterminalExpression.java[]
+----
+
+
+
+[{java_source_attr}]
+.interpreter/TerminalExpression.java 类
+[#src-interpreter-terminalexpression]
+----
+include::{source_dir}/interpreter/TerminalExpression.java[]
+----
+
+

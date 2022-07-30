@@ -1,0 +1,30 @@
+@startuml
+title "**代理模式**"
+
+class Client {
+  - subject :Subject
+}
+
+interface Subject {
+  + request() :void
+}
+note right: Subject 接口，\n定义了 RealSubject 和 Proxy 的共用接口，\n这样就在任何使用 RealSubject 的地方\n都可以使用 Proxy。
+
+class Proxy {
+  - realSubject :Subject
+  + request() :void
+}
+note bottom: Proxy 类，\n保存一个引用使得接口可以访问实体，\n并提供一个与 Subject 的接口相同的接口，\n这样代理就可以来替代实体。
+
+class RealSubject {
+  + request() :void
+}
+note bottom: RealSubject 类，定义 Proxy 所代表的真实实体。
+
+Client -right-> Subject
+Subject <|.. Proxy
+Subject <|.. RealSubject
+Proxy "-realSubject" -right-> RealSubject
+
+footer D瓜哥 · https://www.diguage.com · 出品
+@enduml

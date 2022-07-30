@@ -1,0 +1,91 @@
+= 深入学习设计模式 ^Alpha^
+D瓜哥 <https://www.diguage.com/>
+{docdate}
+:base_dir: .
+:to_dir: .
+:project_dir: {base_dir}
+:target_dir: {to_dir}/target
+:stylesdir: {target_dir}/styles
+:imagesdir: {target_dir}/images
+:imagesoutdir: {target_dir}/images
+:book_dir: {base_dir}/book
+include::_attributes.adoc[]
+
+++++
+include::assets/tags/analytics.html[]
+++++
+
+:sectnums!:
+
+// // 感谢
+// include::dedication.adoc[leveloffset=+1]
+
+// 前言
+include::preface.adoc[leveloffset=+1]
+
+:sectnums:
+
+include::object-oriented-programming.adoc[leveloffset=+1]
+
+include::design-principles.adoc[leveloffset=+1]
+
+// 正文。
+include::singleton.adoc[leveloffset=+1]
+
+include::proxy.adoc[leveloffset=+1]
+
+include::abstract-factory.adoc[leveloffset=+1]
+
+include::adapter.adoc[leveloffset=+1]
+
+include::bridge.adoc[leveloffset=+1]
+
+include::builder.adoc[leveloffset=+1]
+
+include::chain-of-responsibility.adoc[leveloffset=+1]
+
+include::command.adoc[leveloffset=+1]
+
+include::composite.adoc[leveloffset=+1]
+
+include::decorator.adoc[leveloffset=+1]
+
+include::facade.adoc[leveloffset=+1]
+
+include::factory-method.adoc[leveloffset=+1]
+
+include::flyweight.adoc[leveloffset=+1]
+
+include::interpreter.adoc[leveloffset=+1]
+
+include::iterator.adoc[leveloffset=+1]
+
+include::mediator.adoc[leveloffset=+1]
+
+include::memento.adoc[leveloffset=+1]
+
+include::observer.adoc[leveloffset=+1]
+
+include::prototype.adoc[leveloffset=+1]
+
+include::state.adoc[leveloffset=+1]
+
+include::strategy.adoc[leveloffset=+1]
+
+include::template-method.adoc[leveloffset=+1]
+
+include::visitor.adoc[leveloffset=+1]
+
+include::summary.adoc[leveloffset=+1]
+
+include::references.adoc[leveloffset=+1]
+
+include::plant-uml.adoc[leveloffset=+1]
+
+[#license]
+[appendix]
+== 版权声明
+
+....
+include::{project_basedir}/LICENSE[]
+....

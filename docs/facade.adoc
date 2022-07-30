@@ -1,0 +1,68 @@
+[#facade]
+= 外观模式
+
+plantuml::assets/puml/facade.puml[{puml_attr}]
+
+外观模式，也完全有可能在很多时候使用它，因为它完美地体现了依赖倒转原则和迪米特法则的思想，所以是非常常用的模式之一。
+
+其次，在开发阶段，子系统往往因为不断的重构演化而变得越来越复杂，
+
+增加外观Facade可以提供一个简单的接口，减少它们之间的依赖。第三，在维护一个遗留的大型系统时，可能这个系统已经非常难以维护和扩展了，
+
+为新系统开发一个外观Facade类，来提供设计粗糙或高度复杂的遗留代码的比较清晰简单的接口，让新系统与Facade对象交互，Facade与遗留代码交互所有复杂的工作。[R2P]
+
+依赖倒转原则？抽象不应该依赖细节，细节应该依赖于抽象，由于我们要吃的菜都依赖于厨师这样的细节，所以我们就很被动。
+
+[{java_source_attr}]
+.facade/Client.java 类
+[#src-facade-client]
+----
+include::{source_dir}/facade/Client.java[]
+----
+
+
+
+[{java_source_attr}]
+.facade/Facade.java 类
+[#src-facade-facade]
+----
+include::{source_dir}/facade/Facade.java[]
+----
+
+
+
+[{java_source_attr}]
+.facade/SubSystemFour.java 类
+[#src-facade-subsystemfour]
+----
+include::{source_dir}/facade/SubSystemFour.java[]
+----
+
+
+
+[{java_source_attr}]
+.facade/SubSystemOne.java 类
+[#src-facade-subsystemone]
+----
+include::{source_dir}/facade/SubSystemOne.java[]
+----
+
+
+
+[{java_source_attr}]
+.facade/SubSystemThree.java 类
+[#src-facade-subsystemthree]
+----
+include::{source_dir}/facade/SubSystemThree.java[]
+----
+
+
+
+[{java_source_attr}]
+.facade/SubSystemTwo.java 类
+[#src-facade-subsystemtwo]
+----
+include::{source_dir}/facade/SubSystemTwo.java[]
+----
+
+

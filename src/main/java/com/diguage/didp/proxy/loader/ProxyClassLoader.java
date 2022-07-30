@@ -40,7 +40,7 @@ public class ProxyClassLoader extends ClassLoader {
 //      classByteArray = cw.toByteArray();
 
       ClassFileLocator classFileLocator = ClassFileLocator.ForClassLoader.of(Thread.currentThread().getContextClassLoader());
-      TypePool typePool = TypePool.Default.ofClassPath();
+      TypePool typePool = TypePool.Default.ofSystemLoader();
 //
       classByteArray = new ByteBuddy()
           .rebase(typePool.describe(className).resolve(), classFileLocator)

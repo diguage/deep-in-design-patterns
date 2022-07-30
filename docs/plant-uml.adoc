@@ -1,0 +1,38 @@
+[#plant-uml]
+[appendix]
+= Plant UML 类图小技巧
+
+== 改变剪头方向
+
+[source]
+----
+ClassA -right-> ClassB
+// 可选的方向关键字： up right down left
+----
+
+== 隐藏剪头
+
+[source]
+----
+ClassA -[hidden]-> ClassB
+----
+
+== 组合
+
+== 聚合
+
+== 泛化
+
+== 实现
+
+== 添加标题
+
+== 标题加粗
+
+== 标题内换行
+
+== 抽象方法
+
+== 抽象类
+
+== 接口
