@@ -1,0 +1,66 @@
+@startuml
+title "**访问者模式**"
+
+abstract class Vistor {
+  + {abstract} visitConcreteElementA(element :ConcreteElementA)
+  + {abstract} visitConcreteElementB(element :ConcreteElementB)
+}
+'note top: 为该对象结构中 ConcreteElement 的每一个类声明一个 visit 操作。
+note "为该对象结构中\nConcreteElement\n的每一个类声明一\n个 visit 操作。" as vn
+vn .left. Vistor
+
+class ConcreteVisitor1 {
+  + visitConcreteElementA(element :ConcreteElementA)
+  + visitConcreteElementB(element :ConcreteElementB)
+}
+
+class ConcreteVisitor2 {
+  + visitConcreteElementA(element :ConcreteElementA)
+  + visitConcreteElementB(element :ConcreteElementB)
+}
+
+note "具体访问者，实现每个由 Visitor 声明的操作。\n每个操作实现算法的一部分，而该算法片段\n乃是对应于结构中对象的类。" as cvn
+ConcreteVisitor1 .. cvn
+ConcreteVisitor2 .. cvn
+
+abstract class Element {
+  + {abstract} accept(vistor :Vistor) :Object
+}
+note "定义一个 accept 操作，\n它以一个访问者为参数。" as en
+en .right.> Element
+
+class ConcreteElementA {
+  + accept(vistor :Vistor) :Object
+  + operatorA() :Object
+}
+
+class ConcreteElementB {
+  + accept(vistor :Vistor) :Object
+  + operatorB() :Object
+}
+
+note "具体元素，实现 accept 操作。" as cen
+
+ConcreteElementA .. cen
+ConcreteElementB .. cen
+
+class ObjectStructure
+note "能枚举它的元素，可以提供一个高层\n的接口以允许访问者访问它的元素。" as osn
+osn --> ObjectStructure
+osn .[hidden]right.> Client
+
+class Client
+
+Vistor <|-- ConcreteVisitor1
+Vistor <|-- ConcreteVisitor2
+
+Element <|-- ConcreteElementA
+Element <|-- ConcreteElementB
+
+ObjectStructure -down-> Element
+
+Client -right-> Vistor
+Client -down-> ObjectStructure
+
+footer D瓜哥 · https://www.diguage.com · 出品
+@enduml

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="description" content="深入理解设计模式。">
+<meta name="keywords" content="设计模式, Design Pattern">
+<meta name="author" content="D瓜哥">
+<title>深入学习设计模式 Alpha</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="assets/styles/asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/styles/rouge-github.css">
+<style>.toc-current{font-weight: bold;} .toc-root{font-family: "Open Sans","DejaVu Sans",sans-serif;
+                       font-size: 0.9em;} #content{display: flex; flex-direction: column; flex: 1 1 auto;}
+             .nav-footer{text-align: center; margin-top: auto;}
+             .nav-footer > p > a {white-space: nowrap;}</style>
+<script>var _hmt = _hmt || [];(function () {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?ae79ae5854e141fa6c9a217b5dcf0e45";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script></head>
+<body id="observer" class="book toc2 toc-left">
+<div id="header">
+<h1>深入学习设计模式 <sup>Alpha</sup></h1>
+<div class="details">
+<span id="author" class="author">D瓜哥</span><br>
+<span id="email" class="email"><a href="https://www.diguage.com/" class="bare">https://www.diguage.com/</a></span><br>
+<span id="revdate">2022-07-31</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<p><span class="toc-root"><a href="index.html">深入学习设计模式 <sup>Alpha</sup></a></span></p><ul class="sectlevel1">
+<li><a href="_前言.html">前言</a>
+</li>
+<li><a href="object-oriented-programming.html">1. 面向对象程序设计</a>
+</li>
+<li><a href="design-principles.html">2. 设计模式设计原则</a>
+</li>
+<li><a href="singleton.html">3. 单例模式</a>
+</li>
+<li><a href="proxy.html">4. 代理模式 与 AOP</a>
+</li>
+<li><a href="abstract-factory.html">5. 抽象工厂模式</a>
+</li>
+<li><a href="adapter.html">6. 适配器模式</a>
+</li>
+<li><a href="bridge.html">7. 桥接模式</a>
+</li>
+<li><a href="builder.html">8. 建造者模式</a>
+</li>
+<li><a href="chain-of-responsibility.html">9. 职责链模式</a>
+</li>
+<li><a href="command.html">10. 命令模式</a>
+</li>
+<li><a href="composite.html">11. 组合模式</a>
+</li>
+<li><a href="decorator.html">12. 装饰器模式</a>
+</li>
+<li><a href="facade.html">13. 外观模式</a>
+</li>
+<li><a href="factory-method.html">14. 工厂方法模式</a>
+</li>
+<li><a href="flyweight.html">15. 享元模式</a>
+</li>
+<li><a href="interpreter.html">16. 解释器模式</a>
+</li>
+<li><a href="iterator.html">17. 迭代器模式</a>
+</li>
+<li><a href="mediator.html">18. 中介者模式</a>
+</li>
+<li><a href="memento.html">19. 备忘录模式</a>
+</li>
+<li><a href="observer.html"><span class="toc-current">20. 观察者模式</span></a>
+<ul class="sectlevel2">
+<li><a href="observer.html#_定义_18">20.1. 定义</a>
+</li>
+<li><a href="observer.html#_类图_17">20.2. 类图</a>
+</li>
+<li><a href="observer.html#_常见示例_14">20.3. 常见示例</a>
+</li>
+</ul>
+</li>
+<li><a href="prototype.html">21. 原型模式</a>
+</li>
+<li><a href="state.html">22. 状态模式</a>
+</li>
+<li><a href="strategy.html">23. 策略模式</a>
+</li>
+<li><a href="template-method.html">24. 模版方法模式</a>
+</li>
+<li><a href="visitor.html">25. 访问者模式</a>
+</li>
+<li><a href="summary.html">26. 总结</a>
+</li>
+<li><a href="references.html">附录 D: 参考资料</a>
+</li>
+<li><a href="plant-uml.html">附录 E: Plant UML 类图小技巧</a>
+</li>
+<li><a href="license.html">附录 F: 版权声明</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="content"><div class="sect2"><h3 id="_友情支持">友情支持</h3><div class="paragraph"><p>如果您觉得这个笔记对您有所帮助，看在D瓜哥码这么多字的辛苦上，请友情支持一下，D瓜哥感激不尽，😜</p></div><table class="tableblock frame-none grid-all stretch"><colgroup><col style="width: 50%;"><col style="width: 50%;"></colgroup><tbody><tr><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/alipay.png" alt="支付宝" width="85%" title="支付宝"></span></p></td><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/wxpay.jpg" alt="微信" width="85%" title="微信"></span></p></td></tr></tbody></table><div class="paragraph"><p>有些打赏的朋友希望可以加个好友，欢迎关注D 瓜哥的微信公众号，这样就可以通过公众号的回复直接给我发信息。</p></div><div class="paragraph"><p><span class="image"><img src="assets/images/wx-jikerizhi.png" alt="wx jikerizhi" width="98%"></span></p></div><div class="admonitionblock tip"><table><tbody><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><strong>公众号的微信号是: <code>jikerizhi</code></strong>。<em>因为众所周知的原因，有时图片加载不出来。 如果图片加载不出来可以直接通过搜索微信号来查找我的公众号。</em></td></tr></tbody></table></div></div>
+<div class="sect1">
+<h2 id="observer"><a class="anchor" href="#observer"></a>20. 观察者模式</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_定义_18"><a class="anchor" href="#_定义_18"></a>20.1. 定义</h3>
+<div class="paragraph">
+<p>根据 GoF 的著名著作 <a href="http://book.douban.com/subject/1052241/">《设计模式》</a>，观察者模式的定义如下：</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">观察者模式（Observer）</dt>
+<dd>
+<p>定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己。</p>
+</dd>
+</dl>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides<br>
+<cite>《设计模式》</cite>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_类图_17"><a class="anchor" href="#_类图_17"></a>20.2. 类图</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./observer.svg" alt="Diagram" width="95%" height="701">
+</div>
+</div>
+<div class="paragraph">
+<p>观察者模式
+注: JDK中内置对观察者模式的支持，查看一下具体实现。以及如何应用案例。</p>
+</div>
+<div class="paragraph">
+<p>观察者模式又叫做发布-订阅（Publish/Subscribe）模式。</p>
+</div>
+<div class="paragraph">
+<p>Subject类，可翻译为主题或抽象通知者,一般用一个抽象类或者一个接口实现。它把所有对观察者对象的引用保存在一个聚集里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。</p>
+</div>
+<div class="paragraph">
+<p>Observer类，抽象观察者，为所有的具体观察者定义一个接口，在得到主题的通知时更新自己。这个接口叫做更新接口。抽象观察者一般用一个抽象类或者一个接口实现。更新接口通常包含一个Update()方法，这个方法叫做更新方法。</p>
+</div>
+<div class="paragraph">
+<p>ConcreteSubject类，叫做具体主题或具体通知者，将有关状态存入具体观察者对象；在具体主题的内部状态改变时，给所有登记过的观察者发出通知。具体主题角色通常用一个具体子类实现。</p>
+</div>
+<div class="paragraph">
+<p>ConcreteObserver类，具体观察者，实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题的状态相协调。具体观察者角色可以保存一个指向具体主题对象的引用。具体观察者角色通常用一个具体子类实现。</p>
+</div>
+<div class="paragraph">
+<p>用观察者模式的动机是什么呢？</p>
+</div>
+<div class="paragraph">
+<p>将一个系统分割成一系列相互协作的类有一个很不好的副作用，那就是需要维护相关对象间的一致性。我们不希望为了维持一致性而使各类紧密耦合，这样会给维护、扩展和重用都带来不便[DP]。而观察者模式的关键对象是主题Subject和观察者Observer，一个Subject可以有任意数目的依赖它的Observer，一旦Subject的状态发生了改变，所有的Observer都可以得到通知。Subject发出通知时并不需要知道谁是它的观察者，也就是说，具体观察者是谁，它根本不需要知道。而任何一个具体观察者不知道也不需要知道其他观察者的存在。</p>
+</div>
+<div class="paragraph">
+<p>什么时候考虑使用观察者模式呢？</p>
+</div>
+<div class="paragraph">
+<p>当一个对象的改变需要同时改变其他对象的时候。</p>
+</div>
+<div class="paragraph">
+<p>而且它不知道具体有多少对象有待改变时，应该考虑使用观察者模式。</p>
+</div>
+<div class="paragraph">
+<p>当一个抽象模型有两个方面，其中一方面依赖于另一方面，这时用观察者模式可以将这两者封装在独立的对象中使它们各自独立地改变和复用。” “非常好，总的来讲，观察者模式所做的工作其实就是在解除耦合。让耦合的双方都依赖于抽象，而不是依赖于具体。从而使得各自的变化都不会影响另一边的变化。</p>
+</div>
+<div class="paragraph">
+<p>事件委托实现
+注: Java中如何实现委托？</p>
+</div>
+<div class="paragraph">
+<p>“抽象通知者”由于不希望依赖“抽象观察者”，所以“增加”和“减少”的方法也就没有必要了（抽象观察者已经不存在了）。</p>
+</div>
+<div class="paragraph">
+<p>委托就是一种引用方法的类型。一旦为委托分配了方法，委托将与该方法具有完全相同的行为。委托方法的使用可以像其他任何方法一样，具有参数和返回值。委托可以看作是对函数的抽象，是函数的‘类’，委托的实例将代表一个具体的函数。</p>
+</div>
+<div class="paragraph">
+<p>一旦为委托分配了方法，委托将与该方法具有完全相同的行为。而且，一个委托可以搭载多个方法，所有方法被依次唤起。更重要的是，它可以使得委托对象所搭载的方法并不需要属于同一个类。</p>
+</div>
+<div class="paragraph">
+<p>委托对象所搭载的所有方法必须具有相同的原形和形式，也就是拥有相同的参数列表和返回值类型。</p>
+</div>
+<div id="src-observer-concreteobserver" class="listingblock">
+<div class="title">代码 118. observer/ConcreteObserver.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.observer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ConcreteObserver 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:35
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteObserver</span> <span class="kd">implements</span> <span class="nc">Observer</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">observerState</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">ConcreteSubject</span> <span class="n">subject</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">ConcreteObserver</span><span class="o">(</span><span class="nc">ConcreteSubject</span> <span class="n">subject</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">subject</span> <span class="o">=</span> <span class="n">subject</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">observerState</span> <span class="o">=</span> <span class="n">subject</span><span class="o">.</span><span class="na">getSubjectState</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"观察者 %s 的新状态是 %s%n"</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">observerState</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">ConcreteSubject</span> <span class="nf">getSubject</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">subject</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSubject</span><span class="o">(</span><span class="nc">ConcreteSubject</span> <span class="n">subject</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">subject</span> <span class="o">=</span> <span class="n">subject</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-observer-concretesubject" class="listingblock">
+<div class="title">代码 119. observer/ConcreteSubject.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.observer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ConcreteSubject 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-23 10:18:27
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteSubject</span> <span class="kd">extends</span> <span class="nc">Subject</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">subjectState</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getSubjectState</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">subjectState</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSubjectState</span><span class="o">(</span><span class="nc">String</span> <span class="n">subjectState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">subjectState</span> <span class="o">=</span> <span class="n">subjectState</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-observer-observer" class="listingblock">
+<div class="title">代码 120. observer/Observer.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.observer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Observer 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:35
+ */</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Observer</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">update</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-observer-subject" class="listingblock">
+<div class="title">代码 121. observer/Subject.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.observer</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Subject 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:35
+ */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Subject</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Observer</span><span class="o">&gt;</span> <span class="n">observers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">attach</span><span class="o">(</span><span class="nc">Observer</span> <span class="n">observer</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">observers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">observer</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">detach</span><span class="o">(</span><span class="nc">Observer</span> <span class="n">observer</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">observers</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">observer</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doNotify</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">observers</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nl">Observer:</span><span class="o">:</span><span class="n">update</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-observer-client" class="listingblock">
+<div class="title">代码 122. observer/Client.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.observer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-25 21:19:03
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">ConcreteSubject</span> <span class="n">subject</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ConcreteSubject</span><span class="o">();</span>
+    <span class="n">subject</span><span class="o">.</span><span class="na">attach</span><span class="o">(</span><span class="k">new</span> <span class="nc">ConcreteObserver</span><span class="o">(</span><span class="n">subject</span><span class="o">,</span> <span class="s">"X"</span><span class="o">));</span>
+    <span class="n">subject</span><span class="o">.</span><span class="na">attach</span><span class="o">(</span><span class="k">new</span> <span class="nc">ConcreteObserver</span><span class="o">(</span><span class="n">subject</span><span class="o">,</span> <span class="s">"Y"</span><span class="o">));</span>
+    <span class="n">subject</span><span class="o">.</span><span class="na">attach</span><span class="o">(</span><span class="k">new</span> <span class="nc">ConcreteObserver</span><span class="o">(</span><span class="n">subject</span><span class="o">,</span> <span class="s">"Z"</span><span class="o">));</span>
+    <span class="n">subject</span><span class="o">.</span><span class="na">setSubjectState</span><span class="o">(</span><span class="s">"ABC"</span><span class="o">);</span>
+    <span class="n">subject</span><span class="o">.</span><span class="na">doNotify</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_常见示例_14"><a class="anchor" href="#_常见示例_14"></a>20.3. 常见示例</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>观察者模式的使用案例</p>
+</li>
+<li>
+<p>观察者模式的定义以及实力代码</p>
+</li>
+<li>
+<p>JDK 对观察者模式的支持 <code>java.util.EventListener</code></p>
+</li>
+<li>
+<p>在 Spring 中使用观察者模式来实现事件发布</p>
+</li>
+<li>
+<p><code>jakarta.servlet.http.HttpSessionBindingListener</code></p>
+</li>
+<li>
+<p><code>jakarta.servlet.http.HttpSessionAttributeListener</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph nav-footer">
+<p>← Previous: <a href="memento.html">备忘录模式</a> | ↑ Up: <a href="index.html">深入学习设计模式 &lt;sup&gt;Alpha&lt;/sup</a>&gt; | Next: <a href="prototype.html">原型模式</a> →</p>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+最后更新时间 2022-07-31 10:08:33 UTC
+</div>
+</div>
+</body>
+</html>

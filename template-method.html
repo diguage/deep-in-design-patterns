@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="description" content="深入理解设计模式。">
+<meta name="keywords" content="设计模式, Design Pattern">
+<meta name="author" content="D瓜哥">
+<title>深入学习设计模式 Alpha</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="assets/styles/asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/styles/rouge-github.css">
+<style>.toc-current{font-weight: bold;} .toc-root{font-family: "Open Sans","DejaVu Sans",sans-serif;
+                       font-size: 0.9em;} #content{display: flex; flex-direction: column; flex: 1 1 auto;}
+             .nav-footer{text-align: center; margin-top: auto;}
+             .nav-footer > p > a {white-space: nowrap;}</style>
+<script>var _hmt = _hmt || [];(function () {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?ae79ae5854e141fa6c9a217b5dcf0e45";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script></head>
+<body id="template-method" class="book toc2 toc-left">
+<div id="header">
+<h1>深入学习设计模式 <sup>Alpha</sup></h1>
+<div class="details">
+<span id="author" class="author">D瓜哥</span><br>
+<span id="email" class="email"><a href="https://www.diguage.com/" class="bare">https://www.diguage.com/</a></span><br>
+<span id="revdate">2022-07-31</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<p><span class="toc-root"><a href="index.html">深入学习设计模式 <sup>Alpha</sup></a></span></p><ul class="sectlevel1">
+<li><a href="_前言.html">前言</a>
+</li>
+<li><a href="object-oriented-programming.html">1. 面向对象程序设计</a>
+</li>
+<li><a href="design-principles.html">2. 设计模式设计原则</a>
+</li>
+<li><a href="singleton.html">3. 单例模式</a>
+</li>
+<li><a href="proxy.html">4. 代理模式 与 AOP</a>
+</li>
+<li><a href="abstract-factory.html">5. 抽象工厂模式</a>
+</li>
+<li><a href="adapter.html">6. 适配器模式</a>
+</li>
+<li><a href="bridge.html">7. 桥接模式</a>
+</li>
+<li><a href="builder.html">8. 建造者模式</a>
+</li>
+<li><a href="chain-of-responsibility.html">9. 职责链模式</a>
+</li>
+<li><a href="command.html">10. 命令模式</a>
+</li>
+<li><a href="composite.html">11. 组合模式</a>
+</li>
+<li><a href="decorator.html">12. 装饰器模式</a>
+</li>
+<li><a href="facade.html">13. 外观模式</a>
+</li>
+<li><a href="factory-method.html">14. 工厂方法模式</a>
+</li>
+<li><a href="flyweight.html">15. 享元模式</a>
+</li>
+<li><a href="interpreter.html">16. 解释器模式</a>
+</li>
+<li><a href="iterator.html">17. 迭代器模式</a>
+</li>
+<li><a href="mediator.html">18. 中介者模式</a>
+</li>
+<li><a href="memento.html">19. 备忘录模式</a>
+</li>
+<li><a href="observer.html">20. 观察者模式</a>
+</li>
+<li><a href="prototype.html">21. 原型模式</a>
+</li>
+<li><a href="state.html">22. 状态模式</a>
+</li>
+<li><a href="strategy.html">23. 策略模式</a>
+</li>
+<li><a href="template-method.html"><span class="toc-current">24. 模版方法模式</span></a>
+<ul class="sectlevel2">
+<li><a href="template-method.html#_定义_22">24.1. 定义</a>
+</li>
+<li><a href="template-method.html#_类图_21">24.2. 类图</a>
+</li>
+<li><a href="template-method.html#_常见示例_18">24.3. 常见示例</a>
+</li>
+</ul>
+</li>
+<li><a href="visitor.html">25. 访问者模式</a>
+</li>
+<li><a href="summary.html">26. 总结</a>
+</li>
+<li><a href="references.html">附录 D: 参考资料</a>
+</li>
+<li><a href="plant-uml.html">附录 E: Plant UML 类图小技巧</a>
+</li>
+<li><a href="license.html">附录 F: 版权声明</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="content"><div class="sect2"><h3 id="_友情支持">友情支持</h3><div class="paragraph"><p>如果您觉得这个笔记对您有所帮助，看在D瓜哥码这么多字的辛苦上，请友情支持一下，D瓜哥感激不尽，😜</p></div><table class="tableblock frame-none grid-all stretch"><colgroup><col style="width: 50%;"><col style="width: 50%;"></colgroup><tbody><tr><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/alipay.png" alt="支付宝" width="85%" title="支付宝"></span></p></td><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/wxpay.jpg" alt="微信" width="85%" title="微信"></span></p></td></tr></tbody></table><div class="paragraph"><p>有些打赏的朋友希望可以加个好友，欢迎关注D 瓜哥的微信公众号，这样就可以通过公众号的回复直接给我发信息。</p></div><div class="paragraph"><p><span class="image"><img src="assets/images/wx-jikerizhi.png" alt="wx jikerizhi" width="98%"></span></p></div><div class="admonitionblock tip"><table><tbody><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><strong>公众号的微信号是: <code>jikerizhi</code></strong>。<em>因为众所周知的原因，有时图片加载不出来。 如果图片加载不出来可以直接通过搜索微信号来查找我的公众号。</em></td></tr></tbody></table></div></div>
+<div class="sect1">
+<h2 id="template-method"><a class="anchor" href="#template-method"></a>24. 模版方法模式</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_定义_22"><a class="anchor" href="#_定义_22"></a>24.1. 定义</h3>
+<div class="paragraph">
+<p>根据 GoF 的著名著作 <a href="http://book.douban.com/subject/1052241/">《设计模式》</a>，模板方法模式的定义如下：</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">模板方法模式（Template Method）</dt>
+<dd>
+<p>定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</p>
+</dd>
+</dl>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides<br>
+<cite>《设计模式》</cite>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_类图_21"><a class="anchor" href="#_类图_21"></a>24.2. 类图</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./template-method.svg" alt="Diagram" width="95%" height="408">
+</div>
+</div>
+<div class="paragraph">
+<p>当我们要完成在某一细节层次一致的一个过程或一系列步骤，但其个别步骤在更详细的层次上的实现可能不同时，我们通常考虑用模板方法模式来处理。</p>
+</div>
+<div class="paragraph">
+<p>AbstractClass是抽象类，其实也就是一抽象模板，定义并实现了一个模版方法。这个模版方法一般是一个具体方法，它给出了一个顶级逻辑的骨架，而逻辑的组成步骤在相应的抽象操作中，推迟到子类实现。顶级逻辑也有可能调用一些具体方法。</p>
+</div>
+<div class="paragraph">
+<p>ConcreteClass，实现父类所定义的一个或多个抽象方法。每一个AbstractClass都可以有任意多个ConcreteClass与之对应，而每一个ConcreteClass都可以给出这些抽象方法（也就是顶级逻辑的组成步骤）的不同实现，从而使得顶级逻辑的实现各不相同。</p>
+</div>
+<div class="paragraph">
+<p>模板方法模式是通过把不变行为搬移到超类，去除子类中的重复代码来体现它的优势。</p>
+</div>
+<div class="paragraph">
+<p>模板方法模式就是提供了一个很好的代码复用平台。</p>
+</div>
+<div class="paragraph">
+<p>因为有时候，我们会遇到由一系列步骤构成的过程需要执行。这个过程从高层次上看是相同的，但有些步骤的实现可能不同。这时候，我们通常就应该要考虑用模板方法模式了。</p>
+</div>
+<div class="paragraph">
+<p>当不变的和可变的行为在方法的子类实现中混合在一起的时候，不变的行为就会在子类中重复出现。我们通过模板方法模式把这些行为搬移到单一的地方，这样就帮助子类摆脱重复的不变行为的纠缠。</p>
+</div>
+<div id="src-templatemethod-abstractclass" class="listingblock">
+<div class="title">代码 139. templatemethod/AbstractClass.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.templatemethod</span><span class="o">;</span>
+
+<span class="cm">/**
+ * AbstractClass 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:36
+ */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractClass</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">templateMethod</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">primitiveOperation1</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"这是模板方法！"</span><span class="o">);</span>
+    <span class="n">primitiveOperation2</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">primitiveOperation1</span><span class="o">();</span>
+
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">primitiveOperation2</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-templatemethod-client" class="listingblock">
+<div class="title">代码 140. templatemethod/Client.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.templatemethod</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-24
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">AbstractClass</span> <span class="n">c</span><span class="o">;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ConcreteClassA</span><span class="o">();</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">templateMethod</span><span class="o">();</span>
+
+    <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ConcreteClassB</span><span class="o">();</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">templateMethod</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-templatemethod-concreteclassa" class="listingblock">
+<div class="title">代码 141. templatemethod/ConcreteClassA.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.templatemethod</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ConcreteClassA 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:36
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteClassA</span> <span class="kd">extends</span> <span class="nc">AbstractClass</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">primitiveOperation1</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"具体类A方法1的实现"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">primitiveOperation2</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"具体类A方法2的实现"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-templatemethod-concreteclassb" class="listingblock">
+<div class="title">代码 142. templatemethod/ConcreteClassB.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.templatemethod</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ConcreteClassA 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:36
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteClassB</span> <span class="kd">extends</span> <span class="nc">AbstractClass</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">primitiveOperation1</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"具体类B方法1的实现"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">primitiveOperation2</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"具体类B方法2的实现"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_常见示例_18"><a class="anchor" href="#_常见示例_18"></a>24.3. 常见示例</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>java.util.Collections.sort(List&lt;T&gt; list)</code></p>
+</li>
+<li>
+<p><code>java.io.InputStream.skip(long n)</code></p>
+</li>
+<li>
+<p><code>java.io.InputStream.read()</code></p>
+</li>
+<li>
+<p><code>java.util.AbstractList.indexOf(Object o)</code></p>
+</li>
+<li>
+<p>从大视角上来看，编译也算是一个模板方法模式。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph nav-footer">
+<p>← Previous: <a href="strategy.html">策略模式</a> | ↑ Up: <a href="index.html">深入学习设计模式 &lt;sup&gt;Alpha&lt;/sup</a>&gt; | Next: <a href="visitor.html">访问者模式</a> →</p>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+最后更新时间 2022-07-31 10:08:33 UTC
+</div>
+</div>
+</body>
+</html>

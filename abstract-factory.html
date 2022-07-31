@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="description" content="深入理解设计模式。">
+<meta name="keywords" content="设计模式, Design Pattern">
+<meta name="author" content="D瓜哥">
+<title>深入学习设计模式 Alpha</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="assets/styles/asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/styles/rouge-github.css">
+<style>.toc-current{font-weight: bold;} .toc-root{font-family: "Open Sans","DejaVu Sans",sans-serif;
+                       font-size: 0.9em;} #content{display: flex; flex-direction: column; flex: 1 1 auto;}
+             .nav-footer{text-align: center; margin-top: auto;}
+             .nav-footer > p > a {white-space: nowrap;}</style>
+<script>var _hmt = _hmt || [];(function () {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?ae79ae5854e141fa6c9a217b5dcf0e45";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script></head>
+<body id="abstract-factory" class="book toc2 toc-left">
+<div id="header">
+<h1>深入学习设计模式 <sup>Alpha</sup></h1>
+<div class="details">
+<span id="author" class="author">D瓜哥</span><br>
+<span id="email" class="email"><a href="https://www.diguage.com/" class="bare">https://www.diguage.com/</a></span><br>
+<span id="revdate">2022-07-31</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<p><span class="toc-root"><a href="index.html">深入学习设计模式 <sup>Alpha</sup></a></span></p><ul class="sectlevel1">
+<li><a href="_前言.html">前言</a>
+</li>
+<li><a href="object-oriented-programming.html">1. 面向对象程序设计</a>
+</li>
+<li><a href="design-principles.html">2. 设计模式设计原则</a>
+</li>
+<li><a href="singleton.html">3. 单例模式</a>
+</li>
+<li><a href="proxy.html">4. 代理模式 与 AOP</a>
+</li>
+<li><a href="abstract-factory.html"><span class="toc-current">5. 抽象工厂模式</span></a>
+<ul class="sectlevel2">
+<li><a href="abstract-factory.html#_定义_3">5.1. 定义</a>
+</li>
+<li><a href="abstract-factory.html#_类图_2">5.2. 类图</a>
+</li>
+<li><a href="abstract-factory.html#_常见示例">5.3. 常见示例</a>
+</li>
+</ul>
+</li>
+<li><a href="adapter.html">6. 适配器模式</a>
+</li>
+<li><a href="bridge.html">7. 桥接模式</a>
+</li>
+<li><a href="builder.html">8. 建造者模式</a>
+</li>
+<li><a href="chain-of-responsibility.html">9. 职责链模式</a>
+</li>
+<li><a href="command.html">10. 命令模式</a>
+</li>
+<li><a href="composite.html">11. 组合模式</a>
+</li>
+<li><a href="decorator.html">12. 装饰器模式</a>
+</li>
+<li><a href="facade.html">13. 外观模式</a>
+</li>
+<li><a href="factory-method.html">14. 工厂方法模式</a>
+</li>
+<li><a href="flyweight.html">15. 享元模式</a>
+</li>
+<li><a href="interpreter.html">16. 解释器模式</a>
+</li>
+<li><a href="iterator.html">17. 迭代器模式</a>
+</li>
+<li><a href="mediator.html">18. 中介者模式</a>
+</li>
+<li><a href="memento.html">19. 备忘录模式</a>
+</li>
+<li><a href="observer.html">20. 观察者模式</a>
+</li>
+<li><a href="prototype.html">21. 原型模式</a>
+</li>
+<li><a href="state.html">22. 状态模式</a>
+</li>
+<li><a href="strategy.html">23. 策略模式</a>
+</li>
+<li><a href="template-method.html">24. 模版方法模式</a>
+</li>
+<li><a href="visitor.html">25. 访问者模式</a>
+</li>
+<li><a href="summary.html">26. 总结</a>
+</li>
+<li><a href="references.html">附录 D: 参考资料</a>
+</li>
+<li><a href="plant-uml.html">附录 E: Plant UML 类图小技巧</a>
+</li>
+<li><a href="license.html">附录 F: 版权声明</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="content"><div class="sect2"><h3 id="_友情支持">友情支持</h3><div class="paragraph"><p>如果您觉得这个笔记对您有所帮助，看在D瓜哥码这么多字的辛苦上，请友情支持一下，D瓜哥感激不尽，😜</p></div><table class="tableblock frame-none grid-all stretch"><colgroup><col style="width: 50%;"><col style="width: 50%;"></colgroup><tbody><tr><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/alipay.png" alt="支付宝" width="85%" title="支付宝"></span></p></td><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/wxpay.jpg" alt="微信" width="85%" title="微信"></span></p></td></tr></tbody></table><div class="paragraph"><p>有些打赏的朋友希望可以加个好友，欢迎关注D 瓜哥的微信公众号，这样就可以通过公众号的回复直接给我发信息。</p></div><div class="paragraph"><p><span class="image"><img src="assets/images/wx-jikerizhi.png" alt="wx jikerizhi" width="98%"></span></p></div><div class="admonitionblock tip"><table><tbody><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><strong>公众号的微信号是: <code>jikerizhi</code></strong>。<em>因为众所周知的原因，有时图片加载不出来。 如果图片加载不出来可以直接通过搜索微信号来查找我的公众号。</em></td></tr></tbody></table></div></div>
+<div class="sect1">
+<h2 id="abstract-factory"><a class="anchor" href="#abstract-factory"></a>5. 抽象工厂模式</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_定义_3"><a class="anchor" href="#_定义_3"></a>5.1. 定义</h3>
+<div class="paragraph">
+<p>根据 GoF 的著名著作 <a href="http://book.douban.com/subject/1052241/">《设计模式》</a>，抽象工厂模式的定义如下：</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">抽象工厂模式（Abstract Factory）</dt>
+<dd>
+<p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</p>
+</dd>
+</dl>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides<br>
+<cite>《设计模式》</cite>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_类图_2"><a class="anchor" href="#_类图_2"></a>5.2. 类图</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./abstract-factory.svg" alt="Diagram" width="95%" height="633">
+</div>
+</div>
+<div class="paragraph">
+<p>菜鸟程序员碰到问题，只会用时间来摆平</p>
+</div>
+<div class="paragraph">
+<p>工厂方法模式是定义一个用于创建对象的接口，让子类决定实例化哪一个类。</p>
+</div>
+<div class="paragraph">
+<p>AbstractProductA和AbstractProductB是两个抽象产品，之所以为抽象，是因为它们都有可能有两种不同的实现，就刚才的例子来说就是User和Department，而ProductA1、ProductA2和ProductB1、ProductB2就是对两个抽象产品的具体分类的实现</p>
+</div>
+<div class="paragraph">
+<p>IFactory是一个抽象工厂接口，它里面应该包含所有的产品创建的抽象方法。而ConcreteFactory1和ConcreteFactory2就是具体的工厂了。</p>
+</div>
+<div class="paragraph">
+<p>通常是在运行时刻再创建一个ConcreteFactory类的实例，这个具体的工厂再创建具有特定实现的产品对象，也就是说，为创建不同的产品对象，客户端应使用不同的具体工厂。</p>
+</div>
+<div class="paragraph">
+<p>最大的好处便是易于交换产品系列，由于具体工厂类</p>
+</div>
+<div class="paragraph">
+<p>在一个应用中只需要在初始化的时候出现一次，这就使得改变一个应用的具体工厂变得非常容易，它只需要改变具体工厂即可使用不同的产品配置。</p>
+</div>
+<div class="paragraph">
+<p>我们的设计不能去防止需求的更改，那么我们的理想便是让改动变得最小</p>
+</div>
+<div class="paragraph">
+<p>第二大好处是，它让具体的创建实例过程与客户端分离，客户端是通过它们的抽象接口操纵实例，产品的具体类名也被具体工厂的实现分离，不会出现在客户代码中。</p>
+</div>
+<div class="paragraph">
+<p>是个模式都是会有缺点的，都有不适用的时候，要辨证地看待问题哦。</p>
+</div>
+<div class="paragraph">
+<p>编程是门艺术，这样大批量的改动，显然是非常丑陋的做法。</p>
+</div>
+<div class="paragraph">
+<p>客户端没有出现任何一个SQL Server或Access的字样，达到了解耦的目的。</p>
+</div>
+<div class="paragraph">
+<p>依赖注入（Dependency Injection）</p>
+</div>
+<div class="paragraph">
+<p>从这个角度上说，所有在用简单工厂的地方，都可以考虑用反射技术来去除switch或if，解除分支判断带来的耦合。</p>
+</div>
+<div class="paragraph">
+<p>一个程序员如果从来没有熬夜写程序的经历，不能算是一个好程序员，因为他没有痴迷过，所以他不会有大成就。</p>
+</div>
+<div class="paragraph">
+<p>无痴迷，不成功。</p>
+</div>
+<div id="src-abstractfactory-abstractfactory" class="listingblock">
+<div class="title">代码 37. abstractfactory/AbstractFactory.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * AbstractFactory 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractFactory</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="nc">AbstractProductA</span> <span class="nf">createProductA</span><span class="o">();</span>
+
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="nc">AbstractProductB</span> <span class="nf">createProductB</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-abstractfactory-abstractproducta" class="listingblock">
+<div class="title">代码 38. abstractfactory/AbstractProductA.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * AbstractProductA 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractProductA</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-abstractfactory-abstractproductb" class="listingblock">
+<div class="title">代码 39. abstractfactory/AbstractProductB.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * AbstractProductB 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractProductB</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-abstractfactory-client" class="listingblock">
+<div class="title">代码 40. abstractfactory/Client.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Client 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">AbstractFactory</span> <span class="n">factory</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">AbstractProductA</span> <span class="n">productA</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">AbstractProductB</span> <span class="n">productB</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">type</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Client</span><span class="o">(</span><span class="nc">String</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">type</span> <span class="o">=</span> <span class="n">type</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="s">"A"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">type</span><span class="o">)</span> <span class="o">||</span> <span class="s">"a"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">type</span><span class="o">))</span> <span class="o">{</span>
+      <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ConcreteFactory1</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ConcreteFactory2</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="n">productA</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createProductA</span><span class="o">();</span>
+    <span class="n">productB</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createProductB</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">AbstractFactory</span> <span class="nf">getFactory</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">factory</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">AbstractProductA</span> <span class="nf">getProductA</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">productA</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">AbstractProductB</span> <span class="nf">getProductB</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">productB</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Client</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Client</span><span class="o">(</span><span class="s">"a"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">client</span><span class="o">.</span><span class="na">getFactory</span><span class="o">().</span><span class="na">getClass</span><span class="o">());</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">client</span><span class="o">.</span><span class="na">getProductA</span><span class="o">().</span><span class="na">getClass</span><span class="o">());</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">client</span><span class="o">.</span><span class="na">getProductB</span><span class="o">().</span><span class="na">getClass</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-abstractfactory-concretefactory1" class="listingblock">
+<div class="title">代码 41. abstractfactory/ConcreteFactory1.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ConcreteFactory1 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteFactory1</span> <span class="kd">extends</span> <span class="nc">AbstractFactory</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="nc">AbstractProductA</span> <span class="nf">createProductA</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">ProductA1</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">AbstractProductB</span> <span class="nf">createProductB</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">ProductB1</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-abstractfactory-concretefactory2" class="listingblock">
+<div class="title">代码 42. abstractfactory/ConcreteFactory2.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ConcreteFactory2 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteFactory2</span> <span class="kd">extends</span> <span class="nc">AbstractFactory</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="nc">AbstractProductA</span> <span class="nf">createProductA</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">ProductA2</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">AbstractProductB</span> <span class="nf">createProductB</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">ProductB2</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-abstractfactory-producta1" class="listingblock">
+<div class="title">代码 43. abstractfactory/ProductA1.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ProductA1 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductA1</span> <span class="kd">extends</span> <span class="nc">AbstractProductA</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-abstractfactory-producta2" class="listingblock">
+<div class="title">代码 44. abstractfactory/ProductA2.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ProductA2 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductA2</span> <span class="kd">extends</span> <span class="nc">AbstractProductA</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-abstractfactory-productb1" class="listingblock">
+<div class="title">代码 45. abstractfactory/ProductB1.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ProductB1 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductB1</span> <span class="kd">extends</span> <span class="nc">AbstractProductB</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-abstractfactory-productb2" class="listingblock">
+<div class="title">代码 46. abstractfactory/ProductB2.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.abstractfactory</span><span class="o">;</span>
+
+<span class="cm">/**
+ * ProductB2 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:33
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductB2</span> <span class="kd">extends</span> <span class="nc">AbstractProductB</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_常见示例"><a class="anchor" href="#_常见示例"></a>5.3. 常见示例</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>java.util.Calendar.getInstance()</code></p>
+</li>
+<li>
+<p><code>java.util.ResourceBundle.getBundle(*)</code></p>
+</li>
+<li>
+<p><code>java.sql.DriverManager.getConnection(*)</code></p>
+</li>
+<li>
+<p><code>java.sql.Connection.createStatement(*)</code></p>
+</li>
+<li>
+<p><code>java.sql.Statement.executeQuery(String sql)</code></p>
+</li>
+<li>
+<p><code>java.text.NumberFormat.getInstance(*)</code></p>
+</li>
+<li>
+<p><code>javax.xml.transform.TransformerFactory.newInstance(*)</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph nav-footer">
+<p>← Previous: <a href="proxy.html">代理模式 与 AOP</a> | ↑ Up: <a href="index.html">深入学习设计模式 &lt;sup&gt;Alpha&lt;/sup</a>&gt; | Next: <a href="adapter.html">适配器模式</a> →</p>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+最后更新时间 2022-07-31 10:08:33 UTC
+</div>
+</div>
+</body>
+</html>

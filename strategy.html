@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="description" content="深入理解设计模式。">
+<meta name="keywords" content="设计模式, Design Pattern">
+<meta name="author" content="D瓜哥">
+<title>深入学习设计模式 Alpha</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="assets/styles/asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/styles/rouge-github.css">
+<style>.toc-current{font-weight: bold;} .toc-root{font-family: "Open Sans","DejaVu Sans",sans-serif;
+                       font-size: 0.9em;} #content{display: flex; flex-direction: column; flex: 1 1 auto;}
+             .nav-footer{text-align: center; margin-top: auto;}
+             .nav-footer > p > a {white-space: nowrap;}</style>
+<script>var _hmt = _hmt || [];(function () {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?ae79ae5854e141fa6c9a217b5dcf0e45";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script></head>
+<body id="strategy" class="book toc2 toc-left">
+<div id="header">
+<h1>深入学习设计模式 <sup>Alpha</sup></h1>
+<div class="details">
+<span id="author" class="author">D瓜哥</span><br>
+<span id="email" class="email"><a href="https://www.diguage.com/" class="bare">https://www.diguage.com/</a></span><br>
+<span id="revdate">2022-07-31</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<p><span class="toc-root"><a href="index.html">深入学习设计模式 <sup>Alpha</sup></a></span></p><ul class="sectlevel1">
+<li><a href="_前言.html">前言</a>
+</li>
+<li><a href="object-oriented-programming.html">1. 面向对象程序设计</a>
+</li>
+<li><a href="design-principles.html">2. 设计模式设计原则</a>
+</li>
+<li><a href="singleton.html">3. 单例模式</a>
+</li>
+<li><a href="proxy.html">4. 代理模式 与 AOP</a>
+</li>
+<li><a href="abstract-factory.html">5. 抽象工厂模式</a>
+</li>
+<li><a href="adapter.html">6. 适配器模式</a>
+</li>
+<li><a href="bridge.html">7. 桥接模式</a>
+</li>
+<li><a href="builder.html">8. 建造者模式</a>
+</li>
+<li><a href="chain-of-responsibility.html">9. 职责链模式</a>
+</li>
+<li><a href="command.html">10. 命令模式</a>
+</li>
+<li><a href="composite.html">11. 组合模式</a>
+</li>
+<li><a href="decorator.html">12. 装饰器模式</a>
+</li>
+<li><a href="facade.html">13. 外观模式</a>
+</li>
+<li><a href="factory-method.html">14. 工厂方法模式</a>
+</li>
+<li><a href="flyweight.html">15. 享元模式</a>
+</li>
+<li><a href="interpreter.html">16. 解释器模式</a>
+</li>
+<li><a href="iterator.html">17. 迭代器模式</a>
+</li>
+<li><a href="mediator.html">18. 中介者模式</a>
+</li>
+<li><a href="memento.html">19. 备忘录模式</a>
+</li>
+<li><a href="observer.html">20. 观察者模式</a>
+</li>
+<li><a href="prototype.html">21. 原型模式</a>
+</li>
+<li><a href="state.html">22. 状态模式</a>
+</li>
+<li><a href="strategy.html"><span class="toc-current">23. 策略模式</span></a>
+<ul class="sectlevel2">
+<li><a href="strategy.html#_定义_21">23.1. 定义</a>
+</li>
+<li><a href="strategy.html#_类图_20">23.2. 类图</a>
+</li>
+<li><a href="strategy.html#_常见示例_17">23.3. 常见示例</a>
+</li>
+</ul>
+</li>
+<li><a href="template-method.html">24. 模版方法模式</a>
+</li>
+<li><a href="visitor.html">25. 访问者模式</a>
+</li>
+<li><a href="summary.html">26. 总结</a>
+</li>
+<li><a href="references.html">附录 D: 参考资料</a>
+</li>
+<li><a href="plant-uml.html">附录 E: Plant UML 类图小技巧</a>
+</li>
+<li><a href="license.html">附录 F: 版权声明</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="content"><div class="sect2"><h3 id="_友情支持">友情支持</h3><div class="paragraph"><p>如果您觉得这个笔记对您有所帮助，看在D瓜哥码这么多字的辛苦上，请友情支持一下，D瓜哥感激不尽，😜</p></div><table class="tableblock frame-none grid-all stretch"><colgroup><col style="width: 50%;"><col style="width: 50%;"></colgroup><tbody><tr><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/alipay.png" alt="支付宝" width="85%" title="支付宝"></span></p></td><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/wxpay.jpg" alt="微信" width="85%" title="微信"></span></p></td></tr></tbody></table><div class="paragraph"><p>有些打赏的朋友希望可以加个好友，欢迎关注D 瓜哥的微信公众号，这样就可以通过公众号的回复直接给我发信息。</p></div><div class="paragraph"><p><span class="image"><img src="assets/images/wx-jikerizhi.png" alt="wx jikerizhi" width="98%"></span></p></div><div class="admonitionblock tip"><table><tbody><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><strong>公众号的微信号是: <code>jikerizhi</code></strong>。<em>因为众所周知的原因，有时图片加载不出来。 如果图片加载不出来可以直接通过搜索微信号来查找我的公众号。</em></td></tr></tbody></table></div></div>
+<div class="sect1">
+<h2 id="strategy"><a class="anchor" href="#strategy"></a>23. 策略模式</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_定义_21"><a class="anchor" href="#_定义_21"></a>23.1. 定义</h3>
+<div class="paragraph">
+<p>根据 GoF 的著名著作 <a href="http://book.douban.com/subject/1052241/">《设计模式》</a>，策略模式的定义如下：</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">策略模式（Strategy）</dt>
+<dd>
+<p>它定义了算法家族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化，不会影响到使用算法的客户。</p>
+</dd>
+</dl>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides<br>
+<cite>《设计模式》</cite>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_类图_20"><a class="anchor" href="#_类图_20"></a>23.2. 类图</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./strategy.svg" alt="Diagram" width="95%" height="639">
+</div>
+</div>
+<div class="paragraph">
+<p>面向对象的编程，并不是类越多越好，类的划分是为了封装，但分类的基础是抽象，具有相同属性和功能的对象的抽象集合才是类。</p>
+</div>
+<div class="paragraph">
+<p>策略模式定义了算法家族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化，不会影响到使用算法的客户。</p>
+</div>
+<div class="paragraph">
+<p>商场收银时如何促销，用打折还是返利，其实都是一些算法，用工厂来生成算法对象，这没有错，但算法本身只是一种策略，最重要的是这些算法是随时都可能互相替换的，这就是变化点，而封装变化点是我们面向对象的一种很重要的思维方式。</p>
+</div>
+<div class="paragraph">
+<p>Strategy类，定义所有支持的算法的公共接口</p>
+</div>
+<div class="paragraph">
+<p>ConcreteStrategy，封装了具体的算法或行为，继承于Strategy</p>
+</div>
+<div class="paragraph">
+<p>Context，用一个ConcreteStrategy来配置，维护一个对Strategy对象的引用。</p>
+</div>
+<div class="paragraph">
+<p>策略模式是一种定义一系列算法的方法，从概念上来看，所有这些算法完成的都是相同的工作，只是实现不同，它可以以相同的方式调用所有的算法，减少了各种算法类与使用算法类之间的耦合[DPE]。</p>
+</div>
+<div class="paragraph">
+<p>策略模式的Strategy类层次为Context定义了一系列的可供重用的算法或行为。继承有助于析取出这些算法中的公共功能[DP]。</p>
+</div>
+<div class="paragraph">
+<p>策略模式的优点是简化了单元测试，因为每个算法都有自己的类，可以通过自己的接口单独测试[DPE]。</p>
+</div>
+<div class="paragraph">
+<p>当不同的行为堆砌在一个类中时，就很难避免使用条件语句来选择合适的行为。将这些行为封装在一个个独立的Strategy类中，可以在使用这些行为的类中消除条件语句[DP]。</p>
+</div>
+<div class="paragraph">
+<p>策略模式封装了变化。</p>
+</div>
+<div class="paragraph">
+<p>策略模式就是用来封装算法的，但在实践中，我们发现可以用它来封装几乎任何类型的规则，只要在分析过程中听到需要在不同时间应用不同的业务规则，就可以考虑使用策略模式处理这种变化的可能性[DPE]
+注: 我觉得可以使用策略模式、责任链模式和动态表单实现一个灵活的促销系统。思考一下如何实现？</p>
+</div>
+<div class="paragraph">
+<p>在基本的策略模式中，选择所用具体实现的职责由客户端对象承担，并转给策略模式的Context对象[DPE]</p>
+</div>
+<div class="paragraph">
+<p>任何需求的变更都是需要成本的。</p>
+</div>
+<div class="paragraph">
+<p>高手和菜鸟的区别就是高手可以花同样的代价获得最大的收益或者说做同样的事花最小的代价。面对同样的需求，当然是改动越小越好。</p>
+</div>
+<div id="src-strategy-client" class="listingblock">
+<div class="title">代码 133. strategy/Client.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.strategy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Client 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-16
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Context</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Context</span><span class="o">(</span><span class="k">new</span> <span class="nc">ConcreteStrategyA</span><span class="o">());</span>
+    <span class="n">context</span><span class="o">.</span><span class="na">contextInterface</span><span class="o">();</span>
+
+    <span class="n">context</span><span class="o">.</span><span class="na">setStrategy</span><span class="o">(</span><span class="k">new</span> <span class="nc">ConcreteStrategyB</span><span class="o">());</span>
+    <span class="n">context</span><span class="o">.</span><span class="na">contextInterface</span><span class="o">();</span>
+
+    <span class="n">context</span><span class="o">.</span><span class="na">setStrategy</span><span class="o">(</span><span class="k">new</span> <span class="nc">ConcreteStrategyC</span><span class="o">());</span>
+    <span class="n">context</span><span class="o">.</span><span class="na">contextInterface</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-strategy-concretestrategya" class="listingblock">
+<div class="title">代码 134. strategy/ConcreteStrategyA.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.strategy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 具体算法 A
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-16
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteStrategyA</span> <span class="kd">extends</span> <span class="nc">Strategy</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">algorithmInterface</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"算法A实现"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-strategy-concretestrategyb" class="listingblock">
+<div class="title">代码 135. strategy/ConcreteStrategyB.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.strategy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 具体算法 B
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-16
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteStrategyB</span> <span class="kd">extends</span> <span class="nc">Strategy</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">algorithmInterface</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"算法B实现"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-strategy-concretestrategyc" class="listingblock">
+<div class="title">代码 136. strategy/ConcreteStrategyC.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.strategy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 具体算法 C
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-16
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteStrategyC</span> <span class="kd">extends</span> <span class="nc">Strategy</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">algorithmInterface</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"算法C实现"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-strategy-context" class="listingblock">
+<div class="title">代码 137. strategy/Context.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.strategy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Context 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-16
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Context</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">Strategy</span> <span class="n">strategy</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Context</span><span class="o">(</span><span class="nc">Strategy</span> <span class="n">strategy</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">strategy</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">contextInterface</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">strategy</span><span class="o">.</span><span class="na">algorithmInterface</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setStrategy</span><span class="o">(</span><span class="nc">Strategy</span> <span class="n">strategy</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">strategy</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-strategy-strategy" class="listingblock">
+<div class="title">代码 138. strategy/Strategy.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.strategy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Strategy 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-23 09:09:50
+ */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Strategy</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">algorithmInterface</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_常见示例_17"><a class="anchor" href="#_常见示例_17"></a>23.3. 常见示例</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>java.util.Comparator</code></p>
+</li>
+<li>
+<p><code>jakarta.servlet.http.HttpServlet</code></p>
+</li>
+<li>
+<p><code>jakarta.servlet.Filter.doFilter(ServletRequest request, ServletResponse response, FilterChain chain)</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph nav-footer">
+<p>← Previous: <a href="state.html">状态模式</a> | ↑ Up: <a href="index.html">深入学习设计模式 &lt;sup&gt;Alpha&lt;/sup</a>&gt; | Next: <a href="template-method.html">模版方法模式</a> →</p>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+最后更新时间 2022-07-31 10:08:33 UTC
+</div>
+</div>
+</body>
+</html>

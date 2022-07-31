@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="description" content="深入理解设计模式。">
+<meta name="keywords" content="设计模式, Design Pattern">
+<meta name="author" content="D瓜哥">
+<title>深入学习设计模式 Alpha</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="assets/styles/asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/styles/rouge-github.css">
+<style>.toc-current{font-weight: bold;} .toc-root{font-family: "Open Sans","DejaVu Sans",sans-serif;
+                       font-size: 0.9em;} #content{display: flex; flex-direction: column; flex: 1 1 auto;}
+             .nav-footer{text-align: center; margin-top: auto;}
+             .nav-footer > p > a {white-space: nowrap;}</style>
+<script>var _hmt = _hmt || [];(function () {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?ae79ae5854e141fa6c9a217b5dcf0e45";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script></head>
+<body id="singleton" class="book toc2 toc-left">
+<div id="header">
+<h1>深入学习设计模式 <sup>Alpha</sup></h1>
+<div class="details">
+<span id="author" class="author">D瓜哥</span><br>
+<span id="email" class="email"><a href="https://www.diguage.com/" class="bare">https://www.diguage.com/</a></span><br>
+<span id="revdate">2022-07-31</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<p><span class="toc-root"><a href="index.html">深入学习设计模式 <sup>Alpha</sup></a></span></p><ul class="sectlevel1">
+<li><a href="_前言.html">前言</a>
+</li>
+<li><a href="object-oriented-programming.html">1. 面向对象程序设计</a>
+</li>
+<li><a href="design-principles.html">2. 设计模式设计原则</a>
+</li>
+<li><a href="singleton.html"><span class="toc-current">3. 单例模式</span></a>
+<ul class="sectlevel2">
+<li><a href="singleton.html#_使用反射和反序列化产生多个单例类实例">3.1. 使用反射和反序列化产生多个“单例类”实例</a>
+</li>
+<li><a href="singleton.html#_定义">3.2. 定义</a>
+</li>
+<li><a href="singleton.html#_饿汉式单例类">3.3. 饿汉式单例类</a>
+</li>
+<li><a href="singleton.html#_懒汉式单例类">3.4. 懒汉式单例类</a>
+</li>
+<li><a href="singleton.html#_产生多个单例类实例">3.5. 产生多个“单例类”实例</a>
+</li>
+<li><a href="singleton.html#_枚举">3.6. 枚举</a>
+</li>
+<li><a href="singleton.html#_注册表或者应用上下文">3.7. 注册表或者应用上下文</a>
+</li>
+<li><a href="singleton.html#_参考资料">3.8. 参考资料：</a>
+</li>
+</ul>
+</li>
+<li><a href="proxy.html">4. 代理模式 与 AOP</a>
+</li>
+<li><a href="abstract-factory.html">5. 抽象工厂模式</a>
+</li>
+<li><a href="adapter.html">6. 适配器模式</a>
+</li>
+<li><a href="bridge.html">7. 桥接模式</a>
+</li>
+<li><a href="builder.html">8. 建造者模式</a>
+</li>
+<li><a href="chain-of-responsibility.html">9. 职责链模式</a>
+</li>
+<li><a href="command.html">10. 命令模式</a>
+</li>
+<li><a href="composite.html">11. 组合模式</a>
+</li>
+<li><a href="decorator.html">12. 装饰器模式</a>
+</li>
+<li><a href="facade.html">13. 外观模式</a>
+</li>
+<li><a href="factory-method.html">14. 工厂方法模式</a>
+</li>
+<li><a href="flyweight.html">15. 享元模式</a>
+</li>
+<li><a href="interpreter.html">16. 解释器模式</a>
+</li>
+<li><a href="iterator.html">17. 迭代器模式</a>
+</li>
+<li><a href="mediator.html">18. 中介者模式</a>
+</li>
+<li><a href="memento.html">19. 备忘录模式</a>
+</li>
+<li><a href="observer.html">20. 观察者模式</a>
+</li>
+<li><a href="prototype.html">21. 原型模式</a>
+</li>
+<li><a href="state.html">22. 状态模式</a>
+</li>
+<li><a href="strategy.html">23. 策略模式</a>
+</li>
+<li><a href="template-method.html">24. 模版方法模式</a>
+</li>
+<li><a href="visitor.html">25. 访问者模式</a>
+</li>
+<li><a href="summary.html">26. 总结</a>
+</li>
+<li><a href="references.html">附录 D: 参考资料</a>
+</li>
+<li><a href="plant-uml.html">附录 E: Plant UML 类图小技巧</a>
+</li>
+<li><a href="license.html">附录 F: 版权声明</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="content"><div class="sect2"><h3 id="_友情支持">友情支持</h3><div class="paragraph"><p>如果您觉得这个笔记对您有所帮助，看在D瓜哥码这么多字的辛苦上，请友情支持一下，D瓜哥感激不尽，😜</p></div><table class="tableblock frame-none grid-all stretch"><colgroup><col style="width: 50%;"><col style="width: 50%;"></colgroup><tbody><tr><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/alipay.png" alt="支付宝" width="85%" title="支付宝"></span></p></td><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/wxpay.jpg" alt="微信" width="85%" title="微信"></span></p></td></tr></tbody></table><div class="paragraph"><p>有些打赏的朋友希望可以加个好友，欢迎关注D 瓜哥的微信公众号，这样就可以通过公众号的回复直接给我发信息。</p></div><div class="paragraph"><p><span class="image"><img src="assets/images/wx-jikerizhi.png" alt="wx jikerizhi" width="98%"></span></p></div><div class="admonitionblock tip"><table><tbody><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><strong>公众号的微信号是: <code>jikerizhi</code></strong>。<em>因为众所周知的原因，有时图片加载不出来。 如果图片加载不出来可以直接通过搜索微信号来查找我的公众号。</em></td></tr></tbody></table></div></div>
+<div class="sect1">
+<h2 id="singleton"><a class="anchor" href="#singleton"></a>3. 单例模式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果你不对构造方法做改动的话，是不可能阻止他人不去用new的。所以我们完全可以直接就把这个类的构造方法改成私有（private），你应该知道，所有类都有构造方法，不编码则系统默认生成空的构造方法，若有显示定义的构造方法，默认的构造方法就会失效。</p>
+</div>
+<div class="paragraph">
+<p>客户端不再考虑是否需要去实例化的问题，而把责任都给了应该负责的类去处理。其实这就是一个很基本的设计模式：单例模式。</p>
+</div>
+<div class="paragraph">
+<p>通常我们可以让一个全局变量使得一个对象被访问，但它不能防止你实例化多个对象。一个最好的办法就是，让类自身负责保存它的唯一实例。这个类可以保证没有其他实例可以被创建，并且它可以提供一个访问该实例的方法。[DP]</p>
+</div>
+<div class="paragraph">
+<p>Singleton类，定义一个GetInstance操作，允许客户访问它的唯一实例。GetInstance是一个静态方法，主要负责创建自己的唯一实例。</p>
+</div>
+<div class="paragraph">
+<p>单例模式除了可以保证唯一的实例</p>
+</div>
+<div class="paragraph">
+<p>单例模式因为Singleton类封装它的唯一实例，这样它可以严格地控制客户怎样访问它以及何时访问它。简单地说就是对唯一实例的受控访问。</p>
+</div>
+<div class="paragraph">
+<p>实用类通常也会采用私有化的构造方法来避免其有实例。</p>
+</div>
+<div class="paragraph">
+<p>实用类不保存状态，仅提供一些静态方法或静态属性让你使用，而单例类是有状态的。实用类不能用于继承多态，而单例虽然实例唯一，却是可以有子类来继承。实用类只不过是一些方法属性的集合，而单例却是有着唯一的对象实例。</p>
+</div>
+<div class="paragraph">
+<p>lock是确保当一个线程位于代码的临界区时，另一个线程不进入临界区。如果其他线程试图进入锁定的代码，则它将一直等待（即被阻止），直到该对象被释放。[MSDN]</p>
+</div>
+<div class="paragraph">
+<p>这段代码使得对象实例由最先进入的那个线程创建，以后的线程在进入时不会再去创建对象实例了。由于有了lock，就保证了多线程环境下的同时访问也不会造成多个实例的生成。</p>
+</div>
+<div class="paragraph">
+<p>不用让线程每次都加锁，而只是在实例未被创建的时候再加锁处理。同时也能保证多线程的安全。这种做法被称为Double-Check Locking（双重锁定）。</p>
+</div>
+<div class="paragraph">
+<p>C#与公共语言运行库也提供了一种‘静态初始化’方法，这种方法不需要开发人员显式地编写线程安全代码，即可解决多线程环境下它是不安全的问题。[MSDN]</p>
+</div>
+<div class="paragraph">
+<p>这样的实现与前面的示例类似，也是解决了单例模式试图解决的两个基本问题：全局访问和实例化控制，公共静态属性为访问实例提供了一个全局访问点。不同之处在于它依赖公共语言运行库来初始化变量。由于构造方法是私有的，因此不能在类本身以外实例化Singleton类；因此，变量引用的是可以在系统中存在的唯一的实例。不过要注意，instance变量标记为readonly，这意味着只能在静态初始化期间或在类构造函数中分配变量[MSDN]。由于这种静态初始化的方式是在自己被加载时就将自己实例化，所以被形象地称之为饿汉式单例类，原先的单例模式处理方式是要在第一次被引用时，才会将自己实例化，所以就被称为懒汉式单例类。[J&amp;DP]</p>
+</div>
+<div class="paragraph">
+<p>饿汉式，即静态初始化的方式，它是类一加载就实例化的对象，所以要提前占用系统资源。然而懒汉式，又会面临着多线程访问的安全性问题，需要做双重锁定这样的处理才可以保证安全。所以到底使用哪一种方式，取决于实际的需求。</p>
+</div>
+<div class="sect2">
+<h3 id="_使用反射和反序列化产生多个单例类实例"><a class="anchor" href="#_使用反射和反序列化产生多个单例类实例"></a>3.1. 使用反射和反序列化产生多个“单例类”实例</h3>
+<div class="paragraph">
+<p>D瓜哥根据以前学习设计模式的经验来看，单例模式的实现类只能产生一个对象。估计这也是我们大家普遍看法。但是，在一次面试时，被面试官问到“单例模式的实现类能否产生多个对象？”然后，D瓜哥当场就Hold不住了。</p>
+</div>
+<div class="paragraph">
+<p>不过，当时善意的面试官提醒，可以用反射。昨天看《Java 程序性能优化》时，提到用反序列化也可以产生多个方法。然后，又被我同学问到这个问题。干脆写一篇文章，总结一下吧。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_定义"><a class="anchor" href="#_定义"></a>3.2. 定义</h3>
+<div class="paragraph">
+<p>根据 GoF 的著名著作 <a href="http://book.douban.com/subject/1052241/">《设计模式》</a>，单例模式的定义如下：</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">单例模式（Singleton）</dt>
+<dd>
+<p>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+</dd>
+</dl>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides<br>
+<cite>《设计模式》</cite>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./singleton.svg" alt="Diagram" width="95%" height="272">
+</div>
+</div>
+<div class="paragraph">
+<p>在Java中，单例模式实现方式有两种：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>静态初始化的方式是在自己被加载时就将自己实例化。这种方式被称为“饿汉式单例类”；</p>
+</li>
+<li>
+<p>在第一次被引用时，才会将自己实例化。这种方式被称为“懒汉式单例类”。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>下面做针对介绍。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_饿汉式单例类"><a class="anchor" href="#_饿汉式单例类"></a>3.3. 饿汉式单例类</h3>
+<div class="paragraph">
+<p>饿汉式单例类的实现代码如下：</p>
+</div>
+<div class="listingblock">
+<div class="title">代码 1. 饿汉式单例类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 饿汉式单例类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2014-5-26.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HungrySingleton</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">HungrySingleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HungrySingleton</span><span class="o">();</span>
+
+  <span class="kd">private</span> <span class="nf">HungrySingleton</span><span class="o">()</span> <span class="o">{}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">HungrySingleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_懒汉式单例类"><a class="anchor" href="#_懒汉式单例类"></a>3.4. 懒汉式单例类</h3>
+<div class="paragraph">
+<p>懒汉式单例类的实现代码如下：</p>
+</div>
+<div class="listingblock">
+<div class="title">代码 2. 懒汉式单例类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 懒汉式单例类
+ *
+ * &lt;p&gt;Coder：D瓜哥, https://www.diguage.com/
+ *
+ * &lt;p&gt;Date：2014-5-26.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LazySingleton</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">LazySingleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="nf">LazySingleton</span><span class="o">()</span> <span class="o">{}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">LazySingleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kd">synchronized</span> <span class="o">(</span><span class="nc">LazySingleton</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LazySingleton</span><span class="o">();</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">代码 3. 懒汉式单例类的并发测试</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ConcurrentHashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ConcurrentMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.CountDownLatch</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 单例模式并发性测试
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 16/11/2016.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcurrentTest</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="no">THREAD_COUNT</span> <span class="o">=</span> <span class="mi">10000</span><span class="o">;</span>
+    <span class="nc">CountDownLatch</span> <span class="n">latch</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CountDownLatch</span><span class="o">(</span><span class="no">THREAD_COUNT</span><span class="o">);</span>
+    <span class="nc">ConcurrentMap</span> <span class="n">concurrentMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ConcurrentHashMap</span><span class="o">();</span>
+    <span class="nc">ExecutorService</span> <span class="n">executorService</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="no">THREAD_COUNT</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">THREAD_COUNT</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">executorService</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="nc">SingletonFactory</span><span class="o">(</span><span class="n">latch</span><span class="o">,</span> <span class="n">concurrentMap</span><span class="o">,</span> <span class="n">i</span><span class="o">));</span>
+      <span class="n">latch</span><span class="o">.</span><span class="na">countDown</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="n">executorService</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SingletonFactory</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">CountDownLatch</span> <span class="n">latch</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">ConcurrentMap</span> <span class="n">concurrentMap</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">SingletonFactory</span><span class="o">(</span><span class="nc">CountDownLatch</span> <span class="n">latch</span><span class="o">,</span> <span class="nc">ConcurrentMap</span> <span class="n">concurrentMap</span><span class="o">,</span> <span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">latch</span> <span class="o">=</span> <span class="n">latch</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">concurrentMap</span> <span class="o">=</span> <span class="n">concurrentMap</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">latch</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>
+      <span class="nc">LazySingleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="nc">LazySingleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+      <span class="n">concurrentMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">instance</span><span class="o">,</span> <span class="n">instance</span><span class="o">);</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">id</span> <span class="o">+</span> <span class="s">"\t"</span> <span class="o">+</span> <span class="n">concurrentMap</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">代码 4. 带 <code>volatile</code> 修饰的懒汉式单例类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 带 &lt;code&gt;volatile&lt;/code&gt; 修饰的懒汉式单例类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2014-5-26.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VolatileLazySingleton</span> <span class="kd">implements</span> <span class="nc">Serializable</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">volatile</span> <span class="nc">VolatileLazySingleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="nf">VolatileLazySingleton</span><span class="o">()</span> <span class="o">{}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">VolatileLazySingleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kd">synchronized</span> <span class="o">(</span><span class="nc">VolatileLazySingleton</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VolatileLazySingleton</span><span class="o">();</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">代码 5. 可序列化懒汉式单例类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 可以序列化的懒汉式单例类
+ *
+ * &lt;p&gt;注：不正确
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2014-5-26.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SerializableLazySingleton</span> <span class="kd">implements</span> <span class="nc">Serializable</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">volatile</span> <span class="nc">SerializableLazySingleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="nf">SerializableLazySingleton</span><span class="o">()</span> <span class="o">{}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">SerializableLazySingleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kd">synchronized</span> <span class="o">(</span><span class="nc">SerializableLazySingleton</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SerializableLazySingleton</span><span class="o">();</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">代码 6. 正确的可序列化懒汉式单例类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 可以序列化的懒汉式单例类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2014-5-26.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CorrectSerializableLazySingleton</span> <span class="kd">implements</span> <span class="nc">Serializable</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">volatile</span> <span class="nc">CorrectSerializableLazySingleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="nf">CorrectSerializableLazySingleton</span><span class="o">()</span> <span class="o">{}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">CorrectSerializableLazySingleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kd">synchronized</span> <span class="o">(</span><span class="nc">CorrectSerializableLazySingleton</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CorrectSerializableLazySingleton</span><span class="o">();</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="nc">Object</span> <span class="nf">readResolve</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">代码 7. 序列化测试</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.ByteArrayInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.ByteArrayOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.ObjectInputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.ObjectOutputStream</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 序列化测试
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 16/11/2016.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SerializationTest</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ClassNotFoundException</span> <span class="o">{</span>
+
+    <span class="n">testSerialization</span><span class="o">(</span><span class="nc">SerializableLazySingleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">());</span>
+    <span class="n">testSerialization</span><span class="o">(</span><span class="nc">CorrectSerializableLazySingleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">());</span>
+    <span class="n">testSerialization</span><span class="o">(</span><span class="nc">Singleton</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">testSerialization</span><span class="o">(</span><span class="no">T</span> <span class="n">t</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ClassNotFoundException</span> <span class="o">{</span>
+    <span class="c1">// 将对象写入数组中</span>
+    <span class="nc">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ByteArrayOutputStream</span><span class="o">();</span>
+    <span class="nc">ObjectOutputStream</span> <span class="n">oos</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
+    <span class="n">oos</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>
+    <span class="n">baos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">objectByteArray</span> <span class="o">=</span> <span class="n">baos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">();</span>
+
+    <span class="c1">// 从数组中读取对象</span>
+    <span class="nc">ByteArrayInputStream</span> <span class="n">bais</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ByteArrayInputStream</span><span class="o">(</span><span class="n">objectByteArray</span><span class="o">);</span>
+    <span class="nc">ObjectInputStream</span> <span class="n">ois</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectInputStream</span><span class="o">(</span><span class="n">bais</span><span class="o">);</span>
+    <span class="no">T</span> <span class="n">newInstance</span> <span class="o">=</span> <span class="o">(</span><span class="no">T</span><span class="o">)</span> <span class="n">ois</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+    <span class="c1">//判断是否是同一个对象</span>
+    <span class="nc">Class</span><span class="o">&lt;?&gt;</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">getClass</span><span class="o">();</span>
+    <span class="nc">String</span> <span class="n">canonicalName</span> <span class="o">=</span> <span class="n">clazz</span><span class="o">.</span><span class="na">getCanonicalName</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">canonicalName</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="n">newInstance</span> <span class="o">==</span> <span class="n">t</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">代码 8. 枚举实现的单例模式</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 16/11/2016.
+ */</span>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="nc">Singleton</span> <span class="o">{</span>
+  <span class="no">INSTANCE</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">代码 9. 单例模式的反射测试</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Constructor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.InvocationTargetException</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 反射测试
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 16/11/2016.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReflectionTest</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+      <span class="kd">throws</span> <span class="nc">NoSuchMethodException</span><span class="o">,</span> <span class="nc">IllegalAccessException</span><span class="o">,</span> <span class="nc">InvocationTargetException</span><span class="o">,</span>
+          <span class="nc">InstantiationException</span> <span class="o">{</span>
+    <span class="n">testReflection</span><span class="o">(</span><span class="nc">CorrectSerializableLazySingleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">());</span>
+    <span class="c1">//    testReflection(Singleton.INSTANCE);</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">testReflection</span><span class="o">(</span><span class="no">T</span> <span class="n">t</span><span class="o">)</span>
+      <span class="kd">throws</span> <span class="nc">NoSuchMethodException</span><span class="o">,</span> <span class="nc">InstantiationException</span><span class="o">,</span> <span class="nc">IllegalAccessException</span><span class="o">,</span>
+          <span class="nc">InvocationTargetException</span> <span class="o">{</span>
+    <span class="nc">Class</span><span class="o">&lt;?&gt;</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">getClass</span><span class="o">();</span>
+    <span class="nc">Class</span><span class="o">&lt;?&gt;[]</span> <span class="n">params</span> <span class="o">=</span> <span class="o">{};</span>
+    <span class="nc">Constructor</span><span class="o">&lt;?&gt;</span> <span class="n">constructor</span> <span class="o">=</span> <span class="n">clazz</span><span class="o">.</span><span class="na">getDeclaredConstructor</span><span class="o">(</span><span class="n">params</span><span class="o">);</span>
+    <span class="n">constructor</span><span class="o">.</span><span class="na">setAccessible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="no">T</span> <span class="n">instance</span> <span class="o">=</span> <span class="o">(</span><span class="no">T</span><span class="o">)</span> <span class="n">constructor</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="n">instance</span> <span class="o">==</span> <span class="n">t</span><span class="o">)</span> <span class="o">+</span> <span class="s">"\t:\t"</span> <span class="o">+</span> <span class="n">clazz</span><span class="o">.</span><span class="na">getCanonicalName</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">代码 10. 单例模式的 Java 黑魔法测试</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">sun.misc.Unsafe</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Field</span><span class="o">;</span>
+
+<span class="cm">/**
+ * {@link Unsafe} 创建实例测试
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 16/11/2016.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnsafeTest</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+      <span class="kd">throws</span> <span class="nc">NoSuchFieldException</span><span class="o">,</span> <span class="nc">IllegalAccessException</span><span class="o">,</span> <span class="nc">InstantiationException</span> <span class="o">{</span>
+    <span class="n">testUnsafe</span><span class="o">(</span><span class="nc">CorrectSerializableLazySingleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">());</span>
+    <span class="n">testUnsafe</span><span class="o">(</span><span class="nc">Singleton</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">testUnsafe</span><span class="o">(</span><span class="no">T</span> <span class="n">t</span><span class="o">)</span>
+      <span class="kd">throws</span> <span class="nc">NoSuchFieldException</span><span class="o">,</span> <span class="nc">IllegalAccessException</span><span class="o">,</span> <span class="nc">InstantiationException</span> <span class="o">{</span>
+    <span class="nc">Unsafe</span> <span class="n">unsafe</span> <span class="o">=</span> <span class="n">getUnsafe</span><span class="o">();</span>
+    <span class="nc">Class</span><span class="o">&lt;?&gt;</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">getClass</span><span class="o">();</span>
+    <span class="no">T</span> <span class="n">instance</span> <span class="o">=</span> <span class="o">(</span><span class="no">T</span><span class="o">)</span> <span class="n">unsafe</span><span class="o">.</span><span class="na">allocateInstance</span><span class="o">(</span><span class="n">clazz</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="n">instance</span> <span class="o">==</span> <span class="n">t</span><span class="o">)</span> <span class="o">+</span> <span class="s">"\t:\t"</span> <span class="o">+</span> <span class="n">clazz</span><span class="o">.</span><span class="na">getCanonicalName</span><span class="o">());</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Unsafe</span> <span class="nf">getUnsafe</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">NoSuchFieldException</span><span class="o">,</span> <span class="nc">IllegalAccessException</span> <span class="o">{</span>
+    <span class="c1">// 通过反射得到theUnsafe对应的Field对象</span>
+    <span class="nc">Field</span> <span class="n">field</span> <span class="o">=</span> <span class="nc">Unsafe</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getDeclaredField</span><span class="o">(</span><span class="s">"theUnsafe"</span><span class="o">);</span>
+    <span class="c1">// 设置该Field为可访问</span>
+    <span class="n">field</span><span class="o">.</span><span class="na">setAccessible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="c1">// 通过Field得到该Field对应的具体对象，传入null是因为该Field为static的</span>
+    <span class="k">return</span> <span class="o">(</span><span class="nc">Unsafe</span><span class="o">)</span> <span class="n">field</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>两种方式各有优缺。饿汉式，即静态初始化的方式，它是类一加载就实例化对象。所以，加载时间比较长，而且要提前占用系统资源，如果后续用不到这个对象，会造成浪费。懒汉式，又会面临多线程访问的安全性问题，需要使用双重锁定才能保证安全性，由于 Java 虚拟机的问题，在 JDK5 以后双重锁定能可以正常工作；另外，由于是在使用时初始化，在第一次调用时耗时比较长。所以，至于到底使用哪种方式，取决于实际需求。</p>
+</div>
+<div class="listingblock">
+<div class="title">代码 11. 并发性测试</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.singleton</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ConcurrentHashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ConcurrentMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.CountDownLatch</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 单例模式并发性测试
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 16/11/2016.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcurrentTest</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="no">THREAD_COUNT</span> <span class="o">=</span> <span class="mi">10000</span><span class="o">;</span>
+    <span class="nc">CountDownLatch</span> <span class="n">latch</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CountDownLatch</span><span class="o">(</span><span class="no">THREAD_COUNT</span><span class="o">);</span>
+    <span class="nc">ConcurrentMap</span> <span class="n">concurrentMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ConcurrentHashMap</span><span class="o">();</span>
+    <span class="nc">ExecutorService</span> <span class="n">executorService</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="no">THREAD_COUNT</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">THREAD_COUNT</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">executorService</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="nc">SingletonFactory</span><span class="o">(</span><span class="n">latch</span><span class="o">,</span> <span class="n">concurrentMap</span><span class="o">,</span> <span class="n">i</span><span class="o">));</span>
+      <span class="n">latch</span><span class="o">.</span><span class="na">countDown</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="n">executorService</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SingletonFactory</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">CountDownLatch</span> <span class="n">latch</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">ConcurrentMap</span> <span class="n">concurrentMap</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">SingletonFactory</span><span class="o">(</span><span class="nc">CountDownLatch</span> <span class="n">latch</span><span class="o">,</span> <span class="nc">ConcurrentMap</span> <span class="n">concurrentMap</span><span class="o">,</span> <span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">latch</span> <span class="o">=</span> <span class="n">latch</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">concurrentMap</span> <span class="o">=</span> <span class="n">concurrentMap</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">latch</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>
+      <span class="nc">LazySingleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="nc">LazySingleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+      <span class="n">concurrentMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">instance</span><span class="o">,</span> <span class="n">instance</span><span class="o">);</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">id</span> <span class="o">+</span> <span class="s">"\t"</span> <span class="o">+</span> <span class="n">concurrentMap</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_产生多个单例类实例"><a class="anchor" href="#_产生多个单例类实例"></a>3.5. 产生多个“单例类”实例</h3>
+<div class="paragraph">
+<p>还回到文章开头，D瓜哥被问到的问题：单例模式的实现类能否产生多个对象？既然写这篇文章，那么答案肯定是肯定的。那么怎么产生呢？</p>
+</div>
+<div class="paragraph">
+<p>有两种方式可以做到。我们这里分别来试验一下。</p>
+</div>
+<div class="paragraph">
+<p>问题：既然 <code>static</code> 变量是类共享的，修改后，其他对象也应该立即修改，那么还需要 <code>volidate</code> 吗？</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_枚举"><a class="anchor" href="#_枚举"></a>3.6. 枚举</h3>
+<div class="quoteblock">
+<div class="title">《The Java® Language Specification Java SE 17 Edition》</div>
+<blockquote>
+<div class="paragraph">
+<p><strong>An enum type has no instances other than those defined by its enum constants. It is a compile-time error to attempt to explicitly instantiate an enum type (§15.9.1).</strong></p>
+</div>
+<div class="paragraph">
+<p>In addition to the compile-time error, three further mechanisms ensure that no instances of an enum type exist beyond those defined by its enum constants:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The final clone method in Enum ensures that enum constants can never be cloned.</p>
+</li>
+<li>
+<p>Reflective instantiation of enum types is prohibited.</p>
+</li>
+<li>
+<p>Special treatment by the serialization mechanism ensures that duplicate instances are never created as a result of deserialization.</p>
+</li>
+</ul>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; James Gosling, Bill Joy, Guy Steele, Gilad Bracha, Alex Buckley<br>
+<cite>《The Java® Language Specification Java SE 17 Edition》 -- 8.9. Enum Types</cite>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_注册表或者应用上下文"><a class="anchor" href="#_注册表或者应用上下文"></a>3.7. 注册表或者应用上下文</h3>
+<div class="paragraph">
+<p>后续补充内容，典型例子就是 Spring 框架。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_参考资料"><a class="anchor" href="#_参考资料"></a>3.8. 参考资料：</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://blog.csdn.net/card361401376/article/details/51340822?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io">设计模式-单例模式(Singleton)各种写法和分析比较 - 李可乐的专栏 - 博客频道 - CSDN.NET</a></p>
+</li>
+<li>
+<p><a href="http://book.douban.com/subject/2334288/">《大话设计模式》</a></p>
+</li>
+<li>
+<p><a href="http://book.douban.com/subject/19969386/">《Java程序性能优化》</a></p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/javase/tutorial/reflect/member/ctorInstance.html">Creating New Class Instances</a></p>
+</li>
+<li>
+<p><a href="http://www.hollischuang.com/archives/1144">单例与序列化的那些事儿-HollisChuang&#8217;s Blog</a></p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.9">Chapter 8. Classes</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph nav-footer">
+<p>← Previous: <a href="design-principles.html">设计模式设计原则</a> | ↑ Up: <a href="index.html">深入学习设计模式 &lt;sup&gt;Alpha&lt;/sup</a>&gt; | Next: <a href="proxy.html">代理模式 与 AOP</a> →</p>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+最后更新时间 2022-07-31 10:08:33 UTC
+</div>
+</div>
+</body>
+</html>

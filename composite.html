@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="description" content="深入理解设计模式。">
+<meta name="keywords" content="设计模式, Design Pattern">
+<meta name="author" content="D瓜哥">
+<title>深入学习设计模式 Alpha</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="assets/styles/asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/styles/rouge-github.css">
+<style>.toc-current{font-weight: bold;} .toc-root{font-family: "Open Sans","DejaVu Sans",sans-serif;
+                       font-size: 0.9em;} #content{display: flex; flex-direction: column; flex: 1 1 auto;}
+             .nav-footer{text-align: center; margin-top: auto;}
+             .nav-footer > p > a {white-space: nowrap;}</style>
+<script>var _hmt = _hmt || [];(function () {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?ae79ae5854e141fa6c9a217b5dcf0e45";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script></head>
+<body id="composite" class="book toc2 toc-left">
+<div id="header">
+<h1>深入学习设计模式 <sup>Alpha</sup></h1>
+<div class="details">
+<span id="author" class="author">D瓜哥</span><br>
+<span id="email" class="email"><a href="https://www.diguage.com/" class="bare">https://www.diguage.com/</a></span><br>
+<span id="revdate">2022-07-31</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<p><span class="toc-root"><a href="index.html">深入学习设计模式 <sup>Alpha</sup></a></span></p><ul class="sectlevel1">
+<li><a href="_前言.html">前言</a>
+</li>
+<li><a href="object-oriented-programming.html">1. 面向对象程序设计</a>
+</li>
+<li><a href="design-principles.html">2. 设计模式设计原则</a>
+</li>
+<li><a href="singleton.html">3. 单例模式</a>
+</li>
+<li><a href="proxy.html">4. 代理模式 与 AOP</a>
+</li>
+<li><a href="abstract-factory.html">5. 抽象工厂模式</a>
+</li>
+<li><a href="adapter.html">6. 适配器模式</a>
+</li>
+<li><a href="bridge.html">7. 桥接模式</a>
+</li>
+<li><a href="builder.html">8. 建造者模式</a>
+</li>
+<li><a href="chain-of-responsibility.html">9. 职责链模式</a>
+</li>
+<li><a href="command.html">10. 命令模式</a>
+</li>
+<li><a href="composite.html"><span class="toc-current">11. 组合模式</span></a>
+<ul class="sectlevel2">
+<li><a href="composite.html#_定义_9">11.1. 定义</a>
+</li>
+<li><a href="composite.html#_类图_8">11.2. 类图</a>
+</li>
+<li><a href="composite.html#_常见示例_6">11.3. 常见示例</a>
+</li>
+</ul>
+</li>
+<li><a href="decorator.html">12. 装饰器模式</a>
+</li>
+<li><a href="facade.html">13. 外观模式</a>
+</li>
+<li><a href="factory-method.html">14. 工厂方法模式</a>
+</li>
+<li><a href="flyweight.html">15. 享元模式</a>
+</li>
+<li><a href="interpreter.html">16. 解释器模式</a>
+</li>
+<li><a href="iterator.html">17. 迭代器模式</a>
+</li>
+<li><a href="mediator.html">18. 中介者模式</a>
+</li>
+<li><a href="memento.html">19. 备忘录模式</a>
+</li>
+<li><a href="observer.html">20. 观察者模式</a>
+</li>
+<li><a href="prototype.html">21. 原型模式</a>
+</li>
+<li><a href="state.html">22. 状态模式</a>
+</li>
+<li><a href="strategy.html">23. 策略模式</a>
+</li>
+<li><a href="template-method.html">24. 模版方法模式</a>
+</li>
+<li><a href="visitor.html">25. 访问者模式</a>
+</li>
+<li><a href="summary.html">26. 总结</a>
+</li>
+<li><a href="references.html">附录 D: 参考资料</a>
+</li>
+<li><a href="plant-uml.html">附录 E: Plant UML 类图小技巧</a>
+</li>
+<li><a href="license.html">附录 F: 版权声明</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="content"><div class="sect2"><h3 id="_友情支持">友情支持</h3><div class="paragraph"><p>如果您觉得这个笔记对您有所帮助，看在D瓜哥码这么多字的辛苦上，请友情支持一下，D瓜哥感激不尽，😜</p></div><table class="tableblock frame-none grid-all stretch"><colgroup><col style="width: 50%;"><col style="width: 50%;"></colgroup><tbody><tr><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/alipay.png" alt="支付宝" width="85%" title="支付宝"></span></p></td><td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="assets/images/wxpay.jpg" alt="微信" width="85%" title="微信"></span></p></td></tr></tbody></table><div class="paragraph"><p>有些打赏的朋友希望可以加个好友，欢迎关注D 瓜哥的微信公众号，这样就可以通过公众号的回复直接给我发信息。</p></div><div class="paragraph"><p><span class="image"><img src="assets/images/wx-jikerizhi.png" alt="wx jikerizhi" width="98%"></span></p></div><div class="admonitionblock tip"><table><tbody><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><strong>公众号的微信号是: <code>jikerizhi</code></strong>。<em>因为众所周知的原因，有时图片加载不出来。 如果图片加载不出来可以直接通过搜索微信号来查找我的公众号。</em></td></tr></tbody></table></div></div>
+<div class="sect1">
+<h2 id="composite"><a class="anchor" href="#composite"></a>11. 组合模式</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_定义_9"><a class="anchor" href="#_定义_9"></a>11.1. 定义</h3>
+<div class="paragraph">
+<p>根据 GoF 的著名著作 <a href="http://book.douban.com/subject/1052241/">《设计模式》</a>，组合模式的定义如下：</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">组合模式（Composite）</dt>
+<dd>
+<p>将对象组合成树形结构以表示“部分-整体”的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。</p>
+</dd>
+</dl>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides<br>
+<cite>《设计模式》</cite>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_类图_8"><a class="anchor" href="#_类图_8"></a>11.2. 类图</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./composite.svg" alt="Diagram" width="95%" height="745">
+</div>
+</div>
+<div class="paragraph">
+<p>组合模式
+注: Netty 中 CompositeByteBuf 就是组合模式的实现。</p>
+</div>
+<div class="paragraph">
+<p>Component为组合中的对象声明接口，在适当情况下，实现所有类共有接口的默认行为。声明一个接口用于访问和管理Component的子部件。</p>
+</div>
+<div class="paragraph">
+<p>Leaf在组合中表示叶节点对象，叶节点没有子节点。</p>
+</div>
+<div class="paragraph">
+<p>Composite定义有枝节点行为，用来存储子部件，在Component接口中实现与子部件有关的操作，比如增加Add和删除Remove。</p>
+</div>
+<div class="paragraph">
+<p>客户端代码，能通过Component接口操作组合部件的对象。</p>
+</div>
+<div class="paragraph">
+<p>透明方式，也就是说在Component中声明所有用来管理子对象的方法，其中包括Add、Remove等。这样实现Component接口的所有子类都具备了Add和Remove。这样做的好处就是叶节点和枝节点对于外界没有区别，它们具备完全一致的行为接口。但问题也很明显，因为Leaf类本身不具备Add()、Remove()方法的功能，所以实现它是没有意义的。</p>
+</div>
+<div class="paragraph">
+<p>安全方式，也就是在Component接口中不去声明Add和Remove方法，那么子类的Leaf也就不需要去实现它，而是在Composite声明所有用来管理子类对象的方法，这样做就不会出现刚才提到的问题，不过由于不够透明，所以树叶和树枝类将不具有相同的接口，客户端的调用需要做相应的判断，带来了不便。</p>
+</div>
+<div class="paragraph">
+<p>当你发现需求中是体现部分与整体层次的结构时，以及你希望用户可以忽略组合对象与单个对象的不同，统一地使用组合结构中的所有对象时，就应该考虑用组合模式了</p>
+</div>
+<div class="paragraph">
+<p>组合模式这样就定义了包含人力资源部和财务部这些基本对象和分公司、办事处等组合对象的类层次结构。基本对象可以被组合成更复杂的组合对象，而这个组合对象又可以被组合，这样不断地递归下去，客户代码中，任何用到基本对象的地方都可以使用组合对象了。</p>
+</div>
+<div class="paragraph">
+<p>用户是不用关心到底是处理一个叶节点还是处理一个组合组件，也就用不着为定义组合而写一些选择判断语句了。</p>
+</div>
+<div class="paragraph">
+<p>组合模式让客户可以一致地使用组合结构和单个对象。</p>
+</div>
+<div id="src-composite-client" class="listingblock">
+<div class="title">代码 72. composite/Client.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.composite</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Client 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-19 17:53:34
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Composite</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Composite</span><span class="o">(</span><span class="s">"root"</span><span class="o">);</span>
+    <span class="n">root</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Leaf</span><span class="o">(</span><span class="s">"Leaf A"</span><span class="o">));</span>
+    <span class="n">root</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Leaf</span><span class="o">(</span><span class="s">"Leaf B"</span><span class="o">));</span>
+
+    <span class="nc">Composite</span> <span class="n">comp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Composite</span><span class="o">(</span><span class="s">"Composite X"</span><span class="o">);</span>
+    <span class="n">comp</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Leaf</span><span class="o">(</span><span class="s">"Leaf XA"</span><span class="o">));</span>
+    <span class="n">comp</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Leaf</span><span class="o">(</span><span class="s">"Leaf XB"</span><span class="o">));</span>
+
+    <span class="n">root</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">comp</span><span class="o">);</span>
+
+    <span class="nc">Composite</span> <span class="n">comp2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Composite</span><span class="o">(</span><span class="s">"Composite XY"</span><span class="o">);</span>
+    <span class="n">comp2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Leaf</span><span class="o">(</span><span class="s">"Leaf XYA"</span><span class="o">));</span>
+    <span class="n">comp2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Leaf</span><span class="o">(</span><span class="s">"Leaf XYB"</span><span class="o">));</span>
+    <span class="n">comp</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">comp2</span><span class="o">);</span>
+
+    <span class="n">root</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Leaf</span><span class="o">(</span><span class="s">"Leaf C"</span><span class="o">));</span>
+
+    <span class="nc">Leaf</span> <span class="n">leaf</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Leaf</span><span class="o">(</span><span class="s">"Leaf D"</span><span class="o">);</span>
+    <span class="n">root</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">leaf</span><span class="o">);</span>
+    <span class="n">root</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">leaf</span><span class="o">);</span>
+
+    <span class="n">root</span><span class="o">.</span><span class="na">display</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-composite-component" class="listingblock">
+<div class="title">代码 73. composite/Component.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.composite</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Component 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-23 09:09:48
+ */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Component</span> <span class="o">{</span>
+  <span class="kd">protected</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Component</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">Component</span> <span class="n">component</span><span class="o">);</span>
+
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="nc">Component</span> <span class="n">component</span><span class="o">);</span>
+
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="kt">int</span> <span class="n">depth</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-composite-composite" class="listingblock">
+<div class="title">代码 74. composite/Composite.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.composite</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Composite 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-23 09:09:48
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Composite</span> <span class="kd">extends</span> <span class="nc">Component</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Component</span><span class="o">&gt;</span> <span class="n">children</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="kd">public</span> <span class="nf">Composite</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">Component</span> <span class="n">component</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">children</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">component</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="nc">Component</span> <span class="n">component</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">children</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">component</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="kt">int</span> <span class="n">depth</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="n">depth</span> <span class="o">+</span> <span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"-"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">name</span><span class="o">).</span><span class="na">toString</span><span class="o">());</span>
+
+    <span class="n">children</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">display</span><span class="o">(</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">2</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div id="src-composite-leaf" class="listingblock">
+<div class="title">代码 75. composite/Leaf.java 类</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="code"><pre><span class="kn">package</span> <span class="nn">com.diguage.didp.composite</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Leaf 类
+ *
+ * @author D瓜哥, https://www.diguage.com/
+ * @since 2017-05-23 09:09:48
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Leaf</span> <span class="kd">extends</span> <span class="nc">Component</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="nf">Leaf</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">Component</span> <span class="n">component</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UnsupportedOperationException</span><span class="o">(</span><span class="s">"不支持向叶子中添加元素！"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="nc">Component</span> <span class="n">component</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UnsupportedOperationException</span><span class="o">(</span><span class="s">"不支持向叶子中删除元素！"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="kt">int</span> <span class="n">depth</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="n">depth</span> <span class="o">+</span> <span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"-"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">name</span><span class="o">).</span><span class="na">toString</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_常见示例_6"><a class="anchor" href="#_常见示例_6"></a>11.3. 常见示例</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>java.util.Map.putAll(Map&lt;? extends K, ? extends V&gt; m)</code></p>
+</li>
+<li>
+<p><code>java.util.List.addAll(*)</code></p>
+</li>
+<li>
+<p><code>java.util.Set.addAll(Collection&lt;? extends E&gt; c)</code></p>
+</li>
+<li>
+<p>Netty 中对 <code>Buff</code> 的管理似乎也是这个模式。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph nav-footer">
+<p>← Previous: <a href="command.html">命令模式</a> | ↑ Up: <a href="index.html">深入学习设计模式 &lt;sup&gt;Alpha&lt;/sup</a>&gt; | Next: <a href="decorator.html">装饰器模式</a> →</p>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+最后更新时间 2022-07-31 10:08:33 UTC
+</div>
+</div>
+</body>
+</html>

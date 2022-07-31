@@ -1,0 +1,31 @@
+@startuml
+title "**适配器模式**"
+
+class Client {
+  - target :Target
+}
+
+class Target {
+  + request() :void
+}
+note right: 这是客户所期待的接口。\n目标可以是具体的活抽象的类，\n也可以是接口。
+
+class Adapter {
+  - adaptee   :Adaptee
+  + request() :void
+}
+note bottom: 通过在内部包装一个 Adaptee 对象，\n把源接口转换成目标接口。
+
+class Adaptee {
+  + specificRequest() :void
+}
+note bottom: 需要适配的类
+
+Target <|-- Adapter
+
+Adapter::adaptee "-adaptee" *-right-> Adaptee
+
+Client "-target" -right-> Target
+
+footer D瓜哥 · https://www.diguage.com · 出品
+@enduml
