@@ -1,6 +1,18 @@
 [#flyweight]
 = 享元模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，享元模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+享元模式（Flyweight）::
+运用共享技术有效地支持大量细粒度的对象。
+____
+
+== 类图
+
 plantuml::assets/puml/flyweight.puml[{puml_attr}]
 
 Flyweight类，它是所有具体享元类的超类或接口，通过这个接口，Flyweight可以接受并作用于外部状态。
@@ -70,4 +82,9 @@ include::{source_dir}/flyweight/FlyweightFactory.java[]
 include::{source_dir}/flyweight/UnsharedConcreteFlyWeight.java[]
 ----
 
+== 常见示例
 
+. `java.lang.Integer.valueOf(*)`
+. `java.lang.Boolean.valueOf(*)`
+. `java.lang.Byte.valueOf(*)`
+. `java.lang.Character.valueOf(char c)`

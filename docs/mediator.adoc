@@ -1,6 +1,18 @@
 [#mediator]
 = 中介者模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，中介者模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+中介者模式（Mediator）::
+用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显示地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。
+____
+
+== 类图
+
 plantuml::assets/puml/mediator.puml[{puml_attr}]
 
 中介者模式又叫做调停者模式。其实就是中间人或者调停者的意思。
@@ -86,3 +98,10 @@ include::{source_dir}/mediator/Mediator.java[]
 ----
 include::{source_dir}/mediator/Client.java[]
 ----
+
+
+== 常见示例
+
+. `java.util.Timer`
+. `java.util.concurrent.ExecutorService`
+. `java.lang.reflect.Method.invoke(Object obj, Object... args)`

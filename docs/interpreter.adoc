@@ -1,6 +1,18 @@
 [#interpreter]
 = 解释器模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，解释器模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+解释器模式（Interpreter）::
+给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来介绍语言中的句子。
+____
+
+== 类图
+
 plantuml::assets/puml/interpreter.puml[{puml_attr}]
 
 
@@ -63,4 +75,8 @@ include::{source_dir}/interpreter/NonterminalExpression.java[]
 include::{source_dir}/interpreter/TerminalExpression.java[]
 ----
 
+== 常见示例
 
+. `java.util.regex.Pattern`
+. `java.text.Normalizer`
+. `java.text.Format`

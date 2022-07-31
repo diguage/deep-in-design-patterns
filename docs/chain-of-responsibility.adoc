@@ -1,6 +1,18 @@
 [#chain-of-responsibility]
 = 职责链模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，职责链模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+职责链模式（Chain of Responsibility）::
+使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系。将这个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理为止。
+____
+
+== 类图
+
 plantuml::assets/puml/chain-of-responsibility.puml[{puml_attr}]
 
 发出这个请求的客户端并不知道这当中的哪一个对象最终处理这个请求，这样系统的更改可以在不影响客户端的情况下动态地重新组织和分配责任。
@@ -59,3 +71,8 @@ include::{source_dir}/chainofresponsibility/Handler.java[]
 ----
 include::{source_dir}/chainofresponsibility/ConcreteHandler3.java[]
 ----
+
+== 常见示例
+
+. `java.util.logging.Logger.log(*)`
+. `jakarta.servlet.Filter`

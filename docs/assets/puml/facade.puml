@@ -1,8 +1,7 @@
 @startuml
 title "**外观模式**"
 
-class Client {
-}
+class Client
 
 class Facade {
   + methodA() :Object

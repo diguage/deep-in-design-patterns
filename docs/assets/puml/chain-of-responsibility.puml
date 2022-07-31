@@ -8,7 +8,7 @@ abstract class Handler {
   + setSuccessor(successor :Handler) :void
   + {abstract} handleRequest(request :int) :Object
 }
-note right: 定义一个处理请求的接口。
+note top: 定义一个处理请求的接口。
 
 class ConcreteHandler1 {
   + handleRequest(request :int) :Object
@@ -28,7 +28,7 @@ Client -right-> Handler
 Handler <|-- ConcreteHandler1
 Handler <|-- ConcreteHandler2
 
-ConcreteHandler2 o--> Handler
+ConcreteHandler2 "-successor" o--> Handler #blue;text:blue
 
 footer D瓜哥 · https://www.diguage.com · 出品
 @enduml

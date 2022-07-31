@@ -20,8 +20,7 @@ class Composite {
 }
 note bottom: 定义有枝节点行为，用来存储子部件，\n在 Component 接口中实现与子部件有关\n的操作，比如增加 add 和删除 remove。
 
-class Client {
-}
+class Client
 
 Client -right-> Component
 Composite o--> Component

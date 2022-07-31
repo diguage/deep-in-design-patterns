@@ -5,8 +5,7 @@ abstract class Mediator {
 }
 note top: 抽象中介者，定义了同事\n对象到中介者对象的接口。
 
-class ConcreteMediator {
-}
+class ConcreteMediator
 note bottom: 具体中介者对象，实现抽象类的方法，\n它需要知道所有具体的同事，并从具体\n同事接收消息，向具体同事对象发出命令。
 
 abstract class Colleague {
@@ -14,10 +13,8 @@ abstract class Colleague {
 }
 note top: 抽象同事
 
-class ConcreteColleague1 {
-}
-class ConcreteColleague2 {
-}
+class ConcreteColleague1
+class ConcreteColleague2
 
 note "具体同事类，每个具体同事只知道自己的行为，\n而不了解其它同事类的情况，但它们却都认识中介者对象。" as ccn
 ConcreteColleague1 .. ccn

@@ -22,13 +22,12 @@ class UnsharedConcreteFlyWeight {
 }
 note bottom: 指那些不需要共享的 FlyWeight 子类。\n因为 FlyWeight 接口共享成为可能，但它并不强制共享。
 
-class Client {
-}
+class Client
 
-FlyweightFactory "-flyWeights" o-right-> FlyWeight
+FlyweightFactory::flyWeights "-flyWeights" o-> FlyWeight
 
-FlyWeight <|-- ConcreteFlyWeight
-FlyWeight <|-- UnsharedConcreteFlyWeight
+FlyWeight <|--- ConcreteFlyWeight
+FlyWeight <|--- UnsharedConcreteFlyWeight
 
 FlyweightFactory <-- Client
 

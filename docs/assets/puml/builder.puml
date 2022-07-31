@@ -18,8 +18,7 @@ class Director {
 }
 note top: 指挥者，是构建一个使用 \n Builder 接口的对象。
 
-class Product {
-}
+class Product
 note top: 具体产品
 
 Director "-builder" o-right- Builder
