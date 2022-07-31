@@ -75,4 +75,12 @@ include::{source_dir}/adapter/Client.java[]
 include::{source_dir}/adapter/Target.java[]
 ----
 
+== JDK 示例
+
+. `java.util.Arrays.asList(T... a)`
+. `java.io.InputStreamReader`
+. `java.io.OutputStreamWriter`
+. `javax.xml.bind.annotation.adapters.XmlAdapter.marshal(BoundType v)` -- 在 JDK 17 中已经不存在，应该是在 JDK 9 时被删除。可以在 `javax.xml.bind:jaxb-api` 中找到。
+. `javax.xml.bind.annotation.adapters.XmlAdapter.unmarshal(ValueType v)` -- 在 JDK 17 中已经不存在，应该是在 JDK 9 时被删除。可以在 `javax.xml.bind:jaxb-api` 中找到。
+
 

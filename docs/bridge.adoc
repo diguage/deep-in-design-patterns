@@ -1,6 +1,18 @@
 [#bridge]
 = 桥接模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，桥接模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+桥接模式（Bridge）::
+将抽象部分与它的实现部分分离，使它们都可以独立地变化。
+____
+
+== 类图
+
 plantuml::assets/puml/bridge.puml[{puml_attr}]
 
 什么叫抽象与它的实现分离，这并不是说，让抽象类与其派生类分离，因为这没有任何意义。实现指的是抽象类和它的派生类用来实现自己的对象[DPE]。
@@ -72,3 +84,8 @@ include::{source_dir}/bridge/RefinedAbstraction.java[]
 ----
 include::{source_dir}/bridge/Client.java[]
 ----
+
+== 常见示例
+
+. JDBC
+. AWT

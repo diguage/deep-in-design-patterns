@@ -1,6 +1,18 @@
 [#decorator]
 = 装饰器模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，装饰模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+装饰模式（Decorator）::
+动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。
+____
+
+== 类图
+
 plantuml::assets/puml/decorator.puml[{puml_attr}]
 
 建造者模式要求建造的过程必须是稳定的
@@ -79,4 +91,16 @@ include::{source_dir}/decorator/ConcreteDecoratorB.java[]
 include::{source_dir}/decorator/Decorator.java[]
 ----
 
+== 常见示例
+
+. `java.io.BufferedInputStream`
+. `java.io.BufferedOutputStream`
+. `java.io.DataInputStream`
+. `java.util.zip.ZipOutputStream`
+. `java.util.Collections`
+.. `checkedList(List<E> list, Class<E> type)`
+.. `checkedMap(Map<K, V> m, Class<K> keyType, Class<V> valueType)`
+.. `checkedSet(Set<E> s, Class<E> type)`
+.. `checkedSortedMap(SortedMap<K, V> m, Class<K> keyType, Class<V> valueType)`
+.. `checkedSortedSet(SortedSet<E> s, Class<E> type)`
 

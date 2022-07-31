@@ -23,7 +23,7 @@ note bottom: 需要适配的类
 
 Target <|-- Adapter
 
-Adapter "-adaptee" -right-> Adaptee
+Adapter::adaptee "-adaptee" *-right-> Adaptee
 
 Client "-target" -right-> Target
 

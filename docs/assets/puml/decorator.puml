@@ -33,7 +33,7 @@ note "ConcreteDecorator 就是具体的装饰对象，\n起到给 Component 添�
 ConcreteDecoratorA .. cdn
 ConcreteDecoratorB .. cdn
 
-Decorator "-component" o-- Component
+Decorator "-component" o--> Component #green;text:green
 
 Component <|-- ConcreteComponent
 Component <|-- Decorator

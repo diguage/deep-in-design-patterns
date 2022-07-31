@@ -1,6 +1,18 @@
 [#strategy]
 = 策略模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，策略模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+策略模式（Strategy）::
+它定义了算法家族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化，不会影响到使用算法的客户。
+____
+
+== 类图
+
 plantuml::assets/puml/strategy.puml[{puml_attr}]
 
 
@@ -87,4 +99,9 @@ include::{source_dir}/strategy/Context.java[]
 include::{source_dir}/strategy/Strategy.java[]
 ----
 
+== 常见示例
+
+. `java.util.Comparator`
+. `jakarta.servlet.http.HttpServlet`
+. `jakarta.servlet.Filter.doFilter(ServletRequest request, ServletResponse response, FilterChain chain)`
 
