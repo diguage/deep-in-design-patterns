@@ -1,6 +1,18 @@
 [#abstract-factory]
 = 抽象工厂模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，抽象工厂模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+抽象工厂模式（Abstract Factory）::
+提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。
+____
+
+== 类图
+
 plantuml::assets/puml/abstract-factory.puml[{puml_attr}]
 
 菜鸟程序员碰到问题，只会用时间来摆平
@@ -123,4 +135,12 @@ include::{source_dir}/abstractfactory/ProductB1.java[]
 include::{source_dir}/abstractfactory/ProductB2.java[]
 ----
 
+== 常见示例
 
+. `java.util.Calendar.getInstance()`
+. `java.util.ResourceBundle.getBundle(*)`
+. `java.sql.DriverManager.getConnection(*)`
+. `java.sql.Connection.createStatement(*)`
+. `java.sql.Statement.executeQuery(String sql)`
+. `java.text.NumberFormat.getInstance(*)`
+. `javax.xml.transform.TransformerFactory.newInstance(*)`

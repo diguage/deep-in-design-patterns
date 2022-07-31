@@ -1,6 +1,18 @@
 [#command]
 = 命令模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，命令模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+命令模式（Command）::
+将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。
+____
+
+== 类图
+
 plantuml::assets/puml/command.puml[{puml_attr}]
 
 这其实就是‘行为请求者’与‘行为实现者’的紧耦合。
@@ -70,4 +82,7 @@ include::{source_dir}/command/Invoker.java[]
 include::{source_dir}/command/Receiver.java[]
 ----
 
+== 常见示例
 
+. `java.lang.Runnable`
+. `javax.swing.Action`

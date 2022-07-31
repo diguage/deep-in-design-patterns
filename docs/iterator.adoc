@@ -1,6 +1,18 @@
 [#iterator]
 = 迭代器模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，迭代器模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+迭代器模式（Iterator）::
+提供一种方法顺序访问一个聚合对象中各个元素，而又不暴露该对象的内部表示。
+____
+
+== 类图
+
 plantuml::assets/puml/iterator.puml[{puml_attr}]
 
 迭代器模式
@@ -71,4 +83,6 @@ include::{source_dir}/iterator/ConcreteIterator.java[]
 include::{source_dir}/iterator/Iterator.java[]
 ----
 
+== 常见示例
 
+. `java.util.Iterator`

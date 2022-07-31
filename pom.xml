@@ -578,6 +578,7 @@
             <bk_dp>http://book.douban.com/subject/1052241/[《设计模式》]</bk_dp>
             <bkn_dp>Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides,《设计模式》</bkn_dp>
             <bkn_asd>Robert C. Martin,《敏捷软件开发：原则、模式与实践》</bkn_asd>
+            <bkn_jadp>阎宏,Java 与模式</bkn_jadp>
           </attributes>
         </configuration>
         <executions>

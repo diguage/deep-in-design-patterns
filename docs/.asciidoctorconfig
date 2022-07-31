@@ -31,3 +31,5 @@
 :bkn_dp: pass:replacements[Erich Gamma、Richard Helm、Ralph Johnson、John Vlissides,《设计模式》]
 
 :bkn_asd: pass:replacements[Robert C. Martin,《敏捷软件开发：原则、模式与实践》]
+
+:bkn_jadp: pass:replacements[阎宏,Java 与模式]

@@ -1,6 +1,18 @@
 [#memento]
 = 备忘录模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，备忘录模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+备忘录模式（Memento）::
+在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原来保存的状态。
+____
+
+== 类图
+
 plantuml::assets/puml/memento.puml[{puml_attr}]
 
 代码无错未必优。
@@ -56,3 +68,8 @@ include::{source_dir}/memento/Originator.java[]
 ----
 include::{source_dir}/memento/Client.java[]
 ----
+
+== 常见示例
+
+. `java.util.Date`
+. `java.io.Serializable`

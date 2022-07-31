@@ -1,6 +1,18 @@
 [#facade]
 = 外观模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，外观模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+外观模式（Facade）::
+为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。
+____
+
+== 类图
+
 plantuml::assets/puml/facade.puml[{puml_attr}]
 
 外观模式，也完全有可能在很多时候使用它，因为它完美地体现了依赖倒转原则和迪米特法则的思想，所以是非常常用的模式之一。
@@ -65,4 +77,6 @@ include::{source_dir}/facade/SubSystemThree.java[]
 include::{source_dir}/facade/SubSystemTwo.java[]
 ----
 
+== 常见示例
 
+. `java.lang.Class`

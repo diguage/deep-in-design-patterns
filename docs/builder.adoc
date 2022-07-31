@@ -1,6 +1,18 @@
 [#builder]
 = 建造者模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，建造者模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+建造者模式（Builder）::
+将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
+____
+
+== 类图
+
 plantuml::assets/puml/builder.puml[{puml_attr}]
 
 如果你需要将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示的意图时，我们需要应用于一个设计模式，‘建造者（Builder）模式’，又叫生成器模式。建造者模式可以将一个产品的内部表象与产品的生成过程分割开来，从而可以使一个建造过程生成具有不同的内部表象的产品对象。如果我们用了建造者模式，那么用户就只需指定需要建造的类型就可以得到它们，而具体建造的过程和细节就不需知道了。
@@ -59,3 +71,9 @@ include::{source_dir}/builder/Product.java[]
 ----
 include::{source_dir}/builder/Client.java[]
 ----
+
+== 常见示例
+
+. Lombok 的 `@Builder`
+. `java.lang.StringBuilder.append(*)`
+. `java.sql.PreparedStatement`

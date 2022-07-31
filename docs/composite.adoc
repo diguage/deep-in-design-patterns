@@ -1,6 +1,18 @@
 [#composite]
 = 组合模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，组合模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+组合模式（Composite）::
+将对象组合成树形结构以表示“部分-整体”的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。
+____
+
+== 类图
+
 plantuml::assets/puml/composite.puml[{puml_attr}]
 
 
@@ -61,4 +73,9 @@ include::{source_dir}/composite/Composite.java[]
 include::{source_dir}/composite/Leaf.java[]
 ----
 
+== 常见示例
 
+. `java.util.Map.putAll(Map<? extends K, ? extends V> m)`
+. `java.util.List.addAll(*)`
+. `java.util.Set.addAll(Collection<? extends E> c)`
+. Netty 中对 `Buff` 的管理似乎也是这个模式。

@@ -1,6 +1,18 @@
 [#state]
 = 状态模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，状态模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+状态模式（State）::
+当一个对象的内在状态改变时允许改变其行为，这个对象看起来像是改变了其类。
+____
+
+== 类图
+
 plantuml::assets/puml/state.puml[{puml_attr}]
 
 
@@ -75,3 +87,7 @@ include::{source_dir}/state/State.java[]
 ----
 include::{source_dir}/state/Client.java[]
 ----
+
+== 常见示例
+
+. `java.util.Iterator`
