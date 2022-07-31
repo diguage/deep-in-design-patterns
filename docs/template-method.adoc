@@ -1,6 +1,18 @@
 [#template-method]
 = 模版方法模式
 
+== 定义
+
+根据 GoF 的著名著作 {bk_dp}，模板方法模式的定义如下：
+
+[quote,{bkn_dp}]
+____
+模板方法模式（Template Method）::
+定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
+____
+
+== 类图
+
 plantuml::assets/puml/template-method.puml[{puml_attr}]
 
 当我们要完成在某一细节层次一致的一个过程或一系列步骤，但其个别步骤在更详细的层次上的实现可能不同时，我们通常考虑用模板方法模式来处理。
@@ -45,3 +57,12 @@ include::{source_dir}/templatemethod/ConcreteClassA.java[]
 ----
 include::{source_dir}/templatemethod/ConcreteClassB.java[]
 ----
+
+
+== 常见示例
+
+. `java.util.Collections.sort(List<T> list)`
+. `java.io.InputStream.skip(long n)`
+. `java.io.InputStream.read()`
+. `java.util.AbstractList.indexOf(Object o)`
+. 从大视角上来看，编译也算是一个模板方法模式。
