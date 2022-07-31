@@ -22,9 +22,12 @@ class RealSubject {
 note bottom: RealSubject 类，定义 Proxy 所代表的真实实体。
 
 Client -right-> Subject
+
 Subject <|.. Proxy
+
 Subject <|.. RealSubject
-Proxy "-realSubject" -right-> RealSubject
+
+Proxy "-realSubject" *-right- RealSubject
 
 footer D瓜哥 · https://www.diguage.com · 出品
 @enduml
