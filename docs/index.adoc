@@ -2,6 +2,7 @@
 D瓜哥 <https://www.diguage.com/>
 {docdate}
 include::_attributes.adoc[]
+:partnums:
 
 ++++
 include::assets/tags/analytics.html[]
@@ -13,42 +14,92 @@ include::assets/tags/analytics.html[]
 // include::dedication.adoc[leveloffset=+1]
 
 // 前言
-include::preface.adoc[leveloffset=+1]
+include::preface.adoc[]
 
 :sectnums:
+
+
+= 面向对象与设计原则
 
 include::object-oriented-programming.adoc[leveloffset=+1]
 
 include::design-principles.adoc[leveloffset=+1]
 
-// 正文。
+
+= 创建型模式
+
+类模式::
+* 工厂方法模式
+
+对象模式::
+* 单例模式
+* 抽象工厂模式
+* 建造者模式
+* 原型模式
+
+
 include::singleton.adoc[leveloffset=+1]
-
-include::proxy.adoc[leveloffset=+1]
-
-include::abstract-factory.adoc[leveloffset=+1]
-
-include::adapter.adoc[leveloffset=+1]
-
-include::bridge.adoc[leveloffset=+1]
 
 include::builder.adoc[leveloffset=+1]
 
-include::chain-of-responsibility.adoc[leveloffset=+1]
+include::factory-method.adoc[leveloffset=+1]
 
-include::command.adoc[leveloffset=+1]
+include::abstract-factory.adoc[leveloffset=+1]
 
-include::composite.adoc[leveloffset=+1]
+include::prototype.adoc[leveloffset=+1]
+
+
+= 结构型模式
+
+类模式::
+* 适配器模式
+
+对象模式::
+* 代理模式
+* 装饰模式
+* 组合模式
+* 桥接模式
+* 适配器模式
+* 外观模式
+* 享元模式
+
+include::proxy.adoc[leveloffset=+1]
 
 include::decorator.adoc[leveloffset=+1]
 
-include::facade.adoc[leveloffset=+1]
+include::composite.adoc[leveloffset=+1]
 
-include::factory-method.adoc[leveloffset=+1]
+include::adapter.adoc[leveloffset=+1]
+
+include::facade.adoc[leveloffset=+1]
 
 include::flyweight.adoc[leveloffset=+1]
 
-include::interpreter.adoc[leveloffset=+1]
+include::bridge.adoc[leveloffset=+1]
+
+
+= 行为型模式
+
+类模式::
+* 模板方法模式
+* 解释器模式
+
+对象模式::
+* 职责链模式
+* 命令模式
+* 迭代器模式
+* 中介者模式
+* 备忘录模式
+* 观察者模式
+* 状态模式
+* 策略模式
+* 访问者模式
+
+include::observer.adoc[leveloffset=+1]
+
+include::template-method.adoc[leveloffset=+1]
+
+include::command.adoc[leveloffset=+1]
 
 include::iterator.adoc[leveloffset=+1]
 
@@ -56,19 +107,19 @@ include::mediator.adoc[leveloffset=+1]
 
 include::memento.adoc[leveloffset=+1]
 
-include::observer.adoc[leveloffset=+1]
-
-include::prototype.adoc[leveloffset=+1]
+include::interpreter.adoc[leveloffset=+1]
 
 include::state.adoc[leveloffset=+1]
 
 include::strategy.adoc[leveloffset=+1]
 
-include::template-method.adoc[leveloffset=+1]
+include::chain-of-responsibility.adoc[leveloffset=+1]
 
 include::visitor.adoc[leveloffset=+1]
 
 include::summary.adoc[leveloffset=+1]
+
+= 附录
 
 include::references.adoc[leveloffset=+1]
 
